@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --color-bg-primary: #07091A;
+  --color-bg-card: #0E1228;
+  --color-bg-card-alt: #111630;
+  --color-accent: #F5C518;
+  --color-accent-hover: #FFD740;
+  --color-border: rgba(255,255,255,0.08);
+  --color-muted: #5D6880;
+  --font-heading: 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  background-color: #07091A;
+  color: white;
+  font-family: 'Inter', sans-serif;
+}
+
+* {
+  scrollbar-width: none;
+}
+*::-webkit-scrollbar {
+  display: none;
+}
+
+.font-heading {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.accent-text {
+  color: #F5C518;
+}
+
+.btn-primary {
+  background: #F5C518;
+  color: #07091A;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  border-radius: 6px;
+  padding: 12px 24px;
+  transition: background 0.2s;
+  cursor: pointer;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-primary:hover {
+  background: #FFD740;
+}
+
+.btn-outline {
+  border: 1.5px solid rgba(255,255,255,0.3);
+  color: white;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+  border-radius: 6px;
+  padding: 12px 24px;
+  transition: border-color 0.2s, background 0.2s;
+  cursor: pointer;
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-outline:hover {
+  border-color: #F5C518;
+  color: #F5C518;
+}
+
+.card-dark {
+  background: #0E1228;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px;
+}
+
+.section-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #F5C518;
+}
