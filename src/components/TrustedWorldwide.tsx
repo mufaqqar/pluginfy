@@ -4,12 +4,12 @@ import { useState } from "react";
 
 const clients = [
   {
-    id: "discord", tabSvg: "/assets/1.svg", tabLabel: "Discord", tabAccent: "#5865F2",
+    id: "discord", tabSvg: "/assets/1.svg", tabLabel: "Discord", tabAccent: "#F26127",
     logo: { svgUrl: "/assets/1.svg", name: "Discord" },
-    subtitle: "Community infrastructure powering 19M+ active servers and 500M+ registered users worldwide",
-    description: "We built Discord's partner integrations layer: real-time event webhooks, bot infrastructure tooling, Stage channel recording pipelines, and the developer portal API gateway.",
-    testimonial: "Pluginfy shipped a complete overhaul of our developer tooling in under 10 weeks. The code quality was exceptional.",
-    author: "Marcus Lee", role: "Engineering Lead, Discord",
+    subtitle: "HIPAA-compliant cardiology platform built from scratch $20M+ raised after launch",
+    description: "We built Heartbeat Health's entire telehealth infrastructure: real-time patient monitoring, EHR integration, encrypted video consultations, and automated check-ins.",
+    testimonial: "Code District understands our business. Our teams have developed a high level of mutual trust and respect.",
+    author: "Jason Miller COO", role: "Source2",
     image: "https://images.unsplash.com/photo-1614680376408-81e91ffe3db7?w=900&h=600&fit=crop&auto=format",
   },
   {
@@ -64,12 +64,11 @@ export default function TrustedWorldwide() {
   const c = clients[active];
 
   return (
-    <section className="py-16 sm:py-24" style={{ background: "#0A0D1E" }}>
+    <section className="py-16 sm:py-24 border-y border-white/30" style={{ background: "linear-gradient(180deg, #101325 0%, #0C0F18 100%)" }}>
       <div className="max-w-[1600px] mx-auto px-4 sm:px-6">
-        <p className="section-label mb-3">Client trust</p>
         <h2
           className="font-heading font-bold mb-7 sm:mb-8"
-          style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(1.6rem,4vw,2.8rem)", color: "white", lineHeight: 1.15 }}
+          style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(1.6rem,4vw,40px)", color: "white", lineHeight: 1.15 }}
         >
           We are Trusted
           <br />
@@ -77,15 +76,15 @@ export default function TrustedWorldwide() {
         </h2>
 
         {/* Outer card */}
-        <div className="rounded-2xl overflow-hidden" style={{ border: "1px solid rgba(255,255,255,0.1)", background: "#0E1228" }}>
+        <div className="overflow-hidden" style={{ border: "1px solid rgba(255,255,255,0.20)", background: "#000" }}>
 
           {/* Content row */}
-          <div className="grid lg:grid-cols-[1fr_380px] xl:grid-cols-[1fr_420px]">
+          <div className="grid lg:grid-cols-[1fr_463px] xl:grid-cols-[1fr_463px]">
 
             {/* Left */}
             <div className="p-4 sm:p-5 flex flex-col gap-3 sm:gap-4">
               {/* Box 1 */}
-              <div className="rounded-xl p-4 sm:p-6" style={{ border: "1px solid rgba(255,255,255,0.09)", background: "#0B0E22" }}>
+              <div>
                 <div className="mb-4">
                   <img
                     key={c.id + "-logo"}
@@ -94,23 +93,23 @@ export default function TrustedWorldwide() {
                     style={{ height: 26, width: "auto", maxWidth: 180, objectFit: "contain", filter: "brightness(0) invert(1)" }}
                   />
                 </div>
-                <h3
-                  className="font-heading font-bold mb-2.5"
-                  style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(0.92rem,1.8vw,1.08rem)", color: "white", lineHeight: 1.5 }}
+                <p
+                  className="mb-2.5"
+                  style={{ color: "rgba(255,255,255)", fontSize: "18px", fontWeight: 500, lineHeight: 1.72 }}
                 >
                   {c.subtitle}
-                </h3>
-                <p style={{ color: "rgba(255,255,255,0.48)", fontSize: "0.875rem", lineHeight: 1.72 }}>{c.description}</p>
+                </p>
+                <p style={{ color: "rgba(255,255,255)", fontSize: "18px", fontWeight: 500, lineHeight: 1.72 }}>{c.description}</p>
               </div>
 
               {/* Box 2: testimonial */}
-              <div className="rounded-xl p-4 sm:p-6" style={{ border: "1px solid rgba(255,255,255,0.09)", background: "#0B0E22" }}>
-                <svg width="24" height="18" viewBox="0 0 28 22" fill="none" className="mb-3">
-                  <path d="M0 22V13.2C0 9.6.933 6.6 2.8 4.2 4.667 1.8 7.2.267 10.4 0L11.6 2C9.067 2.533 7.133 3.8 5.8 5.8 4.467 7.8 3.867 10 4 12.4H8V22H0ZM16 22V13.2C16 9.6 16.933 6.6 18.8 4.2 20.667 1.8 23.2.267 26.4 0L27.6 2C25.067 2.533 23.133 3.8 21.8 5.8 20.467 7.8 19.867 10 20 12.4H24V22H16Z" fill="#F5C518" fillOpacity="0.45" />
+              <div className="p-4 sm:p-6" style={{ border: "1px solid rgba(255,255,255,0.2)", background: "#101324" }}>
+                <svg width="42" height="18" viewBox="0 0 28 22" fill="none" className="mb-3">
+                  <path d="M0 22V13.2C0 9.6.933 6.6 2.8 4.2 4.667 1.8 7.2.267 10.4 0L11.6 2C9.067 2.533 7.133 3.8 5.8 5.8 4.467 7.8 3.867 10 4 12.4H8V22H0ZM16 22V13.2C16 9.6 16.933 6.6 18.8 4.2 20.667 1.8 23.2.267 26.4 0L27.6 2C25.067 2.533 23.133 3.8 21.8 5.8 20.467 7.8 19.867 10 20 12.4H24V22H16Z" fill="#FFFFFF" fillOpacity="1" />
                 </svg>
-                <p className="mb-3" style={{ color: "rgba(255,255,255,0.6)", fontSize: "0.875rem", lineHeight: 1.72 }}>{c.testimonial}</p>
-                <p className="font-heading font-bold text-sm text-white" style={{ fontFamily: "var(--font-heading)" }}>
-                  {c.author}{" "}
+                <p className="mb-3" style={{ color: "rgba(255,255,255,0.6)", fontSize: "15px", lineHeight: 1.72 }}>{c.testimonial}</p>
+                <p className="font-heading font-bold text-[15px] text-white" style={{ fontFamily: "var(--font-heading)" }}>
+                  {c.author} , {" "}
                   <span style={{ color: "rgba(255,255,255,0.38)", fontWeight: 400 }}>{c.role}</span>
                 </p>
               </div>
@@ -131,7 +130,7 @@ export default function TrustedWorldwide() {
           {/* Tab row */}
           <div
             className="overflow-x-auto"
-            style={{ borderTop: "1px solid rgba(255,255,255,0.09)" }}
+            style={{ borderTop: "1px solid rgba(255,255,255,0.2)" }}
           >
             <div
               className="flex"
@@ -146,9 +145,8 @@ export default function TrustedWorldwide() {
                     onClick={() => setActive(i)}
                     className="flex flex-col items-center justify-center gap-2 py-4 px-5 sm:px-6 transition-colors duration-150 flex-shrink-0"
                     style={{
-                      background: isActive ? "#07091A" : "transparent",
-                      borderRight: i < clients.length - 1 ? "1px solid rgba(255,255,255,0.09)" : "none",
-                      borderTop: isActive ? `2px solid ${cl.tabAccent}` : "2px solid transparent",
+                      borderRight: i < clients.length - 1 ? "1px solid rgba(255,255,255,0.2)" : "none",
+                      borderTop: isActive ? `6px solid ${cl.tabAccent}` : "6px solid transparent",
                       marginTop: "-1px",
                       cursor: "pointer",
                       minWidth: 100,
@@ -162,8 +160,6 @@ export default function TrustedWorldwide() {
                         width: "auto",
                         maxWidth: 90,
                         objectFit: "contain",
-                        filter: isActive ? "brightness(0) invert(1)" : "brightness(0) invert(0.35)",
-                        transition: "filter 0.15s",
                       }}
                     />
                   </button>

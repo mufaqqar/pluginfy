@@ -1,17 +1,28 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { BsOpenai } from "react-icons/bs";
+import { FaAws } from "react-icons/fa";
+import {
+  SiSketch,
+  SiFigma,
+  SiFlutter,
+  SiFirebase,
+  SiNodedotjs,
+  SiLaravel,
+  SiReact,
+} from "react-icons/si";
 
 const tools = [
-  { name: "Sketch",   color: "#F7B500" },
-  { name: "Figma",    color: "#A259FF" },
-  { name: "Flutter",  color: "#54C5F8" },
-  { name: "OpenAI",   color: "#74AA9C" },
-  { name: "AWS",      color: "#FF9900" },
-  { name: "Firebase", color: "#FFCA28" },
-  { name: "Node.js",  color: "#8CC84B" },
-  { name: "Laravel",  color: "#FF2D20" },
-  { name: "React",    color: "#61DAFB" },
+  { name: "Sketch", icon: SiSketch, color: "#F7B500" },
+  { name: "Figma", icon: SiFigma, color: "#A259FF" },
+  { name: "Flutter", icon: SiFlutter, color: "#54C5F8" },
+  { name: "OpenAI", icon: BsOpenai, color: "#74AA9C" },
+  { name: "AWS", icon: FaAws, color: "#FF9900" },
+  { name: "Firebase", icon: SiFirebase, color: "#FFCA28" },
+  { name: "Node.js", icon: SiNodedotjs, color: "#8CC84B" },
+  { name: "Laravel", icon: SiLaravel, color: "#FF2D20" },
+  { name: "React", icon: SiReact, color: "#61DAFB" },
 ];
 
 const CODE_LINES = [
@@ -76,13 +87,13 @@ function TypingTerminal() {
 
   return (
     <div
-      className="rounded-2xl overflow-hidden flex flex-col w-full"
-      style={{ background: "#0E1228", border: "1px solid rgba(255,255,255,0.12)", minHeight: 360 }}
+      className="rounded-lg overflow-hidden flex flex-col w-full"
+      style={{ background: "##101324", border: "1px solid rgba(255,255,255,0.2)", minHeight: 414 }}
     >
       {/* Browser chrome */}
       <div
         className="flex items-center gap-3 px-4 py-3 flex-shrink-0"
-        style={{ background: "#111630", borderBottom: "1px solid rgba(255,255,255,0.08)" }}
+        style={{ background: "#111630", borderBottom: "1px solid rgba(255,255,255,0.2)" }}
       >
         <div className="flex items-center gap-1.5">
           <span className="w-3 h-3 rounded-full" style={{ background: "#FF5F56" }} />
@@ -100,7 +111,7 @@ function TypingTerminal() {
       {/* Code area */}
       <div
         className="flex-1 p-4 sm:p-6 flex flex-col overflow-x-auto"
-        style={{ fontFamily: "'JetBrains Mono','Fira Code','Courier New',monospace", fontSize: "clamp(0.68rem,1.5vw,0.83rem)", lineHeight: 1.95 }}
+        style={{ fontFamily: "'JetBrains Mono','Fira Code','Courier New',monospace", fontSize: "clamp(0.68rem,1.5vw,0.88rem)", lineHeight: 1.95 }}
       >
         {CODE_LINES.map((line, i) => {
           const text = displayed[i];
@@ -138,31 +149,49 @@ export default function IdeaToProduct() {
           <TypingTerminal />
 
           <div className="mt-6 lg:mt-0">
-           
+
             <h2
               className="font-heading font-extrabold mb-4"
               style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(1.7rem,4vw,40px)", color: "white", lineHeight: 1.15 }}
             >
-             <span className="text-[#FEBC2E]">From idea to product</span> <br/> Building a startup? We have a different page for you.
+              <span className="text-[#FEBC2E]">From idea to product</span> <br /> Building a startup? We have a different page for you.
             </h2>
-            <p className="mb-7" style={{ color: "rgba(255,255,255,0.5)", lineHeight: 1.75, maxWidth: 440, fontSize: "0.95rem" }}>
-              From concept to launch, we work alongside founders to ship products that scale.
-              We handle design, development, and infrastructure — you focus on growth.
-            </p>
+
 
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-3">
-              {tools.map((tool) => (
-                <div
-                  key={tool.name}
-                  className="flex items-center gap-2 px-3 py-2.5 rounded-lg"
-                  style={{ background: "#111630", border: "1px solid rgba(255,255,255,0.07)" }}
-                >
-                  <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full flex-shrink-0" style={{ background: tool.color }} />
-                  <span style={{ fontSize: "0.8rem", color: "rgba(255,255,255,0.7)", fontFamily: "var(--font-body)" }}>
-                    {tool.name}
-                  </span>
-                </div>
-              ))}
+              {tools.map((tool) => {
+                const Icon = tool.icon;
+
+                return (
+                  <div
+                    key={tool.name}
+                    className="flex items-center justify-center gap-2 px-10 py-4.5 rounded-lg"
+                    style={{
+                      background: "#101324",
+                      border: "1px solid rgba(255,255,255,0.2)",
+                    }}
+                  >
+                    <Icon
+                      size={20}
+                      style={{
+                        color: tool.color,
+                        flexShrink: 0,
+                      }}
+                    />
+
+                    <span
+                      style={{
+                        fontSize: "15px",
+                        fontWeight: 700,
+                        color: "rgba(255,255,255)",
+                        fontFamily: "var(--font-body)",
+                      }}
+                    >
+                      {tool.name}
+                    </span>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>

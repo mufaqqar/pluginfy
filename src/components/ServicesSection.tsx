@@ -63,23 +63,23 @@ function DesktopAccordion() {
           <div
             key={s.title}
             onMouseEnter={() => setActive(i)}
-            className="relative flex flex-col overflow-hidden cursor-pointer"
+            className="relative flex flex-col overflow-hidden cursor-pointer justify-between"
             style={{
               flex: isActive ? "2.8 1 0%" : "1 1 0%",
               transition: "flex 0.5s cubic-bezier(0.4,0,0.2,1)",
-              borderRadius: "16px",
-              background: "#0E1228",
-              border: `1px solid ${isActive ? "rgba(245,197,24,0.18)" : "rgba(255,255,255,0.07)"}`,
+              borderRadius: "18px",
+              background: ` ${isActive ? "rgb(0 0 0 / 100%)" : "rgb(0 0 0 / 30%)"}`,
+              border: `1px solid ${isActive ? "rgba(255,255,255,0.20)" : "rgba(255,255,255,0.20)"}`,
               minWidth: 0,
             }}
           >
-            <div className="p-5 flex flex-col flex-shrink-0" style={{ zIndex: 2 }}>
-              <div className="mb-3">{s.icon}</div>
+            <div className="px-8 py-5 flex flex-col flex-shrink-0 mb-3">{s.icon}</div>
+            <div className="px-8 py-5 flex flex-col flex-shrink-0" style={{ zIndex: 2 }}>
               <h3
                 className="font-heading font-bold"
                 style={{
                   fontFamily: "var(--font-heading)",
-                  fontSize: isActive ? "1.15rem" : "0.95rem",
+                  fontSize: isActive ? "24px" : "20px",
                   color: "white",
                   whiteSpace: "nowrap",
                   overflow: "hidden",
@@ -90,31 +90,23 @@ function DesktopAccordion() {
                 {s.title}
               </h3>
               <div style={{ maxHeight: isActive ? "80px" : "0px", opacity: isActive ? 1 : 0, overflow: "hidden", transition: "max-height 0.45s cubic-bezier(0.4,0,0.2,1),opacity 0.3s", marginTop: isActive ? "8px" : 0 }}>
-                <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.83rem", lineHeight: 1.65 }}>{s.desc}</p>
+                <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "1rem", lineHeight: 1.65 }}>{s.desc}</p>
               </div>
+              {!isActive && (
+                <div className="flex-shrink-0 mt-1.5" style={{ zIndex: 2 }}>
+                  <a href="#" className="flex items-center gap-1.5 text-xs font-semibold" style={{ color: "#fff", fontFamily: "var(--font-heading)" }}>
+                    Explore All
+                    <svg className="text-[#F5C518]" width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H5M10 2v5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                  </a>
+                </div>
+              )}
             </div>
 
             {/* Image */}
-            <div className="flex-1 mx-4 mb-4 rounded-xl overflow-hidden relative" style={{ opacity: isActive ? 1 : 0, transition: "opacity 0.4s ease 0.15s", minHeight: 0, background: "#07091A" }}>
+            {isActive && <div className={` ${isActive ? "flex-1" : "flex-0"}  mx-4 mb-4 rounded-xl overflow-hidden relative`} style={{ opacity: isActive ? 1 : 0, height: isActive ? 100 : 0, transition: "opacity 0.4s ease 0.15s", minHeight: 0, background: "#07091A" }}>
               <img src={s.image} alt={s.title} className="w-full h-full object-cover" style={{ borderRadius: "10px" }} />
               <div className="absolute inset-0 rounded-xl" style={{ background: "linear-gradient(to top,rgba(14,18,40,0.6) 0%,transparent 60%)" }} />
-            </div>
-
-            {/* Collapsed link */}
-            <div className="absolute bottom-5 left-0 right-0 px-5" style={{ opacity: isActive ? 0 : 1, transition: "opacity 0.2s", pointerEvents: isActive ? "none" : "auto" }}>
-              <a href="#" className="flex items-center gap-1.5 text-xs font-semibold" style={{ color: "#F5C518", fontFamily: "var(--font-heading)" }}>
-                Explore All
-                <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H5M10 2v5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
-              </a>
-            </div>
-            {isActive && (
-              <div className="px-5 pb-4 flex-shrink-0" style={{ zIndex: 2 }}>
-                <a href="#" className="flex items-center gap-1.5 text-xs font-semibold" style={{ color: "#F5C518", fontFamily: "var(--font-heading)" }}>
-                  Explore All
-                  <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H5M10 2v5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                </a>
-              </div>
-            )}
+            </div>}
           </div>
         );
       })}
@@ -133,7 +125,7 @@ function MobileCards() {
           <div
             key={s.title}
             className="rounded-2xl overflow-hidden"
-            style={{ background: "#0E1228", border: `1px solid ${isOpen ? "rgba(245,197,24,0.2)" : "rgba(255,255,255,0.07)"}` }}
+            style={{ background: ` ${isOpen ? "rgb(0 0 0 / 100%)" : "rgb(0 0 0 / 30%)"}`, border: `1px solid ${isOpen ? "rgba(255,255,255,0.20)" : "rgba(255,255,255,0.20)"}` }}
           >
             <button
               className="w-full flex items-center gap-4 p-4 text-left"
@@ -151,7 +143,7 @@ function MobileCards() {
                 <div className="rounded-xl overflow-hidden" style={{ height: 180 }}>
                   <img src={s.image} alt={s.title} className="w-full h-full object-cover" />
                 </div>
-                <a href="#" className="flex items-center gap-1.5 text-xs font-semibold" style={{ color: "#F5C518", fontFamily: "var(--font-heading)" }}>
+                <a href="#" className="flex items-center gap-1.5 text-xs font-semibold" style={{ color: "#fff", fontFamily: "var(--font-heading)" }}>
                   Explore All
                   <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H5M10 2v5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
                 </a>
@@ -166,23 +158,20 @@ function MobileCards() {
 
 export default function ServicesSection() {
   return (
-    <section className="relative overflow-hidden py-16 sm:py-24" style={{ background: "#0A0D1E" }}>
-      <div className="absolute right-0 top-0 bottom-0 w-1/2 opacity-10 pointer-events-none hidden md:flex items-center justify-end">
+    <section className="relative overflow-hidden py-16 sm:py-24 border-y border-white/30" style={{ background: "linear-gradient(180deg, #101325 0%, #0C0F18 100%)" }}>
+      <div className="absolute right-0 top-0 bottom-0 w-1/2 opacity-50 pointer-events-none hidden md:flex items-center justify-end">
         <img src="/assets/bg_logo_shape.svg" alt="" className="h-full w-auto object-contain" />
       </div>
 
       <div className="relative z-10 max-w-[1600px] mx-auto px-4 sm:px-6">
         <h2
           className="font-heading font-bold mb-3"
-          style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(1.5rem,4vw,2.4rem)", color: "white" }}
+          style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(1.5rem,4vw,40px)", color: "white" }}
         >
           Design the Concept
           <br />
           of Your Business Idea Now
         </h2>
-        <p className="mb-8 sm:mb-10 max-w-lg" style={{ color: "rgba(255,255,255,0.45)", lineHeight: 1.7, fontSize: "0.9rem" }}>
-          We shape ideas into digital products with purposeful design and precision engineering.
-        </p>
 
         {/* Desktop accordion */}
         <div className="hidden lg:block">

@@ -11,7 +11,7 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer style={{ background: "#07091A", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+    <footer style={{ background: "#07091A", borderTop: "1px solid rgba(255,255,255,0.3)" }}>
       <div className="max-w-[1600px] mx-auto px-4 sm:px-6 pt-12 sm:pt-16">
 
         {/* Main grid */}
@@ -32,7 +32,7 @@ export default function Footer() {
               >
                 Pluginfy
               </h2>
-              <p className="mb-6 max-w-xs" style={{ color: "rgba(255,255,255,0.45)", fontSize: "0.875rem", lineHeight: 1.72 }}>
+              <p className="mb-6 max-w-xs" style={{ color: "rgba(255,255,255)", fontSize: "15px", lineHeight: 1.72 }}>
                 An AI-first technology firm engineering production-grade AI systems for enterprise, government, and high-growth clients across the US, GCC, UK, and EU.
               </p>
               <div className="flex items-center gap-5">
@@ -42,7 +42,7 @@ export default function Footer() {
                     href="#"
                     aria-label={s.label}
                     className="transition-colors duration-150 hover:text-white"
-                    style={{ color: "rgba(255,255,255,0.38)" }}
+                    style={{ color: "rgba(255,255,255)" }}
                   >
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none">{s.icon}</svg>
                   </a>
@@ -53,11 +53,11 @@ export default function Footer() {
 
           {/* Explore 1 */}
           <div>
-            <p className="text-xs sm:text-sm font-semibold mb-4 sm:mb-5" style={{ color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-heading)" }}>Explore</p>
+            <p className="text-base font-semibold mb-4 sm:mb-5" style={{ color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-heading)" }}>Explore</p>
             <ul className="flex flex-col gap-3">
               {nav1.map((link) => (
                 <li key={link}>
-                  <a href="#" className="text-sm transition-colors hover:text-white" style={{ color: "rgba(255,255,255,0.55)" }}>{link}</a>
+                  <a href="#" className="text-base transition-colors hover:text-white" style={{ color: "rgba(255,255,255)" }}>{link}</a>
                 </li>
               ))}
             </ul>
@@ -65,11 +65,11 @@ export default function Footer() {
 
           {/* Explore 2 */}
           <div>
-            <p className="text-xs sm:text-sm font-semibold mb-4 sm:mb-5" style={{ color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-heading)" }}>Explore</p>
+            <p className="text-base font-semibold mb-4 sm:mb-5" style={{ color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-heading)" }}>Explore</p>
             <ul className="flex flex-col gap-3">
               {nav2.map((link) => (
                 <li key={link}>
-                  <a href="#" className="text-sm transition-colors hover:text-white" style={{ color: "rgba(255,255,255,0.55)" }}>{link}</a>
+                  <a href="#" className="text-base transition-colors hover:text-white" style={{ color: "rgba(255,255,255)" }}>{link}</a>
                 </li>
               ))}
             </ul>
@@ -77,7 +77,7 @@ export default function Footer() {
 
           {/* Get in touch */}
           <div>
-            <p className="text-xs sm:text-sm font-semibold mb-4 sm:mb-5" style={{ color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-heading)" }}>Get in touch</p>
+            <p className="text-base font-semibold mb-4 sm:mb-5" style={{ color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-heading)" }}>Get in touch</p>
             <ul className="flex flex-col gap-3">
               {[
                 { text: "hello@pluginfy.com",  href: "mailto:hello@pluginfy.com" },
@@ -85,7 +85,7 @@ export default function Footer() {
                 { text: "307 Madina Heights.", href: "#" },
               ].map((item) => (
                 <li key={item.text}>
-                  <a href={item.href} className="text-sm transition-colors hover:text-white" style={{ color: "rgba(255,255,255,0.55)" }}>{item.text}</a>
+                  <a href={item.href} className="text-base transition-colors hover:text-white" style={{ color: "rgba(255,255,255)" }}>{item.text}</a>
                 </li>
               ))}
             </ul>
@@ -95,14 +95,14 @@ export default function Footer() {
         {/* Bottom bar */}
         <div
           className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 py-5"
-          style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}
+          style={{ borderTop: "1px solid rgba(255,255,255,0.33)" }}
         >
-          <p className="text-xs order-2 sm:order-1" style={{ color: "rgba(255,255,255,0.28)" }}>
+          <p className="text-xs order-2 sm:order-1" style={{ color: "rgba(255,255,255)" }}>
             © 2026 Pluginfy. All Rights Reserved.
           </p>
           <div className="flex flex-wrap gap-4 sm:gap-6 order-1 sm:order-2">
-            {legal.map((item) => (
-              <a key={item} href="#" className="text-xs transition-colors hover:text-white" style={{ color: "rgba(255,255,255,0.28)" }}>
+            {legal.map((item:any) => (
+              <a key={item} href="#" className="text-xs transition-colors hover:text-white" style={{ color: "rgba(255,255,255)" }}>
                 {item}
               </a>
             ))}
