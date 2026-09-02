@@ -14,15 +14,14 @@ export default function TrustedBy() {
     <section
       style={{
         background: "#07091A",
-        borderTop: "1px solid rgba(255,255,255,0.06)",
-        borderBottom: "1px solid rgba(255,255,255,0.06)",
+        borderBottom: "1px solid rgba(255,255,255,0.33)",
         overflow: "hidden",
       }}
     >
       <div className="py-10">
         <p
-          className="text-center text-xs font-semibold tracking-widest uppercase mb-8"
-          style={{ color: "rgba(255,255,255,0.3)", fontFamily: "var(--font-heading)" }}
+          className="text-center text-sm font-normal tracking-widest uppercase mb-8"
+          style={{ color: "rgba(255,255,255)", fontFamily: "var(--font-heading)" }}
         >
           THEY TRUSTED US
         </p>
@@ -50,7 +49,7 @@ export default function TrustedBy() {
                   style={{
                     height: 22,
                     width: "auto",
-                    opacity: 0.45,
+                    opacity: 1,
                     filter: "brightness(0) invert(1)",
                     transition: "opacity 0.2s",
                   }}

@@ -5,19 +5,19 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 
 const SERVICE_LINKS = [
-  { label: "AI & ML Development",    desc: "LLM agents, RAG, predictive models",      href: "/services/ai-ml-development",     icon: "M12 2a10 10 0 100 20 10 10 0 000-20zm0 5a3 3 0 110 6 3 3 0 010-6zm0 14a8 8 0 01-6.3-3.1A5 5 0 0112 15a5 5 0 016.3 2.9A8 8 0 0112 21z" },
-  { label: "Web Development",         desc: "React, Next.js, Node.js, TypeScript",     href: "/services/web-development",       icon: "M3 5a2 2 0 012-2h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5zm2 2v2h14V7H5zm0 4v8h14v-8H5z" },
-  { label: "Mobile App Development",  desc: "Flutter, React Native, iOS & Android",   href: "/services/mobile-app-development", icon: "M7 2a2 2 0 00-2 2v16a2 2 0 002 2h10a2 2 0 002-2V4a2 2 0 00-2-2H7zm5 17a1 1 0 110-2 1 1 0 010 2z" },
-  { label: "QA & Testing",            desc: "E2E, load, security & performance",      href: "/services/qa-testing",            icon: "M9 12l2 2 4-4M7 3h10l1 4H6L7 3zM5 9h14v12H5V9z" },
-  { label: "DevOps Services",         desc: "CI/CD, Kubernetes, AWS, Terraform",      href: "/services/devops",                icon: "M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" },
-  { label: "Blockchain Development",  desc: "Smart contracts, DeFi, NFT, RWA",       href: "/services/blockchain",            icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+  { label: "AI & ML Development", desc: "LLM agents, RAG, predictive models", href: "/services/ai-ml-development", icon: "M12 2a10 10 0 100 20 10 10 0 000-20zm0 5a3 3 0 110 6 3 3 0 010-6zm0 14a8 8 0 01-6.3-3.1A5 5 0 0112 15a5 5 0 016.3 2.9A8 8 0 0112 21z" },
+  { label: "Web Development", desc: "React, Next.js, Node.js, TypeScript", href: "/services/web-development", icon: "M3 5a2 2 0 012-2h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5zm2 2v2h14V7H5zm0 4v8h14v-8H5z" },
+  { label: "Mobile App Development", desc: "Flutter, React Native, iOS & Android", href: "/services/mobile-app-development", icon: "M7 2a2 2 0 00-2 2v16a2 2 0 002 2h10a2 2 0 002-2V4a2 2 0 00-2-2H7zm5 17a1 1 0 110-2 1 1 0 010 2z" },
+  { label: "QA & Testing", desc: "E2E, load, security & performance", href: "/services/qa-testing", icon: "M9 12l2 2 4-4M7 3h10l1 4H6L7 3zM5 9h14v12H5V9z" },
+  { label: "DevOps Services", desc: "CI/CD, Kubernetes, AWS, Terraform", href: "/services/devops", icon: "M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" },
+  { label: "Blockchain Development", desc: "Smart contracts, DeFi, NFT, RWA", href: "/services/blockchain", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
 ];
 
 const NAV_LINKS = [
-  { label: "Home",     id: "home"    },
+  { label: "Home", id: "home" },
   { label: "Services", id: "services" },
-  { label: "About",    id: "about"   },
-  { label: "Contact",  id: "contact" },
+  { label: "About", id: "about" },
+  { label: "Contact", id: "contact" },
 ];
 
 function scrollTo(id: string) {
@@ -25,15 +25,15 @@ function scrollTo(id: string) {
 }
 
 export default function Navbar() {
-  const [open, setOpen]         = useState(false);
+  const [open, setOpen] = useState(false);
   const [megaOpen, setMegaOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [active, setActive]     = useState("home");
-  const megaRef                 = useRef<HTMLDivElement>(null);
-  const closeTimer              = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const pathname                = usePathname();
-  const router                  = useRouter();
-  const isHome                  = pathname === "/";
+  const [active, setActive] = useState("home");
+  const megaRef = useRef<HTMLDivElement>(null);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const pathname = usePathname();
+  const router = useRouter();
+  const isHome = pathname === "/";
 
   useEffect(() => {
     const onScroll = () => {
@@ -47,7 +47,7 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const openMega  = () => { if (closeTimer.current) clearTimeout(closeTimer.current); setMegaOpen(true); };
+  const openMega = () => { if (closeTimer.current) clearTimeout(closeTimer.current); setMegaOpen(true); };
   const closeMega = () => { closeTimer.current = setTimeout(() => setMegaOpen(false), 120); };
 
   // Close mega menu on outside click
@@ -74,18 +74,18 @@ export default function Navbar() {
   };
 
   const isActiveLink = (id: string) => {
-    if (id === "about")   return pathname === "/about";
+    if (id === "about") return pathname === "/about";
     if (id === "contact") return pathname === "/contact";
     return isHome && active === id;
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style={{ background: scrolled ? "rgba(7,9,26,0.97)" : "rgba(7,9,26,0.85)", backdropFilter: "blur(14px)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+    <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style={{ background: scrolled ? "rgba(7,9,26,0.97)" : "rgba(7,9,26,0.85)", backdropFilter: "blur(14px)", borderBottom: "1px solid rgba(255,255,255,0.33)" }}>
       <div className="max-w-[1600px] mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
 
         {/* Logo */}
         <button onClick={() => handleNav("home")} className="flex items-center" style={{ background: "none", border: "none", cursor: "pointer" }}>
-          <img src="/assets/Logo.svg" alt="Pluginfy" className="h-7 sm:h-8 w-auto" />
+          <img src="/assets/Logo.svg" alt="Pluginfy" className="" />
         </button>
 
         {/* Desktop links */}
@@ -97,9 +97,20 @@ export default function Navbar() {
                 <div key={item.label} className="relative" ref={megaRef} onMouseEnter={openMega} onMouseLeave={closeMega}>
                   <button
                     onClick={() => setMegaOpen((v) => !v)}
-                    className="flex items-center gap-1 text-sm font-medium transition-colors duration-150"
-                    style={{ fontFamily: "var(--font-heading)", color: megaOpen || pathname.startsWith("/services") ? "#F5C518" : "rgba(255,255,255,0.72)", background: "none", border: "none", cursor: "pointer", padding: 0 }}
-                  >
+                    className="flex items-center gap-1 text-sm font-bold uppercase transition-colors duration-150"
+                    style={{
+                      fontFamily: "var(--font-heading)",
+                      color: pathname.startsWith("/services")
+                        ? "#fff"
+                        : "rgba(255,255,255,0.72)",
+                      borderBottom: pathname.startsWith("/services")
+                        ? "2px solid #fff"
+                        : "2px solid transparent",
+                      background: "none",
+                      border: "none",
+                      cursor: "pointer",
+                      padding: 0,
+                    }}                  >
                     {item.label}
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style={{ transition: "transform 0.2s", transform: megaOpen ? "rotate(180deg)" : "none" }}>
                       <path d="M3 5l3 3 3-3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -161,8 +172,20 @@ export default function Navbar() {
             }
             return (
               <button key={item.label} onClick={() => handleNav(item.id)}
-                className="text-sm font-medium transition-colors duration-150"
-                style={{ fontFamily: "var(--font-heading)", color: active_ ? "#F5C518" : "rgba(255,255,255,0.72)", background: "none", border: "none", cursor: "pointer", padding: 0 }}
+                className="text-sm font-bold uppercase transition-colors duration-150"
+                style={{
+                  fontFamily: "var(--font-heading)",
+                  color: active_
+                    ? "#fff"
+                    : "rgba(255,255,255,0.72)",
+                  background: "none",
+                  border: "none",
+                  borderBottom: active_
+                    ? "2px solid #fff"
+                    : "2px solid transparent",
+                  cursor: "pointer",
+                  padding: 0,
+                }}
               >
                 {item.label}
               </button>
@@ -172,7 +195,7 @@ export default function Navbar() {
 
         {/* CTA */}
         <div className="hidden md:block">
-          <button className="btn-primary text-sm" style={{ padding: "8px 20px" }} onClick={() => router.push("/contact")}>
+          <button className="bg-white text-[#FEBC2E] text-sm font-bold uppercase hover:bg-[#FEBC2E] hover:text-white rounded-full" style={{ padding: "8px 20px" }} onClick={() => router.push("/contact")}>
             Start a Project
           </button>
         </div>

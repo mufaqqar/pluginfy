@@ -1,15 +1,15 @@
 const stats = [
-  { value: "40+",  label: "Certified Engineers",             icon: "/assets/Certified_Engineers-1.svg"   },
-  { value: "18+",  label: "Years of Industry Experience",    icon: "/assets/Years_of_Industry_Experience.svg" },
-  { value: "85%",  label: "Client Retention Rate",           icon: "/assets/Client_Retention_Rate-1.svg" },
-  { value: "20+",  label: "Industries served across 25+ countries", icon: "/assets/Industries_served_across_25_.svg" },
+  { value: "40+", label: "Certified Engineers", icon: "/assets/Certified_Engineers-1.svg" },
+  { value: "18+", label: "Years of Industry Experience", icon: "/assets/Years_of_Industry_Experience.svg" },
+  { value: "85%", label: "Client Retention Rate", icon: "/assets/Client_Retention_Rate-1.svg" },
+  { value: "20+", label: "Industries served across 25+ countries", icon: "/assets/Industries_served_across_25_.svg" },
 ];
 
 const badges = [
-  { url: "/assets/goodfirms-ecom-1.svg",     alt: "GoodFirms" },
-  { url: "/assets/extract__1_-1.svg",         alt: "Reliable Company" },
-  { url: "/assets/clutch-deliver-1.svg",      alt: "Clutch We Deliver" },
-  { url: "/assets/clutch-2020-1.svg",         alt: "Clutch Top" },
+  { url: "/assets/goodfirms-ecom-1.svg", alt: "GoodFirms" },
+  { url: "/assets/extract__1_-1.svg", alt: "Reliable Company" },
+  { url: "/assets/clutch-deliver-1.svg", alt: "Clutch We Deliver" },
+  { url: "/assets/clutch-2020-1.svg", alt: "Clutch Top" },
 ];
 
 export default function HeroSection() {
@@ -19,7 +19,7 @@ export default function HeroSection() {
       style={{ background: "#07091A" }}
     >
       {/* Background shape */}
-      <div className="absolute right-0 top-0 bottom-0 w-1/2 opacity-10 md:opacity-20 pointer-events-none select-none hidden sm:flex items-center justify-end">
+      <div className="absolute left-0 top-0 bottom-0 w-1/2 opacity-10 md:opacity-20 pointer-events-none select-none hidden sm:flex items-center">
         <img src="/assets/bg_logo_shape.svg" alt="" className="w-full max-w-xl lg:max-w-2xl" />
       </div>
 
@@ -32,8 +32,10 @@ export default function HeroSection() {
               className="font-heading font-extrabold leading-none tracking-tight mb-5 sm:mb-6"
               style={{
                 fontFamily: "var(--font-heading)",
-                fontSize: "clamp(2.4rem,8vw,5rem)",
+                fontSize: "clamp(2.4rem,8vw,70px)",
+                lineHeight: "clamp(2.4rem,8vw,72px)",
                 color: "white",
+                fontWeight: "600",
                 letterSpacing: "-0.02em",
               }}
             >
@@ -41,11 +43,11 @@ export default function HeroSection() {
               <br />
               INTELLIGENCE
               <br />
-              <span style={{ color: "#F5C518" }}>IN EVERY PIXEL.</span>
+              <span style={{ color: "#fff" }}>IN EVERY PIXEL.</span>
             </h1>
             <p
-              className="mb-7 sm:mb-8 max-w-md"
-              style={{ color: "rgba(255,255,255,0.55)", fontSize: "clamp(0.9rem,2vw,1rem)", lineHeight: 1.75 }}
+              className="mb-7 sm:mb-8"
+              style={{ color: "rgba(255,255,255,0.55)", fontSize: "clamp(20px,2vw,24px)", lineHeight: 1.75, fontWeight: "500" }}
             >
               We blend high-end aesthetics with technical precision to build digital experiences
               that resonate and convert.
@@ -68,14 +70,14 @@ export default function HeroSection() {
             {stats.map((s) => (
               <div
                 key={s.value + s.label}
-                className="card-dark p-4 sm:p-5 flex flex-col justify-between"
+                className="card-dark p-4 sm:px-5 sm:py-3 flex flex-col justify-between"
                 style={{ borderRadius: "14px", minHeight: "110px" }}
               >
                 <div className="flex items-start justify-between gap-2">
                   <span
                     className="font-heading font-extrabold"
                     style={{
-                      fontSize: "clamp(1.6rem,4vw,2.2rem)",
+                      fontSize: "clamp(1.6rem,4vw,2rem)",
                       color: "white",
                       fontFamily: "var(--font-heading)",
                       lineHeight: 1,
@@ -89,7 +91,7 @@ export default function HeroSection() {
                     style={{ width: 36, height: 36, objectFit: "contain", flexShrink: 0 }}
                   />
                 </div>
-                <span style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.8rem", lineHeight: 1.45, marginTop: 8 }}>
+                <span className="inline-flex max-w-[152px] min-h-[58px]" style={{ color: "rgba(255,255,255)", fontSize: "14px", lineHeight: 1.45, marginTop: 8 }}>
                   {s.label}
                 </span>
               </div>
@@ -103,27 +105,24 @@ export default function HeroSection() {
               <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
                 {/* Stars + score */}
                 <div className="flex-shrink-0">
+                  <span
+                    className="font-heading font-bold"
+                    style={{ fontSize: "clamp(1.6rem,4vw,2rem)", color: "#fff", fontFamily: "var(--font-heading)" }}
+                  >
+                    5.0
+                  </span>
                   <div className="flex gap-1 mb-1">
                     {[...Array(5)].map((_, i) => (
-                      <svg key={i} width="16" height="16" viewBox="0 0 16 16" fill="#F5C518">
+                      <svg key={i} width="22" height="22" viewBox="0 0 16 16" fill="#F5C518">
                         <path d="M8 1l1.85 3.75L14 5.5l-3 2.92.71 4.08L8 10.25l-3.71 2.25.71-4.08L2 5.5l4.15-.75z" />
                       </svg>
                     ))}
                   </div>
-                  <span
-                    className="font-heading font-bold"
-                    style={{ fontSize: "1.7rem", color: "#F5C518", fontFamily: "var(--font-heading)" }}
-                  >
-                    5.0
-                  </span>
-                  <p style={{ color: "rgba(255,255,255,0.38)", fontSize: "0.74rem", lineHeight: 1.4, marginTop: 2 }}>
+
+                  <p style={{ color: "rgba(255,255,255)", fontSize: "14px", lineHeight: 1.45, marginTop: 8 }}>
                     Based on hundreds of reviews
                   </p>
                 </div>
-
-                {/* Divider */}
-                <div className="hidden sm:block w-px self-stretch" style={{ background: "rgba(255,255,255,0.09)" }} />
-
                 {/* Badges — right aligned */}
                 <div className="flex items-center gap-3 sm:gap-5 flex-wrap sm:ml-auto">
                   {badges.map((b) => (

@@ -90,8 +90,8 @@ function TypingTerminal() {
           <span className="w-3 h-3 rounded-full" style={{ background: "#27C93F" }} />
         </div>
         <div
-          className="flex-1 text-center rounded-md px-2 py-1 truncate"
-          style={{ background: "#0E1228", color: "rgba(255,255,255,0.38)", fontSize: "0.7rem", fontFamily: "var(--font-body)" }}
+          className="text-center rounded-md px-2 py-1 truncate"
+          style={{ color: "rgba(255,255,255)", fontSize: "1rem", fontFamily: "var(--font-body)" }}
         >
           Saas-Dashboard.Pluginfy.Com
         </div>
@@ -138,12 +138,12 @@ export default function IdeaToProduct() {
           <TypingTerminal />
 
           <div className="mt-6 lg:mt-0">
-            <p className="section-label mb-3">From idea to product</p>
+           
             <h2
               className="font-heading font-extrabold mb-4"
-              style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(1.7rem,4vw,2.8rem)", color: "white", lineHeight: 1.15 }}
+              style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(1.7rem,4vw,40px)", color: "white", lineHeight: 1.15 }}
             >
-              Building a startup? We have a different page for you.
+             <span className="text-[#FEBC2E]">From idea to product</span> <br/> Building a startup? We have a different page for you.
             </h2>
             <p className="mb-7" style={{ color: "rgba(255,255,255,0.5)", lineHeight: 1.75, maxWidth: 440, fontSize: "0.95rem" }}>
               From concept to launch, we work alongside founders to ship products that scale.
