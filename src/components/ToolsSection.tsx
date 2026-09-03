@@ -5,33 +5,33 @@ const openAiIcon = (
 );
 
 const tools = [
-  { name: "OpenAI",           icon: openAiIcon },
-  { name: "Meta",             svgUrl: "/assets/meta.svg" },
-  { name: "Cursor",           svgUrl: "/assets/cursor.svg" },
-  { name: "Claude",           svgUrl: "/assets/claude.svg" },
-  { name: "Perplexity",       svgUrl: "/assets/perplexity.svg" },
-  { name: "Microsoft Azure",  svgUrl: "/assets/azure.svg" },
-  { name: "Gemini",           svgUrl: "/assets/gemini.svg" },
+  { name: "OpenAI", icon: openAiIcon },
+  { name: "Meta", svgUrl: "/assets/meta.svg" },
+  { name: "Cursor", svgUrl: "/assets/cursor.svg" },
+  { name: "Claude", svgUrl: "/assets/claude.svg" },
+  { name: "Perplexity", svgUrl: "/assets/perplexity.svg" },
+  { name: "Microsoft Azure", svgUrl: "/assets/azure.svg" },
+  { name: "Gemini", svgUrl: "/assets/gemini.svg" },
   { name: "Google Vertex AI", svgUrl: "/assets/vertex.svg" },
-  { name: "AWS Bedrock",      svgUrl: "/assets/aws.svg" },
-  { name: "Qodo",             svgUrl: "/assets/qodo.svg" },
+  { name: "AWS Bedrock", svgUrl: "/assets/aws.svg" },
+  { name: "Qodo", svgUrl: "/assets/qodo.svg" },
 ];
 
 const COLS = 5; // desktop columns
 
 export default function ToolsSection() {
   return (
-    <section className="relative overflow-hidden py-16 sm:py-24" style={{ background: "#07091A" }}>
-      <div className="absolute right-0 top-0 bottom-0 opacity-10 pointer-events-none w-1/3 hidden md:block">
+    <section className="relative overflow-hidden py-16 sm:py-24" style={{ background: "#05080F" }}>
+      <div className="absolute right-0 top-0 bottom-0 opacity-50 pointer-events-none w-1/3 hidden md:block">
         <img src="/assets/bg_logo_shape.svg" alt="" className="w-full h-full object-contain" />
       </div>
 
       <div className="relative z-10 max-w-[1600px] mx-auto px-4 sm:px-6">
         <h2
           className="font-heading font-bold mb-8 sm:mb-10"
-          style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(1.5rem,4vw,2.4rem)", color: "white", lineHeight: 1.2 }}
+          style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(1.5rem,4vw,40px)", color: "white", lineHeight: 1.2 }}
         >
-          The tools we ship{" "}
+          The tools we ship{" "}<br />
           <span style={{ color: "#F5C518" }}>production</span> with.
         </h2>
 
@@ -40,8 +40,7 @@ export default function ToolsSection() {
           className="hidden lg:grid"
           style={{
             gridTemplateColumns: `repeat(${COLS}, 1fr)`,
-            border: "1px solid rgba(255,255,255,0.1)",
-            borderRadius: "16px",
+            border: "1px solid rgba(255,255,255,0.2)",
             overflow: "hidden",
           }}
         >
@@ -52,10 +51,10 @@ export default function ToolsSection() {
             return (
               <div
                 key={tool.name}
-                className="p-5 xl:p-6 flex flex-col gap-3 hover:bg-white/[0.03] transition-colors duration-150"
+                className="p-5 xl:p-6 flex flex-col gap-3 bg-[#101324] hover:bg-white/[0.03] transition-colors duration-150"
                 style={{
-                  borderRight: col < COLS - 1 ? "1px solid rgba(255,255,255,0.08)" : "none",
-                  borderBottom: row < totalRows - 1 ? "1px solid rgba(255,255,255,0.08)" : "none",
+                  borderRight: col < COLS - 1 ? "1px solid rgba(255,255,255,0.2)" : "none",
+                  borderBottom: row < totalRows - 1 ? "1px solid rgba(255,255,255,0.2)" : "none",
                 }}
               >
                 <div style={{ height: 36, display: "flex", alignItems: "center" }}>
@@ -63,8 +62,8 @@ export default function ToolsSection() {
                     <img src={tool.svgUrl} alt={tool.name} style={{ height: 36, width: "auto", maxWidth: 120, objectFit: "contain" }} />
                   ) : tool.icon}
                 </div>
-                <p className="font-heading font-bold text-white" style={{ fontFamily: "var(--font-heading)", fontSize: "0.92rem" }}>{tool.name}</p>
-                <p style={{ color: "rgba(255,255,255,0.35)", fontSize: "0.78rem", lineHeight: 1.6 }}>GPT-5, o3, Realtime,<br />Fine-Tuning</p>
+                <p className="font-heading font-bold text-white" style={{ fontFamily: "var(--font-heading)", fontSize: "18px" }}>{tool.name}</p>
+                <p style={{ color: "rgba(255,255,255,0.35)", fontSize: "15px", lineHeight: 1.6 }}>GPT-5, o3, Realtime,<br />Fine-Tuning</p>
               </div>
             );
           })}
@@ -75,16 +74,16 @@ export default function ToolsSection() {
           {tools.map((tool) => (
             <div
               key={tool.name}
-              className="p-4 flex flex-col gap-3 rounded-xl"
-              style={{ background: "#0E1228", border: "1px solid rgba(255,255,255,0.08)" }}
+              className="p-4 flex flex-col gap-3"
+              style={{ background: "#101324", border: "1px solid rgba(255,255,255,0.2)" }}
             >
               <div style={{ height: 32, display: "flex", alignItems: "center" }}>
                 {"svgUrl" in tool ? (
                   <img src={tool.svgUrl} alt={tool.name} style={{ height: 30, width: "auto", maxWidth: 100, objectFit: "contain" }} />
                 ) : tool.icon}
               </div>
-              <p className="font-heading font-bold text-white" style={{ fontFamily: "var(--font-heading)", fontSize: "0.85rem" }}>{tool.name}</p>
-              <p style={{ color: "rgba(255,255,255,0.35)", fontSize: "0.74rem", lineHeight: 1.55 }}>GPT-5, o3, Realtime,<br />Fine-Tuning</p>
+              <p className="font-heading font-bold text-white" style={{ fontFamily: "var(--font-heading)", fontSize: "18px" }}>{tool.name}</p>
+              <p style={{ color: "rgba(255,255,255,0.35)", fontSize: "15px", lineHeight: 1.55 }}>GPT-5, o3, Realtime,<br />Fine-Tuning</p>
             </div>
           ))}
         </div>

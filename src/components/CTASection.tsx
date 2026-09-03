@@ -1,10 +1,9 @@
 export default function CTASection() {
   return (
-    <section className="py-16 sm:py-24 relative overflow-hidden" style={{ background: "#F5C518" }}>
-      <div
-        className="absolute inset-0 opacity-10 pointer-events-none"
-        style={{ backgroundImage: "radial-gradient(circle at 20% 50%,rgba(0,0,0,0.3) 0%,transparent 60%),radial-gradient(circle at 80% 50%,rgba(0,0,0,0.2) 0%,transparent 60%)" }}
-      />
+    <section className="py-16 sm:py-24 relative overflow-hidden" style={{ background: "#FEBC2E" }}>
+      <div className="absolute inset-0 opacity-100 pointer-events-none  mx-autohidden md:block">
+        <img src="/assets/bg_logo_shape.svg" alt="" className="w-full h-full object-contain brightness-200" />
+      </div>
       <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 text-center">
         <p className="text-xs font-bold tracking-widest uppercase mb-4" style={{ color: "rgba(7,9,26,0.5)", fontFamily: "var(--font-heading)" }}>
           Start a Conversation
