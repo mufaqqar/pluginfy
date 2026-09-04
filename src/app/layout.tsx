@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import "./globals.css";
+import CustomCursor from "@/components/CustomCursor";
 
 export const metadata: Metadata = {
   title: "Pluginfy — AI-First Technology Firm",
@@ -19,7 +20,9 @@ export default function RootLayout({
       <body>
         <div style={{ background: "#07091A", minHeight: "100%" }}>
           <Navbar />
-          <main>{children}</main>
+          <main>
+             <CustomCursor />
+             {children}</main>
           <Footer />
         </div>
       </body>

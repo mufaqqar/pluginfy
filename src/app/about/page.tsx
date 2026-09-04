@@ -84,8 +84,8 @@ export default function AboutPage() {
                 { val: "185+", label: "Projects Shipped" },
               ].map((s) => (
                 <div key={s.label} className="card-dark p-5 rounded-xl text-center">
-                  <p className="font-heading font-extrabold" style={{ fontFamily: "var(--font-heading)", fontSize: "2rem", color: "#F5C518" }}>{s.val}</p>
-                  <p className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.45)" }}>{s.label}</p>
+                  <p className="font-heading font-extrabold" style={{ fontFamily: "var(--font-heading)", fontSize: "2rem", color: "#fff" }}>{s.val}</p>
+                  <p className="text-lg mt-1" style={{ color: "rgba(255,255,255)" }}>{s.label}</p>
                 </div>
               ))}
             </div>
