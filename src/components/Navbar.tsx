@@ -5,12 +5,12 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 
 const SERVICE_LINKS = [
-  { label: "AI & ML Development", desc: "LLM agents, RAG, predictive models", href: "/services/ai-ml-development", icon: "M12 2a10 10 0 100 20 10 10 0 000-20zm0 5a3 3 0 110 6 3 3 0 010-6zm0 14a8 8 0 01-6.3-3.1A5 5 0 0112 15a5 5 0 016.3 2.9A8 8 0 0112 21z" },
-  { label: "Web Development", desc: "React, Next.js, Node.js, TypeScript", href: "/services/web-development", icon: "M3 5a2 2 0 012-2h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5zm2 2v2h14V7H5zm0 4v8h14v-8H5z" },
-  { label: "Mobile App Development", desc: "Flutter, React Native, iOS & Android", href: "/services/mobile-app-development", icon: "M7 2a2 2 0 00-2 2v16a2 2 0 002 2h10a2 2 0 002-2V4a2 2 0 00-2-2H7zm5 17a1 1 0 110-2 1 1 0 010 2z" },
-  { label: "QA & Testing", desc: "E2E, load, security & performance", href: "/services/qa-testing", icon: "M9 12l2 2 4-4M7 3h10l1 4H6L7 3zM5 9h14v12H5V9z" },
-  { label: "DevOps Services", desc: "CI/CD, Kubernetes, AWS, Terraform", href: "/services/devops", icon: "M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" },
-  { label: "Blockchain Development", desc: "Smart contracts, DeFi, NFT, RWA", href: "/services/blockchain", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+  { label: "AI & ML Development", desc: "LLM agents, RAG, predictive models", href: "/services/ai-ml-development", img: "/assets/menu/1.png" },
+  { label: "Web Development", desc: "React, Next.js, Node.js, TypeScript", href: "/services/web-development", img: "/assets/menu/2.png" },
+  { label: "Mobile App Development", desc: "Flutter, React Native, iOS & Android", href: "/services/mobile-app-development", img: "/assets/menu/3.png" },
+  { label: "QA & Testing", desc: "E2E, load, security & performance", href: "/services/qa-testing", img: "/assets/menu/4.png" },
+  { label: "DevOps Services", desc: "CI/CD, Kubernetes, AWS, Terraform", href: "/services/devops", img: "/assets/menu/5.png" },
+  { label: "Blockchain Development", desc: "Smart contracts, DeFi, NFT, RWA", href: "/services/blockchain", img: "/assets/menu/6.png" },
 ];
 
 const NAV_LINKS = [
@@ -140,10 +140,11 @@ export default function Navbar() {
                             className="flex items-start gap-4 px-4 py-4 rounded-xl transition-colors hover:bg-[#F9F9F9]"
                             style={{ textDecoration: "none" }}
                           >
-                            <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: "rgba(245,197,24,0.12)", border: "1px solid rgba(245,197,24,0.25)" }}>
-                              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                            <div className="w-11 h-11 flex items-center justify-center flex-shrink-0">
+                              <img src={s.img} alt={s.img} />
+                              {/* <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
                                 <path d={s.icon} stroke="#F5C518" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                              </svg>
+                              </svg> */}
                             </div>
                             <div>
                               <p className="font-heading font-bold" style={{ fontFamily: "var(--font-heading)", color: "#07091A", fontSize: "0.95rem", lineHeight: 1.3 }}>{s.label}</p>
@@ -153,14 +154,14 @@ export default function Navbar() {
                         ))}
                       </div>
                       {/* CTA strip */}
-                      <div className="flex items-center justify-between px-8 py-4 mx-6 mb-6 rounded-xl" style={{ background: "#07091A" }}>
+                      <div className="flex items-center justify-between px-8 py-5 mx-6 mb-6 rounded-xl" style={{ background: "#191919" }}>
                         <div>
-                          <p className="font-heading font-bold text-white" style={{ fontFamily: "var(--font-heading)", fontSize: "0.95rem" }}>Build the Future at the Speed of AI</p>
-                          <p className="mt-0.5 text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>Create your own product with experienced engineers, just like your local team.</p>
+                          <p className="font-heading font-bold text-white" style={{ fontFamily: "var(--font-heading)", fontSize: "20px" }}>Build the Future at the Speed of AI</p>
+                          <p className="mt-0.5 text-xs" style={{ color: "rgba(255,255,255)" }}>Create your own product with experienced engineers, just like your local team.</p>
                         </div>
                         <Link href="/contact" onClick={() => setMegaOpen(false)}
-                          className="flex-shrink-0 ml-6 font-heading font-bold text-xs px-5 py-2.5 rounded-lg"
-                          style={{ background: "white", color: "#07091A", fontFamily: "var(--font-heading)", whiteSpace: "nowrap" }}
+                          className="flex-shrink-0 ml-6 font-heading font-bold text-sm uppercase px-9 py-2.5 rounded-full"
+                          style={{ background: "white", color: "#282828", fontFamily: "var(--font-heading)", whiteSpace: "nowrap" }}
                         >
                           GET STARTED
                         </Link>
