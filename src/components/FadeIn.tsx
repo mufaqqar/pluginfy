@@ -12,6 +12,7 @@ interface FadeInProps {
   scale?: number;
   className?: string;
   once?: boolean;
+  style?: CSSProperties;
 }
 
 const defaultVariants: Variants = {
@@ -28,6 +29,7 @@ export function FadeIn({
   scale = 1,
   className = "",
   once = true,
+  style,
 }: FadeInProps) {
   return (
     <motion.div
@@ -49,6 +51,7 @@ export function FadeIn({
         },
       }}
       className={className}
+      style={style}
     >
       {children}
     </motion.div>

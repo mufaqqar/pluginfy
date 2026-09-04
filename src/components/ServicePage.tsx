@@ -3,6 +3,7 @@
 import { useState, type ReactNode } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { FadeIn, StaggerContainer, StaggerItem } from "./FadeIn";
 
 export interface CaseStudy {
   client: string;
@@ -77,7 +78,9 @@ function CaseStudiesSection({ studies }: { studies: CaseStudy[] }) {
         </h2>
 
         {/* Card */}
-        <CaseStudyCard c={c} />
+        <FadeIn y={30} duration={0.6}>
+          <CaseStudyCard c={c} />
+        </FadeIn>
 
         {/* Tabs — only when multiple */}
         {multi && (
@@ -164,21 +167,28 @@ export default function ServicePage({ data }: { data: ServicePageData }) {
             </div>
 
             {/* Right graphic */}
-            <div className="relative hidden lg:flex items-center justify-center rounded-2xl overflow-hidden ml-8" style={{ background: "linear-gradient(135deg,#0E1228 0%,#111630 100%)", border: "1px solid rgba(255,255,255,0.07)", minHeight: 420 }}>
+            <FadeIn
+              x={30}
+              duration={0.7}
+              className="relative hidden lg:flex items-center justify-center rounded-2xl overflow-hidden ml-8"
+              style={{ background: "linear-gradient(135deg,#0E1228 0%,#111630 100%)", border: "1px solid rgba(255,255,255,0.07)", minHeight: 420 }}
+            >
               <div className="absolute inset-0 opacity-30 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 60% 40%,rgba(245,197,24,0.18) 0%,transparent 65%)" }} />
               {data.heroGraphic}
-            </div>
+            </FadeIn>
           </div>
 
           {/* Stats bar */}
-          <div className="flex flex-wrap gap-6 sm:gap-12 py-8 mt-4" style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}>
-            {data.stats.map((s) => (
-              <div key={s.label}>
-                <p className="font-heading font-extrabold" style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(1.4rem,2.5vw,1.9rem)", color: "#F5C518" }}>{s.val}</p>
-                <p className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.4)" }}>{s.label}</p>
-              </div>
-            ))}
-          </div>
+          <FadeIn y={20} duration={0.6}>
+            <div className="flex flex-wrap gap-6 sm:gap-12 py-8 mt-4" style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}>
+              {data.stats.map((s) => (
+                <div key={s.label}>
+                  <p className="font-heading font-extrabold" style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(1.4rem,2.5vw,1.9rem)", color: "#F5C518" }}>{s.val}</p>
+                  <p className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.4)" }}>{s.label}</p>
+                </div>
+              ))}
+            </div>
+          </FadeIn>
         </div>
       </section>
 
@@ -187,15 +197,17 @@ export default function ServicePage({ data }: { data: ServicePageData }) {
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6">
           <p className="section-label mb-3">Stack</p>
           <h2 className="font-heading font-bold mb-8" style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(1.4rem,3vw,2rem)", color: "white" }}>The stack we ship with</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+          <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3" staggerDelay={0.06}>
             {data.techStack.map((t) => (
-              <div key={t.name} className="card-dark p-4 rounded-xl flex flex-col gap-2">
-                <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: t.color }} />
-                <p className="font-heading font-bold text-white text-sm" style={{ fontFamily: "var(--font-heading)" }}>{t.name}</p>
-                <p style={{ fontSize: "0.73rem", color: "rgba(255,255,255,0.38)", lineHeight: 1.4 }}>{t.desc}</p>
-              </div>
+              <StaggerItem key={t.name} hover hoverY={-5} hoverScale={1.03}>
+                <div className="card-dark p-4 rounded-xl flex flex-col gap-2">
+                  <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: t.color }} />
+                  <p className="font-heading font-bold text-white text-sm" style={{ fontFamily: "var(--font-heading)" }}>{t.name}</p>
+                  <p style={{ fontSize: "0.73rem", color: "rgba(255,255,255,0.38)", lineHeight: 1.4 }}>{t.desc}</p>
+                </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
@@ -204,18 +216,20 @@ export default function ServicePage({ data }: { data: ServicePageData }) {
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6">
           <p className="section-label mb-3">How we work</p>
           <h2 className="font-heading font-bold mb-10" style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(1.4rem,3vw,2rem)", color: "white" }}>Our delivery process</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4" staggerDelay={0.1}>
             {data.process.map((p, i) => (
-              <div key={p.step} className="card-dark p-5 sm:p-6 rounded-xl flex flex-col gap-4 relative overflow-hidden">
-                <span className="absolute top-3 right-4 font-heading font-extrabold select-none" style={{ fontFamily: "var(--font-heading)", fontSize: "3rem", color: "rgba(245,197,24,0.06)", lineHeight: 1 }}>{p.step}</span>
-                <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: "rgba(245,197,24,0.1)", border: "1px solid rgba(245,197,24,0.2)" }}>
-                  <span className="font-heading font-bold text-xs" style={{ color: "#F5C518", fontFamily: "var(--font-heading)" }}>{String(i + 1).padStart(2, "0")}</span>
+              <StaggerItem key={p.step} hover hoverY={-6} hoverScale={1.02}>
+                <div className="card-dark p-5 sm:p-6 rounded-xl flex flex-col gap-4 relative overflow-hidden">
+                  <span className="absolute top-3 right-4 font-heading font-extrabold select-none" style={{ fontFamily: "var(--font-heading)", fontSize: "3rem", color: "rgba(245,197,24,0.06)", lineHeight: 1 }}>{p.step}</span>
+                  <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: "rgba(245,197,24,0.1)", border: "1px solid rgba(245,197,24,0.2)" }}>
+                    <span className="font-heading font-bold text-xs" style={{ color: "#F5C518", fontFamily: "var(--font-heading)" }}>{String(i + 1).padStart(2, "0")}</span>
+                  </div>
+                  <h3 className="font-heading font-bold text-white text-sm" style={{ fontFamily: "var(--font-heading)" }}>{p.title}</h3>
+                  <p style={{ color: "rgba(255,255,255,0.45)", fontSize: "0.82rem", lineHeight: 1.68 }}>{p.desc}</p>
                 </div>
-                <h3 className="font-heading font-bold text-white text-sm" style={{ fontFamily: "var(--font-heading)" }}>{p.title}</h3>
-                <p style={{ color: "rgba(255,255,255,0.45)", fontSize: "0.82rem", lineHeight: 1.68 }}>{p.desc}</p>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
@@ -227,21 +241,23 @@ export default function ServicePage({ data }: { data: ServicePageData }) {
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <p className="section-label mb-3">FAQ</p>
           <h2 className="font-heading font-bold mb-8" style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(1.4rem,3vw,2rem)", color: "white" }}>Common questions</h2>
-          <div className="flex flex-col gap-3">
+          <StaggerContainer className="flex flex-col gap-3" staggerDelay={0.07}>
             {data.faqs.map((f, i) => (
-              <div key={i} className="card-dark rounded-xl overflow-hidden">
-                <button className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left" onClick={() => setOpenFaq(openFaq === i ? null : i)}>
-                  <span className="font-heading font-semibold text-sm text-white" style={{ fontFamily: "var(--font-heading)" }}>{f.q}</span>
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0, transform: openFaq === i ? "rotate(180deg)" : "none", transition: "transform 0.2s" }}>
-                    <path d="M4 6l4 4 4-4" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </button>
-                <div style={{ maxHeight: openFaq === i ? "220px" : "0", overflow: "hidden", transition: "max-height 0.3s ease" }}>
-                  <p className="px-5 pb-5" style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.85rem", lineHeight: 1.75 }}>{f.a}</p>
+              <StaggerItem key={i} hover hoverY={-3} hoverScale={1.005}>
+                <div className="card-dark rounded-xl overflow-hidden">
+                  <button className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left" onClick={() => setOpenFaq(openFaq === i ? null : i)}>
+                    <span className="font-heading font-semibold text-sm text-white" style={{ fontFamily: "var(--font-heading)" }}>{f.q}</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0, transform: openFaq === i ? "rotate(180deg)" : "none", transition: "transform 0.2s" }}>
+                      <path d="M4 6l4 4 4-4" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </button>
+                  <div style={{ maxHeight: openFaq === i ? "220px" : "0", overflow: "hidden", transition: "max-height 0.3s ease" }}>
+                    <p className="px-5 pb-5" style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.85rem", lineHeight: 1.75 }}>{f.a}</p>
+                  </div>
                 </div>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
@@ -250,13 +266,19 @@ export default function ServicePage({ data }: { data: ServicePageData }) {
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
             <div>
-              <p className="section-label mb-3">Start a project</p>
-              <h2 className="font-heading font-extrabold mb-5" style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(2rem,5vw,3.2rem)", color: "white", lineHeight: 1.1, letterSpacing: "-0.02em" }}>
-                Let's build<br /><span style={{ color: "#F5C518" }}>something great.</span>
-              </h2>
-              <p className="mb-8 max-w-sm" style={{ color: "rgba(255,255,255,0.45)", lineHeight: 1.75, fontSize: "0.92rem" }}>
-                Tell us about your project. We'll review within 24 hours and propose a clear next step — no sales fluff.
-              </p>
+              <FadeIn x={-30} duration={0.6}>
+                <p className="section-label mb-3">Start a project</p>
+              </FadeIn>
+              <FadeIn x={-30} delay={0.1} duration={0.6}>
+                <h2 className="font-heading font-extrabold mb-5" style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(2rem,5vw,3.2rem)", color: "white", lineHeight: 1.1, letterSpacing: "-0.02em" }}>
+                  Let's build<br /><span style={{ color: "#F5C518" }}>something great.</span>
+                </h2>
+              </FadeIn>
+              <FadeIn x={-30} delay={0.15} duration={0.5}>
+                <p className="mb-8 max-w-sm" style={{ color: "rgba(255,255,255,0.45)", lineHeight: 1.75, fontSize: "0.92rem" }}>
+                  Tell us about your project. We'll review within 24 hours and propose a clear next step — no sales fluff.
+                </p>
+              </FadeIn>
               <div className="flex flex-col gap-4">
                 {[
                   { d: "M2 4l6 5 6-5M2 4h12v9H2V4z", text: "hello@pluginfy.com", href: "mailto:hello@pluginfy.com" },
@@ -272,33 +294,35 @@ export default function ServicePage({ data }: { data: ServicePageData }) {
               </div>
             </div>
 
-            <div className="card-dark p-5 sm:p-8 rounded-2xl">
-              <div className="flex flex-col gap-4">
-                <div className="grid sm:grid-cols-2 gap-4">
-                  {[{ label: "Full Name", key: "name", type: "text", ph: "Jason Miller" }, { label: "Email Address", key: "email", type: "email", ph: "jason@company.com" }].map(({ label, key, type, ph }) => (
-                    <div key={key}>
-                      <label className="block text-xs font-semibold mb-2" style={{ color: "rgba(255,255,255,0.4)", fontFamily: "var(--font-heading)" }}>{label}</label>
-                      <input type={type} placeholder={ph} {...field(key as keyof typeof form)} className="w-full px-4 py-3 rounded-lg text-sm outline-none" />
-                    </div>
-                  ))}
+            <FadeIn x={30} delay={0.1} duration={0.7}>
+              <div className="card-dark p-5 sm:p-8 rounded-2xl">
+                <div className="flex flex-col gap-4">
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    {[{ label: "Full Name", key: "name", type: "text", ph: "Jason Miller" }, { label: "Email Address", key: "email", type: "email", ph: "jason@company.com" }].map(({ label, key, type, ph }) => (
+                      <div key={key}>
+                        <label className="block text-xs font-semibold mb-2" style={{ color: "rgba(255,255,255,0.4)", fontFamily: "var(--font-heading)" }}>{label}</label>
+                        <input type={type} placeholder={ph} {...field(key as keyof typeof form)} className="w-full px-4 py-3 rounded-lg text-sm outline-none" />
+                      </div>
+                    ))}
+                  </div>
+                  <div>
+                    <label className="block text-xs font-semibold mb-2" style={{ color: "rgba(255,255,255,0.4)", fontFamily: "var(--font-heading)" }}>Estimated Budget</label>
+                    <select {...field("budget")} className="w-full px-4 py-3 rounded-lg text-sm outline-none" style={{ ...field("budget").style, color: form.budget ? "white" : "rgba(255,255,255,0.3)" }}>
+                      <option value="" disabled>Select a range</option>
+                      <option>$5k – $15k</option><option>$15k – $50k</option><option>$50k – $100k</option><option>$100k+</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-xs font-semibold mb-2" style={{ color: "rgba(255,255,255,0.4)", fontFamily: "var(--font-heading)" }}>Tell us about your project</label>
+                    <textarea rows={4} placeholder="What are you building? What's your timeline?" {...field("message")} className="w-full px-4 py-3 rounded-lg text-sm outline-none resize-none" />
+                  </div>
+                  <button className="btn-primary w-full justify-center text-sm">
+                    Send Project Brief
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="#07091A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                  </button>
                 </div>
-                <div>
-                  <label className="block text-xs font-semibold mb-2" style={{ color: "rgba(255,255,255,0.4)", fontFamily: "var(--font-heading)" }}>Estimated Budget</label>
-                  <select {...field("budget")} className="w-full px-4 py-3 rounded-lg text-sm outline-none" style={{ ...field("budget").style, color: form.budget ? "white" : "rgba(255,255,255,0.3)" }}>
-                    <option value="" disabled>Select a range</option>
-                    <option>$5k – $15k</option><option>$15k – $50k</option><option>$50k – $100k</option><option>$100k+</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-xs font-semibold mb-2" style={{ color: "rgba(255,255,255,0.4)", fontFamily: "var(--font-heading)" }}>Tell us about your project</label>
-                  <textarea rows={4} placeholder="What are you building? What's your timeline?" {...field("message")} className="w-full px-4 py-3 rounded-lg text-sm outline-none resize-none" />
-                </div>
-                <button className="btn-primary w-full justify-center text-sm">
-                  Send Project Brief
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="#07091A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                </button>
               </div>
-            </div>
+            </FadeIn>
           </div>
         </div>
       </section>

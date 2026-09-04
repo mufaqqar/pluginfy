@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { FadeIn, StaggerContainer, StaggerItem } from "@/components/FadeIn";
 
 const team = [
   { name: "Zain ul Abideen", role: "Founder & CEO", bio: "10+ years building digital products for enterprise and high-growth startups." },
@@ -61,34 +64,44 @@ export default function AboutPage() {
         <div className="relative z-10 max-w-[1600px] mx-auto px-4 sm:px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <p className="section-label mb-4">About us</p>
-              <h1 className="font-heading font-extrabold mb-6 leading-tight" style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(2.2rem,6vw,4rem)", color: "white", letterSpacing: "-0.02em" }}>
-                We build AI-first
-                <br />
-                <span style={{ color: "#F5C518" }}>products that scale.</span>
-              </h1>
-              <p className="mb-6 max-w-lg" style={{ color: "rgba(255,255,255,0.55)", fontSize: "1rem", lineHeight: 1.8 }}>
-                Pluginfy is an AI-first technology firm engineering production-grade digital systems for enterprise, government, and high-growth clients across the US, GCC, UK, and EU. We're not an agency. We're a product engineering team.
-              </p>
-              <div className="flex flex-wrap gap-3">
-                <Link href="/contact" className="btn-primary">Work with us</Link>
-                <Link href="/" className="btn-outline">← Back to Home</Link>
-              </div>
+              <FadeIn y={40} duration={0.7}>
+                <p className="section-label mb-4">About us</p>
+              </FadeIn>
+              <FadeIn y={30} delay={0.1} duration={0.7}>
+                <h1 className="font-heading font-extrabold mb-6 leading-tight" style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(2.2rem,6vw,4rem)", color: "white", letterSpacing: "-0.02em" }}>
+                  We build AI-first
+                  <br />
+                  <span style={{ color: "#F5C518" }}>products that scale.</span>
+                </h1>
+              </FadeIn>
+              <FadeIn y={30} delay={0.2} duration={0.6}>
+                <p className="mb-6 max-w-lg" style={{ color: "rgba(255,255,255,0.55)", fontSize: "1rem", lineHeight: 1.8 }}>
+                  Pluginfy is an AI-first technology firm engineering production-grade digital systems for enterprise, government, and high-growth clients across the US, GCC, UK, and EU. We're not an agency. We're a product engineering team.
+                </p>
+              </FadeIn>
+              <FadeIn y={20} delay={0.3} duration={0.5}>
+                <div className="flex flex-wrap gap-3">
+                  <Link href="/contact" className="btn-primary">Work with us</Link>
+                  <Link href="/" className="btn-outline">← Back to Home</Link>
+                </div>
+              </FadeIn>
             </div>
             {/* Stat grid */}
-            <div className="grid grid-cols-2 gap-4">
+            <StaggerContainer className="grid grid-cols-2 gap-4" staggerDelay={0.1}>
               {[
                 { val: "40+", label: "Engineers" },
                 { val: "18+", label: "Years of Industry" },
                 { val: "5+", label: "Countries" },
                 { val: "185+", label: "Projects Shipped" },
               ].map((s) => (
-                <div key={s.label} className="card-dark p-5 rounded-xl text-center">
-                  <p className="font-heading font-extrabold" style={{ fontFamily: "var(--font-heading)", fontSize: "2rem", color: "#fff" }}>{s.val}</p>
-                  <p className="text-lg mt-1" style={{ color: "rgba(255,255,255)" }}>{s.label}</p>
-                </div>
+                <StaggerItem key={s.label} hover hoverY={-6} hoverScale={1.02}>
+                  <div className="card-dark p-5 rounded-xl text-center">
+                    <p className="font-heading font-extrabold" style={{ fontFamily: "var(--font-heading)", fontSize: "2rem", color: "#fff" }}>{s.val}</p>
+                    <p className="text-lg mt-1" style={{ color: "rgba(255,255,255)" }}>{s.label}</p>
+                  </div>
+                </StaggerItem>
               ))}
-            </div>
+            </StaggerContainer>
           </div>
         </div>
       </section>
@@ -98,18 +111,20 @@ export default function AboutPage() {
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6">
           <p className="section-label mb-3">What we stand for</p>
           <h2 className="font-heading font-bold mb-10" style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(1.5rem,3vw,2.2rem)", color: "white" }}>Our values</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4" staggerDelay={0.1}>
             {values.map((v, i) => (
-              <div key={v.title} className="card-dark p-5 sm:p-6 rounded-xl flex flex-col gap-3 relative overflow-hidden">
-                <span className="absolute top-3 right-4 font-heading font-extrabold select-none" style={{ fontFamily: "var(--font-heading)", fontSize: "3rem", color: "rgba(245,197,24,0.05)", lineHeight: 1 }}>0{i+1}</span>
-                <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "rgba(245,197,24,0.1)", border: "1px solid rgba(245,197,24,0.2)" }}>
-                  <span style={{ color: "#F5C518", fontSize: "1rem" }}>✦</span>
+              <StaggerItem key={v.title} hover hoverY={-6} hoverScale={1.02}>
+                <div className="card-dark p-5 sm:p-6 rounded-xl flex flex-col gap-3 relative overflow-hidden">
+                  <span className="absolute top-3 right-4 font-heading font-extrabold select-none" style={{ fontFamily: "var(--font-heading)", fontSize: "3rem", color: "rgba(245,197,24,0.05)", lineHeight: 1 }}>0{i+1}</span>
+                  <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "rgba(245,197,24,0.1)", border: "1px solid rgba(245,197,24,0.2)" }}>
+                    <span style={{ color: "#F5C518", fontSize: "1rem" }}>✦</span>
+                  </div>
+                  <h3 className="font-heading font-bold text-white text-sm" style={{ fontFamily: "var(--font-heading)" }}>{v.title}</h3>
+                  <p style={{ color: "rgba(255,255,255,0.45)", fontSize: "0.83rem", lineHeight: 1.7 }}>{v.desc}</p>
                 </div>
-                <h3 className="font-heading font-bold text-white text-sm" style={{ fontFamily: "var(--font-heading)" }}>{v.title}</h3>
-                <p style={{ color: "rgba(255,255,255,0.45)", fontSize: "0.83rem", lineHeight: 1.7 }}>{v.desc}</p>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
@@ -123,8 +138,8 @@ export default function AboutPage() {
 
         {/* Milestones — each row is full-width */}
         {milestones.map((m) => (
+          <FadeIn key={m.step} y={40} duration={0.6}>
           <div
-            key={m.step}
             className="grid lg:grid-cols-2 items-stretch"
             style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
           >
@@ -183,6 +198,7 @@ export default function AboutPage() {
               />
             </div>
           </div>
+          </FadeIn>
         ))}
       </section>
 
@@ -191,35 +207,43 @@ export default function AboutPage() {
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6">
           <p className="section-label mb-3">The team</p>
           <h2 className="font-heading font-bold mb-10" style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(1.5rem,3vw,2.2rem)", color: "white" }}>People behind the work</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4" staggerDelay={0.1}>
             {team.map((t) => (
-              <div key={t.name} className="card-dark p-5 sm:p-6 rounded-xl flex flex-col gap-3">
-                <div className="w-12 h-12 rounded-xl flex items-center justify-center font-heading font-bold text-lg" style={{ background: "rgba(245,197,24,0.12)", color: "#F5C518", fontFamily: "var(--font-heading)" }}>
-                  {t.name[0]}
+              <StaggerItem key={t.name} hover hoverY={-6} hoverScale={1.02}>
+                <div className="card-dark p-5 sm:p-6 rounded-xl flex flex-col gap-3">
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center font-heading font-bold text-lg" style={{ background: "rgba(245,197,24,0.12)", color: "#F5C518", fontFamily: "var(--font-heading)" }}>
+                    {t.name[0]}
+                  </div>
+                  <div>
+                    <p className="font-heading font-bold text-white text-sm" style={{ fontFamily: "var(--font-heading)" }}>{t.name}</p>
+                    <p className="text-xs mt-0.5" style={{ color: "#F5C518" }}>{t.role}</p>
+                  </div>
+                  <p style={{ color: "rgba(255,255,255,0.45)", fontSize: "0.82rem", lineHeight: 1.65 }}>{t.bio}</p>
                 </div>
-                <div>
-                  <p className="font-heading font-bold text-white text-sm" style={{ fontFamily: "var(--font-heading)" }}>{t.name}</p>
-                  <p className="text-xs mt-0.5" style={{ color: "#F5C518" }}>{t.role}</p>
-                </div>
-                <p style={{ color: "rgba(255,255,255,0.45)", fontSize: "0.82rem", lineHeight: 1.65 }}>{t.bio}</p>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
       {/* CTA */}
       <section className="py-16 sm:py-20" style={{ background: "#F5C518" }}>
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-          <h2 className="font-heading font-extrabold mb-4" style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(1.8rem,5vw,3.2rem)", color: "#07091A", lineHeight: 1.1, letterSpacing: "-0.02em" }}>
-            Ready to build something?
-          </h2>
-          <p className="mb-8" style={{ color: "rgba(7,9,26,0.6)", lineHeight: 1.7 }}>
-            Tell us what you're working on. We'll get back within 24 hours.
-          </p>
-          <Link href="/contact" className="inline-flex items-center gap-3 font-heading font-bold text-sm px-7 py-4 rounded-lg" style={{ background: "#07091A", color: "#F5C518", fontFamily: "var(--font-heading)" }}>
-            Start a Conversation
-          </Link>
+          <FadeIn y={30} duration={0.6}>
+            <h2 className="font-heading font-extrabold mb-4" style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(1.8rem,5vw,3.2rem)", color: "#07091A", lineHeight: 1.1, letterSpacing: "-0.02em" }}>
+              Ready to build something?
+            </h2>
+          </FadeIn>
+          <FadeIn y={20} delay={0.1} duration={0.5}>
+            <p className="mb-8" style={{ color: "rgba(7,9,26,0.6)", lineHeight: 1.7 }}>
+              Tell us what you're working on. We'll get back within 24 hours.
+            </p>
+          </FadeIn>
+          <FadeIn y={20} delay={0.2} duration={0.5}>
+            <Link href="/contact" className="inline-flex items-center gap-3 font-heading font-bold text-sm px-7 py-4 rounded-lg" style={{ background: "#07091A", color: "#F5C518", fontFamily: "var(--font-heading)" }}>
+              Start a Conversation
+            </Link>
+          </FadeIn>
         </div>
       </section>
     </div>
