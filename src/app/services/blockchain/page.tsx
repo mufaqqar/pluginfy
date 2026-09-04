@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Blockchain Development",
   description:
     "Blockchain development services — smart contracts, DeFi platforms, NFT marketplaces and on-chain ledgers. Audited, secure-by-design Web3 engineering.",
-  alternates: { canonical: "/services/blockchain" },
+  alternates: { canonical: "/services/blockchain/" },
 };
 
 const HeroGraphic = () => (

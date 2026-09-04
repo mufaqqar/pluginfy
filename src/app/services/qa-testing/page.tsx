@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "QA & Testing",
   description:
     "QA & testing services — functional, performance, and security testing baked into every sprint. Automated E2E suites, load testing, and OWASP security scans.",
-  alternates: { canonical: "/services/qa-testing" },
+  alternates: { canonical: "/services/qa-testing/" },
 };
 
 const HeroGraphic = () => (

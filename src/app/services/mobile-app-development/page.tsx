@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Mobile App Development",
   description:
     "Mobile app development services — native iOS and Android with Flutter and React Native. Cross-platform reach with a native feel, from strategy to Store launch.",
-  alternates: { canonical: "/services/mobile-app-development" },
+  alternates: { canonical: "/services/mobile-app-development/" },
 };
 
 const HeroGraphic = () => (

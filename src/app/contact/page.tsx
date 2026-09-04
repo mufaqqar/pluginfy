@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Get in touch with Pluginfy. Tell us about your AI, web or mobile project — we reply personally within 24 hours. Based in Lahore, Pakistan, serving clients worldwide.",
   alternates: {
-    canonical: "/contact",
+    canonical: "/contact/",
   },
 };
 

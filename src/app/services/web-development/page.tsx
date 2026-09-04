@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Web Development",
   description:
     "Web development services — React, Next.js, Node.js and TypeScript. Scalable SaaS dashboards, headless storefronts, and internal portals engineered for production.",
-  alternates: { canonical: "/services/web-development" },
+  alternates: { canonical: "/services/web-development/" },
 };
 
 const HeroGraphic = () => (

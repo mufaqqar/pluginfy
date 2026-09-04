@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "DevOps Services",
   description:
     "DevOps services — CI/CD pipelines, Kubernetes, AWS, Terraform and infrastructure as code. Faster delivery and harder systems with automated deploys and full monitoring.",
-  alternates: { canonical: "/services/devops" },
+  alternates: { canonical: "/services/devops/" },
 };
 
 const HeroGraphic = () => (

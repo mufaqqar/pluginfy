@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Pluginfy is an AI-first technology firm. Meet the team, our values, and the journey from a focused web studio to a global product engineering company across 5 continents.",
   alternates: {
-    canonical: "/about",
+    canonical: "/about/",
   },
 };
 

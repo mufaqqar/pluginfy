@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "AI & ML Development",
   description:
     "AI & ML development services — predictive models, LLM agents, RAG pipelines and computer vision systems engineered for production. 24+ projects shipped, 91% average model accuracy.",
-  alternates: { canonical: "/services/ai-ml-development" },
+  alternates: { canonical: "/services/ai-ml-development/" },
 };
 
 const HeroGraphic = () => (
