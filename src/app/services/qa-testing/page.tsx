@@ -1,5 +1,13 @@
 import ServicePage from "@/components/ServicePage";
 import type { ServicePageData } from "@/components/ServicePage";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "QA & Testing",
+  description:
+    "QA & testing services — functional, performance, and security testing baked into every sprint. Automated E2E suites, load testing, and OWASP security scans.",
+  alternates: { canonical: "/services/qa-testing" },
+};
 
 const HeroGraphic = () => (
   <svg viewBox="0 0 420 340" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "85%", maxWidth: 400 }}>

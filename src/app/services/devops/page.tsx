@@ -1,5 +1,13 @@
 import ServicePage from "@/components/ServicePage";
 import type { ServicePageData } from "@/components/ServicePage";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "DevOps Services",
+  description:
+    "DevOps services — CI/CD pipelines, Kubernetes, AWS, Terraform and infrastructure as code. Faster delivery and harder systems with automated deploys and full monitoring.",
+  alternates: { canonical: "/services/devops" },
+};
 
 const HeroGraphic = () => (
   <svg viewBox="0 0 420 340" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "85%", maxWidth: 400 }}>

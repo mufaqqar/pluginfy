@@ -1,5 +1,13 @@
 import ServicePage from "@/components/ServicePage";
 import type { ServicePageData } from "@/components/ServicePage";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Mobile App Development",
+  description:
+    "Mobile app development services — native iOS and Android with Flutter and React Native. Cross-platform reach with a native feel, from strategy to Store launch.",
+  alternates: { canonical: "/services/mobile-app-development" },
+};
 
 const HeroGraphic = () => (
   <svg viewBox="0 0 420 340" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "85%", maxWidth: 400 }}>

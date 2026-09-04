@@ -1,5 +1,13 @@
 import ServicePage from "@/components/ServicePage";
 import type { ServicePageData } from "@/components/ServicePage";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Web Development",
+  description:
+    "Web development services — React, Next.js, Node.js and TypeScript. Scalable SaaS dashboards, headless storefronts, and internal portals engineered for production.",
+  alternates: { canonical: "/services/web-development" },
+};
 
 const HeroGraphic = () => (
   <svg viewBox="0 0 420 340" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "85%", maxWidth: 400 }}>

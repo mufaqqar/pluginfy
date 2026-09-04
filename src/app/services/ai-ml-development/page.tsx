@@ -1,5 +1,13 @@
 import ServicePage from "@/components/ServicePage";
 import type { ServicePageData } from "@/components/ServicePage";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "AI & ML Development",
+  description:
+    "AI & ML development services — predictive models, LLM agents, RAG pipelines and computer vision systems engineered for production. 24+ projects shipped, 91% average model accuracy.",
+  alternates: { canonical: "/services/ai-ml-development" },
+};
 
 const HeroGraphic = () => (
   <svg viewBox="0 0 420 340" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "85%", maxWidth: 400 }}>
