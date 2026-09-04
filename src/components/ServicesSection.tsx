@@ -7,6 +7,7 @@ const services = [
     title: "Product Design",
     desc: "Our product design services enables users to instantly and enthusiastically adopt a company product.",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop&auto=format",
+    href: "/services/web-development",
     icon: (
       <svg width="30" height="30" viewBox="0 0 32 32" fill="none">
         <rect width="32" height="32" rx="8" fill="rgba(245,197,24,0.12)" />
@@ -20,6 +21,7 @@ const services = [
     title: "Development",
     desc: "Scalable, performant applications built with modern frameworks, clean architecture, and best practices.",
     image: "https://images.unsplash.com/photo-1489875347897-49f64b51c1f8?w=800&h=500&fit=crop&auto=format",
+    href: "/services/web-development",
     icon: (
       <svg width="30" height="30" viewBox="0 0 32 32" fill="none">
         <rect width="32" height="32" rx="8" fill="rgba(245,197,24,0.12)" />
@@ -31,6 +33,7 @@ const services = [
     title: "Data Analytics",
     desc: "Transform raw data into actionable intelligence with advanced analytics pipelines and live dashboards.",
     image: "https://images.unsplash.com/photo-1666875753105-c63a6f3bdc86?w=800&h=500&fit=crop&auto=format",
+    href: "/services/ai-ml-development",
     icon: (
       <svg width="30" height="30" viewBox="0 0 32 32" fill="none">
         <rect width="32" height="32" rx="8" fill="rgba(245,197,24,0.12)" />
@@ -42,6 +45,7 @@ const services = [
     title: "DevOps",
     desc: "CI/CD pipelines, cloud infrastructure, container orchestration, and automated workflows that ship faster.",
     image: "https://images.unsplash.com/photo-1695668548342-c0c1ad479aee?w=800&h=500&fit=crop&auto=format",
+    href: "/services/devops",
     icon: (
       <svg width="30" height="30" viewBox="0 0 32 32" fill="none">
         <rect width="32" height="32" rx="8" fill="rgba(245,197,24,0.12)" />
@@ -94,7 +98,7 @@ function DesktopAccordion() {
               </div>
               {!isActive && (
                 <div className="flex-shrink-0 mt-1.5" style={{ zIndex: 2 }}>
-                  <a href="#" className="flex items-center gap-1.5 text-xs font-semibold" style={{ color: "#fff", fontFamily: "var(--font-heading)" }}>
+                  <a href={s.href} className="flex items-center gap-1.5 text-xs font-semibold" style={{ color: "#fff", fontFamily: "var(--font-heading)" }}>
                     Explore All
                     <svg className="text-[#F5C518]" width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H5M10 2v5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
                   </a>
@@ -143,7 +147,7 @@ function MobileCards() {
                 <div className="rounded-xl overflow-hidden" style={{ height: 180 }}>
                   <img src={s.image} alt={s.title} className="w-full h-full object-cover" />
                 </div>
-                <a href="#" className="flex items-center gap-1.5 text-xs font-semibold" style={{ color: "#fff", fontFamily: "var(--font-heading)" }}>
+                <a href={s.href} className="flex items-center gap-1.5 text-xs font-semibold" style={{ color: "#fff", fontFamily: "var(--font-heading)" }}>
                   Explore All
                   <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H5M10 2v5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
                 </a>

@@ -161,7 +161,7 @@ export default function ServicePage({ data }: { data: ServicePageData }) {
                 {data.heroDesc}
               </p>
               <div className="flex flex-wrap gap-3">
-                <a href="#contact-form" className="btn-primary">Start a Project</a>
+                <Link href="/contact" className="btn-primary">Start a Project</Link>
                 <Link href="/" className="btn-outline">← Back to Home</Link>
               </div>
             </div>
@@ -281,14 +281,18 @@ export default function ServicePage({ data }: { data: ServicePageData }) {
               </FadeIn>
               <div className="flex flex-col gap-4">
                 {[
-                  { d: "M2 4l6 5 6-5M2 4h12v9H2V4z", text: "hello@pluginfy.com", href: "mailto:hello@pluginfy.com" },
-                  { d: "M6 1C4.3 1 3 2.3 3 4c0 2.5 3 7 3 7s3-4.5 3-7c0-1.7-1.3-3-3-3zm0 4a1 1 0 110-2 1 1 0 010 2z", text: "Mitte, Berlin, Germany", href: "#" },
+                  { d: "M2 4l6 5 6-5M2 4h12v9H2V4z", text: "hello@pluginfy.com", href: "mailto:hello@pluginfy.com", link: true },
+                  { d: "M6 1C4.3 1 3 2.3 3 4c0 2.5 3 7 3 7s3-4.5 3-7c0-1.7-1.3-3-3-3zm0 4a1 1 0 110-2 1 1 0 010 2z", text: "307 Madina Heights, Lahore, Pakistan", href: "#", link: false },
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-3">
                     <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: "rgba(245,197,24,0.1)", border: "1px solid rgba(245,197,24,0.2)" }}>
                       <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d={item.d} stroke="#F5C518" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" /></svg>
                     </div>
-                    <a href={item.href} className="text-sm" style={{ color: "rgba(255,255,255,0.6)" }}>{item.text}</a>
+                    {item.link ? (
+                      <a href={item.href} className="text-sm" style={{ color: "rgba(255,255,255,0.6)" }}>{item.text}</a>
+                    ) : (
+                      <span className="text-sm" style={{ color: "rgba(255,255,255,0.6)" }}>{item.text}</span>
+                    )}
                   </div>
                 ))}
               </div>

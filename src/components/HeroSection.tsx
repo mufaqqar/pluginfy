@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { FadeIn, StaggerContainer, StaggerItem } from "./FadeIn";
 
 const stats = [
@@ -62,13 +63,13 @@ export default function HeroSection() {
             </FadeIn>
             <FadeIn y={20} delay={0.3} duration={0.5}>
               <div className="flex flex-wrap gap-3">
-                <button className="btn-primary">
+                <Link href="/contact" className="btn-primary inline-flex items-center gap-2">
                   Start a Project
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                     <path d="M2 7h10M8 3l4 4-4 4" stroke="#07091A" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
-                </button>
-                <button className="btn-outline">View Showcase</button>
+                </Link>
+                <Link href="/about" className="btn-outline inline-flex items-center">View Showcase</Link>
               </div>
             </FadeIn>
           </div>

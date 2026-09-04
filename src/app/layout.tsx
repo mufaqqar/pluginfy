@@ -88,13 +88,20 @@ export default function RootLayout({
     url: siteConfig.url,
     logo: `${siteConfig.url}/assets/Logo.svg`,
     description: siteConfig.description,
-    email: "hello@pluginfy.com",
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Berlin",
-      addressCountry: "DE",
+      streetAddress: "307 Madina Heights",
+      addressLocality: "Lahore",
+      addressCountry: "PK",
     },
-    sameAs: ["https://www.linkedin.com/company/pluginfy"],
+    telephone: "+92-300-4801494",
+    email: "hello@pluginfy.com",
+    sameAs: [
+      "https://www.facebook.com/pluginfy",
+      "https://twitter.com/pluginfy",
+      "https://www.youtube.com/channel/UCoW1Ip3gM6YjBtluhSCJpBA",
+      "https://www.linkedin.com/company/pluginfy-technologies",
+    ],
   };
 
   return (
