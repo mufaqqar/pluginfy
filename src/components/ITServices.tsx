@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { FadeIn, StaggerContainer, StaggerItem } from "./FadeIn";
 
 const services = [
   {
@@ -100,24 +103,32 @@ export default function ITServices() {
       <div className="max-w-[1600px] mx-auto px-4 sm:px-6">
 
         {/* Heading */}
-        <h2
-          className="font-bold mb-8 sm:mb-10"
-          style={{
-            fontFamily: "var(--font-heading)",
-            fontSize: "clamp(1.7rem, 4vw, 40px)",
-            lineHeight: 1.05,
-            color: "#fff",
-          }}
-        >
-          We Offer a Wide <br />
-          Variety of{" "}
-          <span style={{ color: "#F5C518" }}>
-            IT Services
-          </span>
-        </h2>
+        <FadeIn y={30} duration={0.6}>
+          <h2
+            className="font-bold mb-8 sm:mb-10"
+            style={{
+              fontFamily: "var(--font-heading)",
+              fontSize: "clamp(1.7rem, 4vw, 40px)",
+              lineHeight: 1.05,
+              color: "#fff",
+            }}
+          >
+            We Offer a Wide <br />
+            Variety of{" "}
+            <span style={{ color: "#F5C518" }}>
+              IT Services
+            </span>
+          </h2>
+        </FadeIn>
 
         {/* Services Grid */}
         <div
+          style={{
+            borderTop: "1px solid rgba(255,255,255,0.20)",
+            borderLeft: "1px solid rgba(255,255,255,0.20)",
+          }}
+        >
+        <StaggerContainer
           className="
             grid
             grid-cols-1
@@ -125,30 +136,27 @@ export default function ITServices() {
             lg:grid-cols-3
             bg-[#101324]
           "
-          style={{
-            borderTop: "1px solid rgba(255,255,255,0.20)",
-            borderLeft: "1px solid rgba(255,255,255,0.20)",
-          }}
+          staggerDelay={0.08}
         >
           {services.map((service) => (
-            <div
-              key={service.title}
-              className="
-                relative
-                flex
-                flex-col
-                min-h-[330px]
-                p-5
-                sm:p-6
-                transition-all
-                duration-300
-                hover:bg-white/[0.02]
-              "
-              style={{
-                borderRight: "1px solid rgba(255,255,255,0.14)",
-                borderBottom: "1px solid rgba(255,255,255,0.14)",
-              }}
-            >
+            <StaggerItem key={service.title}  >
+              <div
+                className="
+                  relative
+                  flex
+                  flex-col
+                  min-h-[330px]
+                  p-5
+                  sm:p-6
+                  transition-all
+                  duration-300
+                  hover:bg-white/[0.02]
+                "
+                style={{
+                  borderRight: "1px solid rgba(255,255,255,0.14)",
+                  borderBottom: "1px solid rgba(255,255,255,0.14)",
+                }}
+              >
 
               {/* Icon */}
               <div
@@ -282,8 +290,10 @@ export default function ITServices() {
                 </span>
               </Link>
 
-            </div>
+              </div>
+            </StaggerItem>
           ))}
+        </StaggerContainer>
         </div>
       </div>
     </section>

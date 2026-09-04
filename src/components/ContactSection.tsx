@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { FadeIn } from "./FadeIn";
 
 export default function ContactSection() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -10,7 +11,8 @@ export default function ContactSection() {
       <div className="max-w-[1600px] mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
           {/* Left */}
-          <div>
+          <FadeIn x={-30} duration={0.6}>
+            <div>
             <h2
               className="font-heading font-extrabold mb-5"
               style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(2rem,6vw,60px)", color: "white", lineHeight: 1.05, letterSpacing: "-0.02em" }}
@@ -44,49 +46,52 @@ export default function ContactSection() {
                 </div>
               ))}
             </div>
-          </div>
+            </div>
+          </FadeIn>
 
           {/* Right: form */}
-          <div className="bg-[#22263F] p-5 sm:px-10 sm:py-12 border border-white/20" style={{ borderRadius: "32px" }}>
-            <div className="flex flex-col gap-4 sm:gap-5">
-              <div className="grid sm:grid-cols-1 gap-6">
-                {[
-                  { label: "Your Name", key: "name", type: "text", placeholder: "John Doe" },
-                  { label: "Email Address", key: "email", type: "email", placeholder: "john@company.com" },
-                ].map(({ label, key, type, placeholder }) => (
-                  <div key={key}>
-                    <label className="block text-xs font-normal uppercase mb-2" style={{ color: "rgba(255,255,255,0.6)", fontFamily: "var(--font-heading)" }}>{label}</label>
-                    <input
-                      type={type}
-                      placeholder={placeholder}
-                      value={form[key as keyof typeof form]}
-                      onChange={(e) => setForm({ ...form, [key]: e.target.value })}
-                      className="w-full py-3 border-b border-white/20 bg-transparent text-sm outline-none"
-                      style={{ color: "white", fontFamily: "var(--font-body)", transition: "border-color 0.15s" }}
-                      onFocus={(e) => (e.target.style.borderColor = "#F5C518")}
-                      onBlur={(e) => (e.target.style.borderColor = "rgba(255,255,255,0.08)")}
-                    />
-                  </div>
-                ))}
+          <FadeIn x={30} delay={0.15} duration={0.6}>
+            <div className="bg-[#22263F] p-5 sm:px-10 sm:py-12 border border-white/20" style={{ borderRadius: "32px" }}>
+              <div className="flex flex-col gap-4 sm:gap-5">
+                <div className="grid sm:grid-cols-1 gap-6">
+                  {[
+                    { label: "Your Name", key: "name", type: "text", placeholder: "John Doe" },
+                    { label: "Email Address", key: "email", type: "email", placeholder: "john@company.com" },
+                  ].map(({ label, key, type, placeholder }) => (
+                    <div key={key}>
+                      <label className="block text-xs font-normal uppercase mb-2" style={{ color: "rgba(255,255,255,0.6)", fontFamily: "var(--font-heading)" }}>{label}</label>
+                      <input
+                        type={type}
+                        placeholder={placeholder}
+                        value={form[key as keyof typeof form]}
+                        onChange={(e) => setForm({ ...form, [key]: e.target.value })}
+                        className="w-full py-3 border-b border-white/20 bg-transparent text-sm outline-none"
+                        style={{ color: "white", fontFamily: "var(--font-body)", transition: "border-color 0.15s" }}
+                        onFocus={(e) => (e.target.style.borderColor = "#F5C518")}
+                        onBlur={(e) => (e.target.style.borderColor = "rgba(255,255,255,0.08)")}
+                      />
+                    </div>
+                  ))}
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold mb-2" style={{ color: "rgba(255,255,255,0.4)", fontFamily: "var(--font-heading)" }}>Your Message</label>
+                  <textarea
+                    rows={3}
+                    placeholder="Tell us about your project..."
+                    value={form.message}
+                    onChange={(e) => setForm({ ...form, message: e.target.value })}
+                    className="w-full py-3 border-b border-white/20 bg-transparent text-sm outline-none"
+                    style={{ color: "white", fontFamily: "var(--font-body)", transition: "border-color 0.15s" }}
+                    onFocus={(e) => (e.target.style.borderColor = "#F5C518")}
+                    onBlur={(e) => (e.target.style.borderColor = "rgba(255,255,255,0.08)")}
+                  />
+                </div>
+                <button className="bg-white hover:bg-accent-hover w-full px-7 py-4 justify-center text-lg font-bold text-[#00643A] rounded-full">
+                  SEND MESSAGE
+                </button>
               </div>
-              <div>
-                <label className="block text-xs font-semibold mb-2" style={{ color: "rgba(255,255,255,0.4)", fontFamily: "var(--font-heading)" }}>Your Message</label>
-                <textarea
-                  rows={3}
-                  placeholder="Tell us about your project..."
-                  value={form.message}
-                  onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  className="w-full py-3 border-b border-white/20 bg-transparent text-sm outline-none"
-                  style={{ color: "white", fontFamily: "var(--font-body)", transition: "border-color 0.15s" }}
-                  onFocus={(e) => (e.target.style.borderColor = "#F5C518")}
-                  onBlur={(e) => (e.target.style.borderColor = "rgba(255,255,255,0.08)")}
-                />
-              </div>
-              <button className="bg-white hover:bg-accent-hover w-full px-7 py-4 justify-center text-lg font-bold text-[#00643A] rounded-full">
-                SEND MESSAGE
-              </button>
             </div>
-          </div>
+          </FadeIn>
         </div>
       </div>
     </section>

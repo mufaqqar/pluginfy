@@ -1,3 +1,7 @@
+"use client";
+
+import { FadeIn, StaggerContainer, StaggerItem } from "./FadeIn";
+
 const stats = [
   { value: "40+", label: "Certified Engineers", icon: "/assets/Certified_Engineers-1.svg" },
   { value: "18+", label: "Years of Industry Experience", icon: "/assets/Years_of_Industry_Experience.svg" },
@@ -28,115 +32,124 @@ export default function HeroSection() {
 
           {/* Left: headline */}
           <div>
-            <h1
-              className="font-heading font-extrabold leading-none tracking-tight mb-5 sm:mb-6"
-              style={{
-                fontFamily: "var(--font-heading)",
-                fontSize: "clamp(2.4rem,8vw,70px)",
-                lineHeight: "clamp(2.4rem,8vw,72px)",
-                color: "white",
-                fontWeight: "600",
-                letterSpacing: "-0.02em",
-              }}
-            >
-              CREATIVE
-              <br />
-              INTELLIGENCE
-              <br />
-              <span style={{ color: "#fff" }}>IN EVERY PIXEL.</span>
-            </h1>
-            <p
-              className="mb-7 sm:mb-8"
-              style={{ color: "rgba(255,255,255,0.55)", fontSize: "clamp(20px,2vw,24px)", lineHeight: 1.75, fontWeight: "500" }}
-            >
-              We blend high-end aesthetics with technical precision to build digital experiences
-              that resonate and convert.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <button className="btn-primary">
-                Start a Project
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <path d="M2 7h10M8 3l4 4-4 4" stroke="#07091A" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </button>
-              <button className="btn-outline">View Showcase</button>
-            </div>
+            <FadeIn y={40} duration={0.7}>
+              <h1
+                className="font-heading font-extrabold leading-none tracking-tight mb-5 sm:mb-6"
+                style={{
+                  fontFamily: "var(--font-heading)",
+                  fontSize: "clamp(2.4rem,8vw,70px)",
+                  lineHeight: "clamp(2.4rem,8vw,72px)",
+                  color: "white",
+                  fontWeight: "600",
+                  letterSpacing: "-0.02em",
+                }}
+              >
+                CREATIVE
+                <br />
+                INTELLIGENCE
+                <br />
+                <span style={{ color: "#fff" }}>IN EVERY PIXEL.</span>
+              </h1>
+            </FadeIn>
+            <FadeIn y={30} delay={0.15} duration={0.6}>
+              <p
+                className="mb-7 sm:mb-8"
+                style={{ color: "rgba(255,255,255,0.55)", fontSize: "clamp(20px,2vw,24px)", lineHeight: 1.75, fontWeight: "500" }}
+              >
+                We blend high-end aesthetics with technical precision to build digital experiences
+                that resonate and convert.
+              </p>
+            </FadeIn>
+            <FadeIn y={20} delay={0.3} duration={0.5}>
+              <div className="flex flex-wrap gap-3">
+                <button className="btn-primary">
+                  Start a Project
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M2 7h10M8 3l4 4-4 4" stroke="#07091A" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
+                <button className="btn-outline">View Showcase</button>
+              </div>
+            </FadeIn>
           </div>
 
           {/* Right: stats grid */}
-          <div className="grid grid-cols-2 gap-3 sm:gap-4 mt-8 lg:mt-0">
+          <StaggerContainer className="grid grid-cols-2 gap-3 sm:gap-4 mt-8 lg:mt-0" staggerDelay={0.1}>
 
             {/* 4 stat cards */}
             {stats.map((s) => (
-              <div
-                key={s.value + s.label}
-                className="card-dark p-4 sm:px-5 sm:py-3 flex flex-col justify-between"
-                style={{ borderRadius: "14px", minHeight: "110px" }}
-              >
-                <div className="flex items-start justify-between gap-2">
-                  <span
-                    className="font-heading font-extrabold"
-                    style={{
-                      fontSize: "clamp(1.6rem,4vw,2rem)",
-                      color: "white",
-                      fontFamily: "var(--font-heading)",
-                      lineHeight: 1,
-                    }}
-                  >
-                    {s.value}
+              <StaggerItem key={s.value + s.label} hover hoverY={-6} hoverScale={1.02}>
+                <div
+                  className="card-dark p-4 sm:px-5 sm:py-3 flex flex-col justify-between"
+                  style={{ borderRadius: "14px", minHeight: "110px" }}
+                >
+                  <div className="flex items-start justify-between gap-2">
+                    <span
+                      className="font-heading font-extrabold"
+                      style={{
+                        fontSize: "clamp(1.6rem,4vw,2rem)",
+                        color: "white",
+                        fontFamily: "var(--font-heading)",
+                        lineHeight: 1,
+                      }}
+                    >
+                      {s.value}
+                    </span>
+                    <img
+                      src={s.icon}
+                      alt=""
+                      style={{ width: 36, height: 36, objectFit: "contain", flexShrink: 0 }}
+                    />
+                  </div>
+                  <span className="inline-flex max-w-[152px] min-h-[58px]" style={{ color: "rgba(255,255,255)", fontSize: "14px", lineHeight: 1.45, marginTop: 8 }}>
+                    {s.label}
                   </span>
-                  <img
-                    src={s.icon}
-                    alt=""
-                    style={{ width: 36, height: 36, objectFit: "contain", flexShrink: 0 }}
-                  />
                 </div>
-                <span className="inline-flex max-w-[152px] min-h-[58px]" style={{ color: "rgba(255,255,255)", fontSize: "14px", lineHeight: 1.45, marginTop: 8 }}>
-                  {s.label}
-                </span>
-              </div>
+              </StaggerItem>
             ))}
 
             {/* Rating + badges card */}
-            <div
-              className="card-dark p-4 sm:p-5 col-span-2"
-              style={{ borderRadius: "14px" }}
-            >
-              <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
-                {/* Stars + score */}
-                <div className="flex-shrink-0">
-                  <span
-                    className="font-heading font-bold"
-                    style={{ fontSize: "clamp(1.6rem,4vw,2rem)", color: "#fff", fontFamily: "var(--font-heading)" }}
-                  >
-                    5.0
-                  </span>
-                  <div className="flex gap-1 mb-1">
-                    {[...Array(5)].map((_, i) => (
-                      <svg key={i} width="22" height="22" viewBox="0 0 16 16" fill="#F5C518">
-                        <path d="M8 1l1.85 3.75L14 5.5l-3 2.92.71 4.08L8 10.25l-3.71 2.25.71-4.08L2 5.5l4.15-.75z" />
-                      </svg>
+            <StaggerItem className="col-span-2">
+              <div
+                className="card-dark p-4 sm:p-5"
+                style={{ borderRadius: "14px" }}
+              >
+                <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
+                  {/* Stars + score */}
+                  <div className="flex-shrink-0">
+                    <span
+                      className="font-heading font-bold"
+                      style={{ fontSize: "clamp(1.6rem,4vw,2rem)", color: "#fff", fontFamily: "var(--font-heading)" }}
+                    >
+                      5.0
+                    </span>
+                    <div className="flex gap-1 mb-1">
+                      {[...Array(5)].map((_, i) => (
+                        <svg key={i} width="22" height="22" viewBox="0 0 16 16" fill="#F5C518">
+                          <path d="M8 1l1.85 3.75L14 5.5l-3 2.92.71 4.08L8 10.25l-3.71 2.25.71-4.08L2 5.5l4.15-.75z" />
+                        </svg>
+                      ))}
+                    </div>
+
+                    <p style={{ color: "rgba(255,255,255)", fontSize: "14px", lineHeight: 1.45, marginTop: 8 }}>
+                      Based on hundreds of reviews
+                    </p>
+                  </div>
+                  {/* Badges — right aligned */}
+                  <div className="flex items-center gap-3 sm:gap-5 flex-wrap sm:ml-auto">
+                    {badges.map((b) => (
+                      <img
+                        key={b.alt}
+                        src={b.url}
+                        alt={b.alt}
+                        style={{ height: 52, width: "auto", objectFit: "contain", opacity: 0.92 }}
+                      />
                     ))}
                   </div>
-
-                  <p style={{ color: "rgba(255,255,255)", fontSize: "14px", lineHeight: 1.45, marginTop: 8 }}>
-                    Based on hundreds of reviews
-                  </p>
-                </div>
-                {/* Badges — right aligned */}
-                <div className="flex items-center gap-3 sm:gap-5 flex-wrap sm:ml-auto">
-                  {badges.map((b) => (
-                    <img
-                      key={b.alt}
-                      src={b.url}
-                      alt={b.alt}
-                      style={{ height: 52, width: "auto", objectFit: "contain", opacity: 0.92 }}
-                    />
-                  ))}
                 </div>
               </div>
-            </div>
-          </div>
+            </StaggerItem>
+          </StaggerContainer>
         </div>
       </div>
     </section>

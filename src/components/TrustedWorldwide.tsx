@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { StaggerItem } from "./FadeIn";
 
 const clients = [
   {
@@ -103,7 +104,8 @@ export default function TrustedWorldwide() {
               </div>
 
               {/* Box 2: testimonial */}
-              <div className="p-4 sm:p-6" style={{ border: "1px solid rgba(255,255,255,0.2)", background: "#101324" }}>
+              <StaggerItem hover hoverY={-5} hoverScale={1.01}>
+                <div className="p-4 sm:p-6" style={{ border: "1px solid rgba(255,255,255,0.2)", background: "#101324" }}>
                 <svg width="42" height="18" viewBox="0 0 28 22" fill="none" className="mb-3">
                   <path d="M0 22V13.2C0 9.6.933 6.6 2.8 4.2 4.667 1.8 7.2.267 10.4 0L11.6 2C9.067 2.533 7.133 3.8 5.8 5.8 4.467 7.8 3.867 10 4 12.4H8V22H0ZM16 22V13.2C16 9.6 16.933 6.6 18.8 4.2 20.667 1.8 23.2.267 26.4 0L27.6 2C25.067 2.533 23.133 3.8 21.8 5.8 20.467 7.8 19.867 10 20 12.4H24V22H16Z" fill="#FFFFFF" fillOpacity="1" />
                 </svg>
@@ -112,7 +114,8 @@ export default function TrustedWorldwide() {
                   {c.author} , {" "}
                   <span style={{ color: "rgba(255,255,255,0.38)", fontWeight: 400 }}>{c.role}</span>
                 </p>
-              </div>
+                </div>
+              </StaggerItem>
             </div>
 
             {/* Right: image — hidden on mobile, shown lg+ */}

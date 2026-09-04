@@ -12,6 +12,7 @@ import {
   SiLaravel,
   SiReact,
 } from "react-icons/si";
+import { FadeIn, StaggerContainer, StaggerItem } from "./FadeIn";
 
 const tools = [
   { name: "Sketch", icon: SiSketch, color: "#F7B500" },
@@ -146,53 +147,57 @@ export default function IdeaToProduct() {
     <section style={{ background: "#07091A" }} className="py-16 sm:py-24">
       <div className="max-w-[1600px] mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
-          <TypingTerminal />
+          <FadeIn x={-40} duration={0.7}>
+            <TypingTerminal />
+          </FadeIn>
 
           <div className="mt-6 lg:mt-0">
 
-            <h2
-              className="font-heading font-extrabold mb-4"
-              style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(1.7rem,4vw,40px)", color: "white", lineHeight: 1.15 }}
-            >
-              <span className="text-[#FEBC2E]">From idea to product</span> <br /> Building a startup? We have a different page for you.
-            </h2>
+            <FadeIn y={30} delay={0.15} duration={0.6}>
+              <h2
+                className="font-heading font-extrabold mb-4"
+                style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(1.7rem,4vw,40px)", color: "white", lineHeight: 1.15 }}
+              >
+                <span className="text-[#FEBC2E]">From idea to product</span> <br /> Building a startup? We have a different page for you.
+              </h2>
+            </FadeIn>
 
-
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-3">
+            <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-3" staggerDelay={0.06}>
               {tools.map((tool) => {
                 const Icon = tool.icon;
 
                 return (
-                  <div
-                    key={tool.name}
-                    className="flex items-center justify-center gap-2 px-10 py-4.5 rounded-lg"
-                    style={{
-                      background: "#101324",
-                      border: "1px solid rgba(255,255,255,0.2)",
-                    }}
-                  >
-                    <Icon
-                      size={20}
+                  <StaggerItem key={tool.name} hover hoverY={-5} hoverScale={1.03}>
+                    <div
+                      className="flex items-center justify-center gap-2 px-10 py-4.5 rounded-lg"
                       style={{
-                        color: tool.color,
-                        flexShrink: 0,
-                      }}
-                    />
-
-                    <span
-                      style={{
-                        fontSize: "15px",
-                        fontWeight: 700,
-                        color: "rgba(255,255,255)",
-                        fontFamily: "var(--font-body)",
+                        background: "#101324",
+                        border: "1px solid rgba(255,255,255,0.2)",
                       }}
                     >
-                      {tool.name}
-                    </span>
-                  </div>
+                      <Icon
+                        size={20}
+                        style={{
+                          color: tool.color,
+                          flexShrink: 0,
+                        }}
+                      />
+
+                      <span
+                        style={{
+                          fontSize: "15px",
+                          fontWeight: 700,
+                          color: "rgba(255,255,255)",
+                          fontFamily: "var(--font-body)",
+                        }}
+                      >
+                        {tool.name}
+                      </span>
+                    </div>
+                  </StaggerItem>
                 );
               })}
-            </div>
+            </StaggerContainer>
           </div>
         </div>
       </div>
