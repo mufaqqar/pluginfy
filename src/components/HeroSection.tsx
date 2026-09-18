@@ -1,7 +1,49 @@
 "use client";
 
+import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { FadeIn, StaggerContainer, StaggerItem } from "./FadeIn";
+
+const helpingLines = [
+  "helping you automate smarter, operate faster, and grow stronger.",
+  "helping you simplify operations, accelerate innovation, and scale with confidence.",
+  "helping you reduce complexity, boost efficiency, and unlock growth.",
+  "helping you automate workflows, increase performance, and scale seamlessly.",
+  "helping you build smarter, innovate faster, and grow without limits.",
+];
+
+function useTypewriter(lines: string[], typingSpeed = 50, deletingSpeed = 30, pauseDuration = 2000) {
+  const [text, setText] = useState("");
+  const [lineIndex, setLineIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  const tick = useCallback(() => {
+    const currentLine = lines[lineIndex];
+
+    if (!isDeleting) {
+      setText(currentLine.slice(0, text.length + 1));
+      if (text.length + 1 === currentLine.length) {
+        setTimeout(() => setIsDeleting(true), pauseDuration);
+        return;
+      }
+    } else {
+      setText(currentLine.slice(0, text.length - 1));
+      if (text.length - 1 === 0) {
+        setIsDeleting(false);
+        setLineIndex((prev) => (prev + 1) % lines.length);
+        return;
+      }
+    }
+  }, [text, lineIndex, isDeleting, lines, pauseDuration]);
+
+  useEffect(() => {
+    const speed = isDeleting ? deletingSpeed : typingSpeed;
+    const timer = setTimeout(tick, speed);
+    return () => clearTimeout(timer);
+  }, [tick, isDeleting, typingSpeed, deletingSpeed]);
+
+  return text;
+}
 
 const stats = [
   { value: "40+", label: "Certified Engineers", icon: "/assets/Certified_Engineers-1.svg" },
@@ -18,6 +60,7 @@ const badges = [
 ];
 
 export default function HeroSection() {
+  const typewriterText = useTypewriter(helpingLines);
   return (
     <section
       className="relative min-h-screen flex items-center overflow-hidden pt-16"
@@ -59,6 +102,15 @@ export default function HeroSection() {
               >
                 We blend high-end aesthetics with technical precision to build digital experiences
                 that resonate and convert.
+              </p>
+            </FadeIn>
+            <FadeIn y={30} delay={0.15} duration={0.6}>
+              <p
+                className="mb-7 sm:mb-8 min-h-[44px]"
+                style={{ color: "rgba(255,255,255,0.55)", fontSize: "clamp(20px,2vw,24px)", lineHeight: 1.75, fontWeight: "500" }}
+              >
+                — {typewriterText}
+                <span className="typewriter-caret">|</span>
               </p>
             </FadeIn>
             <FadeIn y={20} delay={0.3} duration={0.5}>
