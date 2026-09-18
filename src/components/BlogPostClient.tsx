@@ -212,7 +212,7 @@ export default function BlogPostClient({
             <Link href="/blog" className="btn-outline" style={{ padding: "12px 28px", fontSize: "13px" }}>
               ← All Articles
             </Link>
-            <Link href="/contact" className="btn-primary" style={{ padding: "12px 28px", fontSize: "13px" }}>
+            <Link href="/contact" className="btn-primary btn-blink" style={{ padding: "12px 28px", fontSize: "13px" }}>
               Start a Project
             </Link>
           </div>

@@ -161,7 +161,7 @@ export default function ServicePage({ data }: { data: ServicePageData }) {
                 {data.heroDesc}
               </p>
               <div className="flex flex-wrap gap-3">
-                <Link href="/contact" className="btn-primary">Start a Project</Link>
+                <Link href="/contact" className="btn-primary btn-blink">Start a Project</Link>
                 <Link href="/" className="btn-outline">← Back to Home</Link>
               </div>
             </div>

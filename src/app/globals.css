@@ -98,3 +98,16 @@ body {
   text-transform: uppercase;
   color: #F5C518;
 }
+
+@keyframes cta-blink {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(254, 188, 46, 0.75);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(254, 188, 46, 0);
+  }
+}
+
+.btn-blink {
+  animation: cta-blink 1.6s ease-out infinite;
+}

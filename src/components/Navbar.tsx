@@ -199,7 +199,7 @@ export default function Navbar() {
 
         {/* CTA */}
         <div className="hidden md:block">
-          <button className="bg-white text-[#FEBC2E] text-sm font-bold uppercase hover:bg-[#FEBC2E] hover:text-white rounded-full" style={{ padding: "8px 20px" }} onClick={() => router.push("/contact")}>
+          <button className="bg-white text-[#FEBC2E] text-sm font-bold uppercase hover:bg-[#FEBC2E] hover:text-white rounded-full btn-blink" style={{ padding: "8px 20px" }} onClick={() => router.push("/contact")}>
             Start a Project
           </button>
         </div>
@@ -233,7 +233,7 @@ export default function Navbar() {
               {s.label}
             </Link>
           ))}
-          <button className="btn-primary text-sm mt-3 self-start" style={{ padding: "10px 22px" }} onClick={() => { setOpen(false); router.push("/contact"); }}>
+          <button className="btn-primary text-sm mt-3 self-start btn-blink" style={{ padding: "10px 22px" }} onClick={() => { setOpen(false); router.push("/contact"); }}>
             Start a Project
           </button>
         </div>
