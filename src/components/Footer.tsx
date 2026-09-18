@@ -2,7 +2,7 @@ const nav1 = [
   { label: "Services", href: "/contact" },
   { label: "Industries", href: "/about" },
   { label: "Cases", href: "/about" },
-  { label: "Blog", href: "/about" },
+  { label: "Blog", href: "/blog" },
 ];
 const nav2 = [
   { label: "About", href: "/about" },

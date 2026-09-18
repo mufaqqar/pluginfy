@@ -1,0 +1,313 @@
+[
+  {
+    "slug": "ai-first-roadmap-for-business",
+    "title": "The AI-First Roadmap: Turning Generative AI into Revenue",
+    "excerpt": "Generative AI is no longer a demo. Here is a practical, step-by-step roadmap to move from pilot projects to production systems that actually move the revenue needle.",
+    "cover": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop&auto=format",
+    "category": "AI & ML",
+    "tags": ["Generative AI", "Strategy", "LLM", "Enterprise"],
+    "date": "2026-03-12",
+    "readTime": "8 min read",
+    "author": { "name": "Umar Farooq", "role": "Co-Founder & CTO" },
+    "sections": [
+      {
+        "heading": "Start with a workflow, not a model",
+        "paragraphs": [
+          "Most AI initiatives fail not because the models are weak, but because they are bolted onto workflows nobody asked for. Before writing a single prompt, map the actual friction points inside your business: where does manual work eat hours, where do decisions lag, and where does unstructured data pile up?",
+          "The highest-leverage AI projects in 2026 share one trait — they replace a repeatable process rather than a creative one. Ticket triage, contract review, lead qualification, and report generation are far better first targets than trying to fully automate customer support end-to-end."
+        ]
+      },
+      {
+        "heading": "The pilot-to-production gap",
+        "paragraphs": [
+          "A ChatGPT-style demo feels magical and is nearly free. A production system, on the other hand, needs evaluation sets, guardrails, logging, latency budgets, and a feedback loop. Budget four to six times more engineering effort than the model work itself.",
+          "Build an evaluation harness early. Define 50 to 100 golden examples per task, score outputs automatically, and only then tune prompts, retrieval, and fine-tuning. Without an eval set, every 'improvement' is guesswork dressed up as progress."
+        ],
+        "bullets": [
+          "Define success metrics before the first experiment (accuracy, cost per resolution, time saved).",
+          "Pick one workflow and make it excellent before scaling to others.",
+          "Keep a human-in-the-loop during the first two quarters of rollout.",
+          "Instrument everything — every answer should be traceable, reviewable, and reversible."
+        ]
+      },
+      {
+        "heading": "Costs you should model upfront",
+        "paragraphs": [
+          "Token spend is the most visible cost and usually the least important one. The hidden costs — evaluation engineering, latency optimization, retraining drift, compliance review, and ongoing monitoring — are what determine whether an AI feature is a margin story or a cost center.",
+          "A good rule of thumb we share with clients at Pluginfy: for every $1 of model inference spend, plan for $4 of integration and governance cost in the first year. That ratio drops quickly as your evaluation harness matures and your prompts stabilize."
+        ],
+        "bullets": [
+          "Model routing (small models for easy tasks, large models only for hard ones) can cut inference spend by 60-80%.",
+          "Semantic caches for repeated queries remove the majority of token cost in read-heavy assistants.",
+          "Retrieval quality moves the needle more than model size once you are past mid-tier models."
+        ]
+      },
+      {
+        "heading": "People and governance",
+        "paragraphs": [
+          "The teams that ship AI fastest are not the ones with the largest ML headcount. They are the ones where domain experts and engineers sit together, where the eval set is owned by people who understand the business outcome, and where a senior leader owns the 'safety rail' decisions rather than leaving them to the model team alone.",
+          "Write down what the system is allowed to refuse, who reviews edge cases, and what a human override looks like. Regulators, enterprise buyers, and your own legal team will all ask. Answer it once, well, and the rest gets easier."
+        ]
+      }
+    ],
+    "conclusion": "The AI-first future belongs to companies that treat AI as a product engineering problem, not a science project. Pick one painful workflow, build an eval harness, ship with a human in the loop, and let the numbers — not the hype — decide what you scale next."
+  },
+  {
+    "slug": "build-for-scale-from-day-one",
+    "title": "Build for Scale from Day One: Architecture Lessons from 58 Shipped Products",
+    "excerpt": "Scaling is not a phase you reach later — it is a set of decisions you make at the start. Practical architecture patterns we apply to every web product we ship.",
+    "cover": "https://images.unsplash.com/photo-1547658719-da2b51169166?w=1200&h=630&fit=crop&auto=format",
+    "category": "Web Development",
+    "tags": ["Next.js", "Architecture", "SaaS", "Performance"],
+    "date": "2026-02-20",
+    "readTime": "7 min read",
+    "author": { "name": "Ayesha Khan", "role": "VP of Engineering" },
+    "sections": [
+      {
+        "heading": "Scale is a decision, not a milestone",
+        "paragraphs": [
+          "When startups talk about scaling, they usually mean 'handle more users later'. But the costliest re-architecture work happens when you defer decisions that are nearly free to make early — database migrations, cache boundaries, event logging, and module boundaries.",
+          "Over the 58 products we have shipped at Pluginfy, the pattern that separates the survivors is simple: design the data model and the API contract as if they are public, even when the product is internal. Interfaces are where the real commitments live."
+        ]
+      },
+      {
+        "heading": "Patterns that hold up under real traffic",
+        "paragraphs": [
+          "Every high-traffic application we build converges on the same core set of patterns, regardless of the domain:"
+        ],
+        "bullets": [
+          "Stateless app tiers backed by managed Postgres, with Redis for caching, sessions, and job queues.",
+          "An API layer that is versioned from day one so client changes never break the contract.",
+          "Server-side rendering or static generation for anything public — SEO, time-to-first-byte, and resilience all improve when your origin is cache-friendly.",
+          "Feature flags and zero-downtime deploys from the first sprint, not the hundredth."
+        ]
+      },
+      {
+        "heading": "Why Next.js is our default",
+        "paragraphs": [
+          "We standardize on React and Next.js because it collapses three layers that used to require three teams: UI, rendering strategy, and API routes. A marketing page can be fully static, a dashboard can stream, and a checkout can be server-rendered — all in one codebase with one deploy.",
+          "The App Router's per-route rendering model means most pages are still further than ever from the user, while truly dynamic routes stay fast. Combined with edge caching and incremental static regeneration, most of our clients see sub-200ms loads on the 95th percentile with no caching code of their own."
+        ]
+      },
+      {
+        "heading": "The monitoring you cannot skip",
+        "paragraphs": [
+          "Instrumentation is the only part of 'scale' you cannot retrofit cleanly. Log structured events from day one — every API call, cache miss, and third-party integration should carry a trace. Set alerting on the 95th percentile, not the average, and never let a dashboard page go out without a load test behind it."
+        ],
+        "bullets": [
+          "Track database query counts per request; that number predicts latency issues faster than raw timing.",
+          "Load-test the top three user journeys before every major release.",
+          "Keep a performance budget in CI — if a page exceeds it, the build fails."
+        ]
+      }
+    ],
+    "conclusion": "You cannot defer good architecture until traffic forces you to. Choose boring, proven technology, make your contracts explicit, and instrument from the first commit. Scale then becomes a gradual increase in capacity — not a bet-the-company rewrite."
+  },
+  {
+    "slug": "llm-agents-that-actually-ship",
+    "title": "LLM Agents That Actually Ship: A Field Guide",
+    "excerpt": "Agentic AI is where the real ROI hides — and where most teams get stuck. How we design LLM agents that are reliable, observable, and safe enough for production.",
+    "cover": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1200&h=630&fit=crop&auto=format",
+    "category": "AI & ML",
+    "tags": ["LLM Agents", "LangChain", "RAG", "Automation"],
+    "date": "2026-04-02",
+    "readTime": "9 min read",
+    "author": { "name": "Hamza Sheikh", "role": "Lead AI Engineer" },
+    "sections": [
+      {
+        "heading": "An agent is a workflow with a goal",
+        "paragraphs": [
+          "The word 'agent' gets overused, but the underlying idea is simple: a system that perceives, plans, acts, and observes the result. The difference between a great agent and a frustrating one is not the model — it is how tightly you constrain the loop around it.",
+          "Our field guide starts with a blunt rule: the more freedom you give the model, the more work you create for yourself. Start with the narrowest tool set that solves the task and widen it only when the eval set says you need to."
+        ]
+      },
+      {
+        "heading": "Design the loop before you write prompts",
+        "paragraphs": [
+          "Every agent we ship has the same skeleton, and we recommend you copy it: a goal statement, a bounded tool list, a step budget (maximum turns), a stop condition, and an escalation path to a human. Write all five down before prompting anything."
+        ],
+        "bullets": [
+          "Bounded tools: an agent with three well-scoped tools outperforms one with fifteen.",
+          "Step budget: cap iterations so runaway loops cannot burn tokens or cause damage.",
+          "Human escalation: define exactly what the agent must never do without approval.",
+          "Observability: log every step, tool call, and thought — debugging without it is archaeology."
+        ]
+      },
+      {
+        "heading": "RAG is 80% of the work",
+        "paragraphs": [
+          "Most agent failures trace back to retrieval, not reasoning. If the model cannot find the right context, no amount of clever prompting fixes it. Invest in chunking strategy, embedding quality, and re-ranking before you touch prompt engineering.",
+          "For enterprise knowledge bases, we typically run a hybrid of keyword and vector search, add metadata filters, and re-rank the top results with a cross-encoder. That combination reliably beats pure vector search on domain-specific jargon — and costs surprisingly little."
+        ]
+      },
+      {
+        "heading": "Evaluating agents is a different sport",
+        "paragraphs": [
+          "Traditional ML evaluation measures accuracy on fixed examples. Agent evaluation must measure whether the whole trajectory reached the goal — did it use the right tools in the right order, terminate within budget, and avoid forbidden actions?",
+          "Build a small library of realistic 'missions' with expected tool sequences, and score against them on every prompt or model change. Teams that skip this step are, frankly, operating on vibes."
+        ],
+        "bullets": [
+          "Score goal completion, tool-choice accuracy, and safety violations separately.",
+          "Maintain adversarial cases: ambiguous requests, missing data, and malicious prompt-injection attempts.",
+          "Re-run your regression set before every deploy; agent regressions are silent and subtle."
+        ]
+      }
+    ],
+    "conclusion": "Agents ship when their loops are narrow, their tools are bounded, their retrieval is excellent, and their behavior is continuously evaluated. Get those four things right and the model becomes a detail — get them wrong and the biggest model in the world will not save you."
+  },
+  {
+    "slug": "native-vs-cross-platform-2026",
+    "title": "Native vs. Cross-Platform in 2026: How to Choose",
+    "excerpt": "Flutter, React Native, Swift, or Kotlin? The right answer depends on team, timeline, and the features your product truly needs — not on hype.",
+    "cover": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop&auto=format",
+    "category": "Mobile Development",
+    "tags": ["Flutter", "React Native", "iOS", "Android"],
+    "date": "2026-05-15",
+    "readTime": "6 min read",
+    "author": { "name": "Bilal Ahmad", "role": "Head of Mobile" },
+    "sections": [
+      {
+        "heading": "The honest trade-off",
+        "paragraphs": [
+          "By 2026 the old 'cross-platform is a compromise' line is mostly outdated. Both Flutter and React Native produce apps that feel native on iOS and Android, and the performance gap on ordinary business apps is negligible. The real differences are team leverage, platform-specific reach, and release velocity.",
+          "Choose based on three questions: how many platforms you must serve, how deep your platform integrations need to go, and what your team already knows. Everything else is noise."
+        ]
+      },
+      {
+        "heading": "When native wins",
+        "paragraphs": [
+          "Native still wins when your product leans heavily into platform capabilities — advanced AR, complex gesture systems, high-frame-rate rendering, deep integration with health/accessibility frameworks, or hardware peripherals. If a single platform pays your bills (think field-service or point-of-sale), write native.",
+          "Native also wins when you have two dedicated mobile teams living in Swift and Kotlin, because then the 'one team, two codebases' tax disappears entirely."
+        ],
+        "bullets": [
+          "Advanced camera/AR pipelines and sensor fusion favor native.",
+          "Regulated or hardware-tethered industries (medical, IoT gateways) favor native.",
+          "If one OS represents 85%+ of users, ship native for that OS first."
+        ]
+      },
+      {
+        "heading": "When cross-platform wins",
+        "paragraphs": [
+          "Cross-platform wins on speed-to-market and team economics: one codebase, one CI pipeline, one QA pass. We default to Flutter for consumer and B2B SaaS apps where UI consistency matters and for teams that cannot afford two full-time native squads. React Native remains the stronger choice when the team is already deep in the React/TypeScript ecosystem and needs to share code with a web app."
+        ],
+        "bullets": [
+          "One shared codebase cuts maintenance of forms, navigation, and theming roughly in half.",
+          "Startup timelines: MVP on both platforms in the time a native team builds one.",
+          "Code sharing with web (TypeScript types, API clients, business logic) is a compounding win.",
+          "Warm builds: hiring two native engineers is often slower and pricier than one strong cross-platform team."
+        ]
+      },
+      {
+        "heading": "A decision framework you can use today",
+        "paragraphs": [
+          "Do not let 'we might need AR later' doom a cross-platform launch. List the features that are actually in the first three releases of your roadmap. If fewer than two of them require deep native APIs, ship cross-platform now and isolate those features behind a thin native plugin layer — Flutter and React Native both support writing platform-specific modules that let you go native exactly where you need to."
+        ]
+      }
+    ],
+    "conclusion": "Ship velocity and team leverage decide the stack, not ideology. Default to cross-platform for most B2B and consumer products, choose native when platform depth is a top-three feature, and always protect a thin native boundary for the features that inevitably need one."
+  },
+  {
+    "slug": "from-ci-cd-to-mlops",
+    "title": "From CI/CD to MLOps: Production Workflows for Machine Learning",
+    "excerpt": "Shipping a model is not the finish line — it is the start of an operations problem. How mature DevOps teams extend their pipelines to machine learning.",
+    "cover": "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop&auto=format",
+    "category": "DevOps",
+    "tags": ["MLOps", "CI/CD", "MLflow", "Kubernetes"],
+    "date": "2026-06-09",
+    "readTime": "8 min read",
+    "author": { "name": "Zainab Raza", "role": "Principal DevOps Engineer" },
+    "sections": [
+      {
+        "heading": "Software engineering caught up with ML — now ML must catch up",
+        "paragraphs": [
+          "Ten years ago the question was whether DevOps principles could carry machine learning. Today the answer is yes, with one twist: ML adds a data dimension that code-only pipelines never had. Models are code plus data plus configuration, and all three drift over time.",
+          "Your existing CI/CD muscle — version control, review, staging, rollback — applies perfectly to ML code. The new work is handling the artifacts, the experiments, and the performance monitoring that make ML a living system."
+        ]
+      },
+      {
+        "heading": "MLOps is CI/CD with three extra pillars",
+        "paragraphs": [
+          "Treat every model like an application deployable, so it benefits from everything you already do for web services."
+        ],
+        "bullets": [
+          "Versioning: code, data, and model artifacts all get immutable, traceable versions from the same pipeline.",
+          "Reproducibility: an experiment is only valid if a teammate can rebuild it from the recorded recipe.",
+          "Registry: a model registry (MLflow or similar) as the single source of truth for what is promoted to production.",
+          "Monitoring: track data drift, prediction quality, and latency in production — not just training metrics."
+        ]
+      },
+      {
+        "heading": "A practical MLOps pipeline",
+        "paragraphs": [
+          "The pipeline we ship for clients is deliberately boring, because boring pipelines run. It looks like this: data validation triggers a training job in a clean container; training logs every hyperparameter and metric to the registry; a promotion gate evaluates the eval set and blocks poor candidates; the winning artifact is packaged into a serving image; the deployment rolls out behind a feature flag; and a monitoring stack watches drift and quality continuously."
+        ],
+        "bullets": [
+          "Data validation first — a broken feature in the source data beats any modeling fix.",
+          "Containerize training and serving identically to remove 'works on my laptop' drift.",
+          "Rollback is a container version — never retrain to fix a serving regression.",
+          "Alert on drift before users notice degradation; your support queue is not your monitoring system."
+        ]
+      },
+      {
+        "heading": "Where the cloud matters",
+        "paragraphs": [
+          "For most workloads a managed stack on AWS, Azure, or GCP — managed Kubernetes, a managed registry, and object storage with versioning — removes weeks of operational work and costs far less than a DIY cluster. Reserve bespoke infrastructure for latency-critical, high-throughput inference where you can prove the savings.",
+          "Whatever you choose, the principles stay the same: everything reproducible, everything versioned, everything observable. If a stakeholder asks 'what model is serving right now?', your answer should be one command away."
+        ]
+      }
+    ],
+    "conclusion": "ML operations are not a separate discipline — they are DevOps applied to systems whose behavior changes without a human touching the code. Version data, register every model, gate promotions on evidence, and monitor in production. Do that, and your ML goes from experiment to infrastructure."
+  },
+  {
+    "slug": "blockchain-beyond-crypto",
+    "title": "Blockchain Beyond Crypto: Smart Contracts for the Enterprise",
+    "excerpt": "The real enterprise use cases for blockchain were never about 'coin' — they are about trust between parties who do not trust each other. What actually ships today.",
+    "cover": "https://images.unsplash.com/photo-1622630998477-20aa696ecb05?w=1200&h=630&fit=crop&auto=format",
+    "category": "Blockchain",
+    "tags": ["Smart Contracts", "DeFi", "RWA", "Audit"],
+    "date": "2026-07-22",
+    "readTime": "7 min read",
+    "author": { "name": "Ali Raza", "role": "Blockchain Lead" },
+    "sections": [
+      {
+        "heading": "The question is trust, not technology",
+        "paragraphs": [
+          "Blockchain never promised to be faster or cheaper than a database. It promised something databases cannot: a shared, tamper-evident record that no single party controls. The enterprise projects that succeed are the ones that need exactly that — not the ones that adopted it because it was trendy.",
+          "If your process can settle with a trusted intermediary and a spreadsheet, you do not need a chain, and no amount of tokenomics changes that. The discipline of knowing when not to use blockchain is the first real deliverable."
+        ]
+      },
+      {
+        "heading": "Where production deployments actually live",
+        "paragraphs": [
+          "The mature use cases cluster around a few patterns: provenance and supply chain traceability, financial settlement between regulated counterparties, tokenization of real-world assets (RWA), and verifiable credential issuance. All of them share one trait — multiple parties, no single authority, and a need for one source of truth."
+        ],
+        "bullets": [
+          "Supply chain: an immutable audit trail that every partner appends to, nobody rewrites.",
+          "RWA tokenization: fractional ownership of physical assets with auditable on-chain ledgers.",
+          "Stable settlement rails: reducing reconciliation cycles between treasury systems.",
+          "Verifiable credentials: tamper-evident certifications that third parties can check without calling you."
+        ]
+      },
+      {
+        "heading": "Security is a feature, not an add-on",
+        "paragraphs": [
+          "Smart contracts are unforgiving: a bug is the system working exactly as written. Enterprises that ship tokens, custodial logic, or financial settlement on-chain treat security review as a mandatory gate, not a milestone. We run every contract through threat modeling, static analysis, and independent audit before any mainnet funds touch it."
+        ],
+        "bullets": [
+          "Threat-model the upgrade path and admin keys before the contract logic — privilege is the attack surface.",
+          "Use formal verification for the highest-risk invariants (balance math, access control).",
+          "Ship upgrades with timelocks so interventions are public and observable.",
+          "Maintain a bug-bounty window and an on-call response runbook before launch."
+        ]
+      },
+      {
+        "heading": "Tokenizing real-world assets: the next big wave",
+        "paragraphs": [
+          "The clearest enterprise trend of 2026 is tokenization of real-world assets — from invoices and bonds to real estate and commodities. The value is not novelty; it is liquidity and programmability. An invoice tokenized on-chain can be split, traded, and settled automatically against a smart contract, collapsing what used to be a two-week treasury process into minutes.",
+          "The winners will be the teams that keep the legal and the technical in lockstep — a token is only as real as the off-chain asset and the jurisdiction behind it. Engineering excellence matters, but so does the paperwork."
+        ]
+      }
+    ],
+    "conclusion": "Blockchain earns its keep where trust is scarce and reconciliation is expensive. Pick a process with multiple distrusting parties, design the security model before the contract, and keep legal and tech moving together. The technology is mature; the discipline around it is what will set the winners apart."
+  }
+]

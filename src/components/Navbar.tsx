@@ -17,6 +17,7 @@ const NAV_LINKS = [
   { label: "Home", id: "home" },
   { label: "Services", id: "services" },
   { label: "About", id: "about" },
+  { label: "Blog", id: "blog" },
   { label: "Contact", id: "contact" },
 ];
 
@@ -63,6 +64,7 @@ export default function Navbar() {
     setOpen(false);
     setMegaOpen(false);
     if (id === "about") { router.push("/about"); return; }
+    if (id === "blog") { router.push("/blog"); return; }
     if (id === "contact") { router.push("/contact"); return; }
     if (id === "home" && isHome) { window.scrollTo({ top: 0, behavior: "smooth" }); return; }
     if (isHome) {
@@ -75,6 +77,7 @@ export default function Navbar() {
 
   const isActiveLink = (id: string) => {
     if (id === "about") return pathname === "/about";
+    if (id === "blog") return pathname.startsWith("/blog");
     if (id === "contact") return pathname === "/contact";
     return isHome && active === id;
   };
