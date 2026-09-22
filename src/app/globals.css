@@ -42,9 +42,9 @@ body {
   color: #303030;
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 14px;
   text-transform: uppercase;
-  padding: 16px 35px;
+  padding: 8px 20px;
   transition: background 0.2s;
   cursor: pointer;
   border: none;
@@ -67,10 +67,10 @@ body {
   border: 1px solid #FEBC2E;
   color: #FEBC2E;
   font-family: 'Plus Jakarta Sans', sans-serif;
- font-weight: 700;
-  font-size: 16px;
+  font-weight: 700;
+  font-size: 14px;
   text-transform: uppercase;
-  padding: 16px 35px;
+  padding: 8px 20px;
   transition: border-color 0.2s, background 0.2s;
   cursor: pointer;
   background: transparent;
@@ -100,9 +100,12 @@ body {
 }
 
 @keyframes cta-blink {
-  0%, 100% {
+
+  0%,
+  100% {
     box-shadow: 0 0 0 0 rgba(254, 188, 46, 0.75);
   }
+
   50% {
     box-shadow: 0 0 0 10px rgba(254, 188, 46, 0);
   }
@@ -121,10 +124,22 @@ body {
 }
 
 @keyframes caret-blink {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 1;
   }
+
   50% {
     opacity: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+
+  .btn-primary,
+  .btn-outline {
+    padding: 6px 11px;
+    font-size: 10px;
   }
 }

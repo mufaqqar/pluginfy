@@ -64,7 +64,7 @@ export default function HeroSection() {
   const typewriterText = useTypewriter(helpingLines);
   return (
     <section
-      className="relative min-h-screen flex flex-col justify-center items-center overflow-hidden pt-10"
+      className="relative min-h-screen flex flex-col justify-around items-center overflow-hidden pt-10"
       style={{ background: "#07091A" }}
     >
       {/* Background shape */}
@@ -72,18 +72,26 @@ export default function HeroSection() {
         <img src="/assets/bg_logo_shape.svg" alt="" className="w-full max-w-xl lg:max-w-2xl" />
       </div>
 
-      <div className="relative z-10 max-w-[1600px] mx-auto px-4 sm:px-6 py-6 sm:pt-10 sm:pb-6 w-full">
+      <div className="z-10 max-w-[1600px] mx-auto px-4 sm:px-6 py-6 pt-20 sm:pt-10 sm:pb-6 w-full self-center">
         <div className="flex md:flex-row flex-col gap-10 lg:gap-14 items-center">
-
           {/* Left: headline */}
-          <div className="md:w-[55%] w-full">
+          <div className="md:w-[55%] w-full sm:pr-0 pr-8">
             <FadeIn y={40} duration={0.7}>
+              <p
+                className="mb-2 sm:mb-2 uppercase inline-flex items-center gap-1"
+                style={{ color: "rgba(255,255,255,0.55)", fontSize: "clamp(14px,2vw,16px)", lineHeight: 1.75, fontWeight: "500" }}
+              >
+                Ideas  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <path d="M2 7h10M8 3l4 4-4 4" stroke="#F5C518" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                </svg> Technology  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <path d="M2 7h10M8 3l4 4-4 4" stroke="#F5C518" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                </svg> Real Impact</p>
               <h1
                 className="font-heading font-extrabold leading-none tracking-tight mb-5 sm:mb-6"
                 style={{
                   fontFamily: "var(--font-heading)",
-                  fontSize: "clamp(2rem,8vw,56px)",
-                  lineHeight: "clamp(2rem,8vw,56px)",
+                  fontSize: "clamp(1.1rem,6vw,56px)",
+                  lineHeight: "clamp(1rem,6vw,56px)",
                   color: "white",
                   fontWeight: "600",
                   letterSpacing: "-0.02em",
@@ -102,7 +110,7 @@ export default function HeroSection() {
             </FadeIn>
             <FadeIn y={30} delay={0.15} duration={0.6}>
               <p
-                className="mb-3 sm:mb-5 min-h-[44px]"
+                className="mb-3 sm:mb-5 sm:min-h-[44px] min-h-[85px]"
                 style={{ color: "rgba(255,255,255,0.55)", fontSize: "clamp(16px,2vw,18px)", lineHeight: 1.75, fontWeight: "500" }}
               >
                 — {typewriterText}
@@ -140,8 +148,8 @@ export default function HeroSection() {
                   </svg>
 
                   <div>
-                    <div className="text-sm font-semibold text-white/55">Solve</div>
-                    <div className="text-sm font-semibold text-white/55">Real Problems</div>
+                    <div className="sm:text-sm text-[10px] font-semibold text-white/55">Solve</div>
+                    <div className="sm:text-sm text-[10px] font-semibold text-white/55">Real Problems</div>
                   </div>
                 </div>
 
@@ -166,10 +174,10 @@ export default function HeroSection() {
                   </svg>
 
                   <div>
-                    <p className="text-sm font-semibold text-white/55">
+                    <p className="sm:text-sm text-[10px] font-semibold text-white/55">
                       Automate
                     </p>
-                    <p className="text-sm font-semibold text-white/55">
+                    <p className="sm:text-sm text-[10px] font-semibold text-white/55">
                       What Matters
                     </p>
                   </div>
@@ -197,10 +205,10 @@ export default function HeroSection() {
                   </svg>
 
                   <div>
-                    <p className="text-sm font-semibold text-white/55">
+                    <p className="sm:text-sm text-[10px] font-semibold text-white/55">
                       Scale
                     </p>
-                    <p className="text-sm font-semibold text-white/55">
+                    <p className="sm:text-sm text-[10px] font-semibold text-white/55">
                       With Confidence
                     </p>
                   </div>
@@ -209,9 +217,57 @@ export default function HeroSection() {
               </div>
             </FadeIn>
           </div>
+          <div className="sm:hidden block absolute right-0">
+            <StaggerContainer className="grid grid-cols-1 gap-3 sm:gap-4 mt-8 lg:mt-0" staggerDelay={0.1}>
 
+              {/* 4 stat cards */}
+              {stats.map((s) => (
+                <StaggerItem key={s.value + s.label} hover hoverY={-6} hoverScale={1.02}>
+                  <div
+                    className="card-dark p-3 flex flex-col justify-between"
+                    style={{ borderRadius: "14px", minHeight: "30px" }}
+                  >
+                    <div className="flex items-start justify-between">
+                      <span
+                        className="font-heading font-extrabold"
+                        style={{
+                          fontSize: "clamp(1rem,4vw,1.3rem)",
+                          color: "white",
+                          fontFamily: "var(--font-heading)",
+                          lineHeight: 1,
+                        }}
+                      >
+                        {s.value}
+                      </span>
+
+                    </div>
+                  </div>
+                </StaggerItem>
+              ))}
+
+              {/* Rating + badges card */}
+              <StaggerItem className="col-span-1">
+                <div
+                  className="card-dark p-3"
+                  style={{ borderRadius: "14px" }}
+                >
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
+                    {/* Stars + score */}
+                    <div className="flex-shrink-0">
+                      <span
+                        className="font-heading font-bold"
+                        style={{ fontSize: "clamp(1rem,4vw,1.3rem)", color: "#fff", fontFamily: "var(--font-heading)" }}
+                      >
+                        5.0
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </StaggerItem>
+            </StaggerContainer>
+          </div>
           {/* Right: stats grid */}
-          <StaggerContainer className="md:w-[45%] w-full grid grid-cols-2 gap-3 sm:gap-4 mt-8 lg:mt-0" staggerDelay={0.1}>
+          <StaggerContainer className="sm:w-[45%] w-full hidden sm:grid grid-cols-2 gap-3 sm:gap-4 mt-8 lg:mt-0" staggerDelay={0.1}>
 
             {/* 4 stat cards */}
             {stats.map((s) => (
@@ -224,7 +280,7 @@ export default function HeroSection() {
                     <span
                       className="font-heading font-extrabold"
                       style={{
-                        fontSize: "clamp(1.6rem,4vw,2rem)",
+                        fontSize: "clamp(1.6rem,4vw,1.3rem)",
                         color: "white",
                         fontFamily: "var(--font-heading)",
                         lineHeight: 1,
@@ -238,7 +294,7 @@ export default function HeroSection() {
                       style={{ width: 36, height: 36, objectFit: "contain", flexShrink: 0 }}
                     />
                   </div>
-                  <span className="inline-flex max-w-[152px] min-h-[58px]" style={{ color: "rgba(255,255,255)", fontSize: "14px", lineHeight: 1.45, marginTop: 8 }}>
+                  <span className="inline-flex max-w-[152px] min-h-[40px]" style={{ color: "rgba(255,255,255)", fontSize: "14px", lineHeight: 1.45, marginTop: 8 }}>
                     {s.label}
                   </span>
                 </div>
@@ -256,7 +312,7 @@ export default function HeroSection() {
                   <div className="flex-shrink-0">
                     <span
                       className="font-heading font-bold"
-                      style={{ fontSize: "clamp(1.6rem,4vw,2rem)", color: "#fff", fontFamily: "var(--font-heading)" }}
+                      style={{ fontSize: "clamp(1.6rem,4vw,1.3rem)", color: "#fff", fontFamily: "var(--font-heading)" }}
                     >
                       5.0
                     </span>
@@ -289,7 +345,7 @@ export default function HeroSection() {
           </StaggerContainer>
         </div>
       </div>
-      <TrustedBy /> 
+      <TrustedBy />
     </section>
   );
 }
