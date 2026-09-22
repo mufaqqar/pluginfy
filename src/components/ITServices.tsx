@@ -5,89 +5,45 @@ import { FadeIn, StaggerContainer, StaggerItem } from "./FadeIn";
 
 const services = [
   {
-    title: "AI & ML Development",
+    title: "AI & Automation",
     icon: "🤖",
-    desc: "We help you turn your data into something useful. Predictive models that catch issues early, computer vision that sees what humans miss, and LLM agents that handle the boring parts.",
-    projects: ["SaaS Platforms", "Enterprise ERPs", "E-commerce Stores"],
+    desc: "LLM agents, RAG pipelines, and workflow automation that plug into your existing stack — we turn your data into something useful and let AI handle the boring parts.",
+    projects: ["AI Assistants & Agents", "Workflow Automation", "RAG & Knowledge Systems"],
     tools: [
       { name: "Python", icon: "/assets/tools/1.png", color: "#3776AB" },
       { name: "OpenAI", icon: "/assets/tools/2.png", color: "#74AA9C" },
-      { name: "TensorFlow", icon: "/assets/tools/3.png", color: "#FF6F00" },
-      { name: "PyTorch", icon: "/assets/tools/4.png", color: "#EE4C2C" },
       { name: "LangChain", icon: "/assets/tools/5.png", color: "#FFFFFF" },
+      { name: "PyTorch", icon: "/assets/tools/4.png", color: "#EE4C2C" },
     ],
     href: "/services/ai-ml-development",
   },
 
   {
-    title: "Web Development",
+    title: "Custom Software",
     icon: "🖥️",
-    desc: "We obsess that hold up under real traffic. We build on React, Next.js, and Node.js. SaaS dashboards, headless storefronts, internal portals, the works.",
-    projects: ["SaaS Platforms", "Enterprise ERPs", "E-commerce Stores"],
+    desc: "Tailored products, SaaS platforms, and internal tools engineered to your spec. We build on React, Next.js, and Node.js so it holds up under real traffic.",
+    projects: ["SaaS Platforms", "Internal Portals", "Data Dashboards"],
     tools: [
       { name: "React", icon: "/assets/tools/6.png", color: "#61DAFB" },
-      { name: "Python", icon: "/assets/tools/1.png", color: "#3776AB" },
+      { name: "Next.js", icon: "/assets/tools/6.png", color: "#FFFFFF" },
+      { name: "Node.js", icon: "/assets/tools/19.png", color: "#8CC84B" },
       { name: "PostgreSQL", icon: "/assets/tools/7.png", color: "#336791" },
     ],
     href: "/services/web-development",
   },
 
   {
-    title: "Mobile App Development",
-    icon: "📱",
-    desc: "iOS, Android, or both. We pick the right approach (Swift, Kotlin, Flutter, or React Native) based on what your product actually needs, not what's trending.",
-    projects: ["SaaS Platforms", "Enterprise ERPs", "E-commerce Stores"],
+    title: "ERP & E-Commerce",
+    icon: "🛒",
+    desc: "End-to-end ERP solutions and high-converting e-commerce platforms — checkout, payments, inventory, and back-office systems working as one connected whole.",
+    projects: ["ERP Integrations", "Headless Storefronts", "Payment & Checkout"],
     tools: [
-      { name: "Flutter", icon: "/assets/tools/8.png", color: "#54C5F8" },
-      { name: "React Native", icon: "/assets/tools/9.png", color: "#61DAFB" },
-      { name: "Swift", icon: "/assets/tools/10.png", color: "#FA7343" },
+      { name: "Laravel", icon: "/assets/tools/23.png", color: "#FF2D20" },
       { name: "React", icon: "/assets/tools/6.png", color: "#61DAFB" },
+      { name: "PostgreSQL", icon: "/assets/tools/7.png", color: "#336791" },
+      { name: "Vue.js", icon: "/assets/tools/8.png", color: "#42B883" },
     ],
-    href: "/services/mobile-app-development",
-  },
-
-  {
-    title: "QA & Testing",
-    icon: "🧪",
-    desc: "Testing isn't an afterthought. Functional, performance, and security checks run inside every sprint, so bugs don't pile up at the end.",
-    projects: ["Automated Regression Suites", "Performance Load Testing"],
-    tools: [
-      { name: "Selenium", icon: "/assets/tools/11.png", color: "#43B02A" },
-      { name: "Cypress", icon: "/assets/tools/12.png", color: "#69D3A7" },
-      { name: "Jest", icon: "/assets/tools/13.png", color: "#C21325" },
-      { name: "k6", icon: "/assets/tools/14.png", color: "#7D64FF" },
-    ],
-    href: "/services/qa-testing",
-  },
-
-  {
-    title: "DevOps Services",
-    icon: "☁️",
-    desc: "Faster deploys, lower cloud bills. We set up DevOps on AWS, Azure, or GCP so your team can ship without waiting on infrastructure.",
-    projects: ["CI/CD Pipeline Automation", "Serverless Architectures", "Migrations"],
-    tools: [
-      { name: "AWS", icon: "/assets/tools/15.png", color: "#FF9900" },
-      { name: "Terraform", icon: "/assets/tools/16.png", color: "#7B42BC" },
-      { name: "Docker", icon: "/assets/tools/17.png", color: "#2496ED" },
-      { name: "Kubernetes", icon: "/assets/tools/18.png", color: "#326CE5" },
-       { name: "Kubernetes", icon: "/assets/tools/19.png", color: "#326CE5" },
-        { name: "Kubernetes", icon: "/assets/tools/20.png", color: "#326CE5" },
-    ],
-    href: "/services/devops",
-  },
-
-  {
-    title: "Blockchain Development",
-    icon: "☁️",
-    desc: "Smart contracts and Web3, audited the way institutions need them. DeFi platforms, NFT marketplaces, and on-chain ledgers, secure by design.",
-    projects: ["DeFi Platforms", "NFT Marketplaces", "Secure Digital Ledgers"],
-    tools: [
-      { name: "Solidity", icon: "/assets/tools/21.png", color: "#FFFFFF" },
-      { name: "Ethereum", icon: "/assets/tools/22.png", color: "#627EEA" },
-      { name: "IPFS", icon: "/assets/tools/23.png", color: "#65C2CB" },
-      { name: "Hardhat", icon: "/assets/tools/24.png", color: "#FFF100" },
-    ],
-    href: "/services/blockchain",
+    href: "/services/web-development",
   },
 ];
 
@@ -113,10 +69,9 @@ export default function ITServices() {
               color: "#fff",
             }}
           >
-            We Offer a Wide <br />
-            Variety of{" "}
+            AI & Automation, Custom Software,<br />
             <span style={{ color: "#F5C518" }}>
-              IT Services
+              ERP & E-Commerce
             </span>
           </h2>
         </FadeIn>
@@ -139,12 +94,13 @@ export default function ITServices() {
           staggerDelay={0.08}
         >
           {services.map((service) => (
-            <StaggerItem key={service.title}  >
+            <StaggerItem key={service.title} className="h-full" >
               <div
                 className="
                   relative
                   flex
                   flex-col
+                  h-full
                   min-h-[330px]
                   p-5
                   sm:p-6

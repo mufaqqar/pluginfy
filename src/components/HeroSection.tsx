@@ -72,11 +72,11 @@ export default function HeroSection() {
         <img src="/assets/bg_logo_shape.svg" alt="" className="w-full max-w-xl lg:max-w-2xl" />
       </div>
 
-      <div className="relative z-10 max-w-[1600px] mx-auto px-4 sm:px-6 py-6 sm:py-10 w-full">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+      <div className="relative z-10 max-w-[1600px] mx-auto px-4 sm:px-6 py-6 sm:pt-10 sm:pb-6 w-full">
+        <div className="flex md:flex-row flex-col gap-10 lg:gap-14 items-center">
 
           {/* Left: headline */}
-          <div>
+          <div className="md:w-[55%] w-full">
             <FadeIn y={40} duration={0.7}>
               <h1
                 className="font-heading font-extrabold leading-none tracking-tight mb-5 sm:mb-6"
@@ -94,7 +94,7 @@ export default function HeroSection() {
             </FadeIn>
             <FadeIn y={30} delay={0.15} duration={0.6}>
               <p
-                className="mb-7 sm:mb-8"
+                className="mb-2 sm:mb-2"
                 style={{ color: "rgba(255,255,255,0.55)", fontSize: "clamp(16px,2vw,18px)", lineHeight: 1.75, fontWeight: "500" }}
               >
                 We engineer Al, automation, integrations, and custom software components that plug seamlessly into your technology ecosystem.
@@ -102,7 +102,7 @@ export default function HeroSection() {
             </FadeIn>
             <FadeIn y={30} delay={0.15} duration={0.6}>
               <p
-                className="mb-7 sm:mb-8 min-h-[44px]"
+                className="mb-3 sm:mb-5 min-h-[44px]"
                 style={{ color: "rgba(255,255,255,0.55)", fontSize: "clamp(16px,2vw,18px)", lineHeight: 1.75, fontWeight: "500" }}
               >
                 — {typewriterText}
@@ -211,7 +211,7 @@ export default function HeroSection() {
           </div>
 
           {/* Right: stats grid */}
-          <StaggerContainer className="grid grid-cols-2 gap-3 sm:gap-4 mt-8 lg:mt-0" staggerDelay={0.1}>
+          <StaggerContainer className="md:w-[45%] w-full grid grid-cols-2 gap-3 sm:gap-4 mt-8 lg:mt-0" staggerDelay={0.1}>
 
             {/* 4 stat cards */}
             {stats.map((s) => (
@@ -289,7 +289,7 @@ export default function HeroSection() {
           </StaggerContainer>
         </div>
       </div>
-      <TrustedBy />
+      <TrustedBy /> 
     </section>
   );
 }

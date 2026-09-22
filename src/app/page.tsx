@@ -5,6 +5,7 @@ import ServicesSection from "@/components/ServicesSection";
 import ITServices from "@/components/ITServices";
 import TrustedWorldwide from "@/components/TrustedWorldwide";
 import ToolsSection from "@/components/ToolsSection";
+import FAQSection from "@/components/FAQsSection";
 import CTASection from "@/components/CTASection";
 import ContactSection from "@/components/ContactSection";
 import type { Metadata } from "next";
@@ -28,6 +29,7 @@ export default function HomePage() {
       <ITServices />
       <div id="about"><TrustedWorldwide /></div>
       <ToolsSection />
+      <FAQSection />
       <CTASection />
       <div id="contact"><ContactSection /></div>
     </>

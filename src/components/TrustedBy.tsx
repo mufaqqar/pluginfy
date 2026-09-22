@@ -18,9 +18,9 @@ export default function TrustedBy() {
         overflow: "hidden",
       }}
     >
-      <div className="py-10">
+      <div className="pb-10 pt-0">
         <p
-          className="text-center text-sm font-normal tracking-widest uppercase mb-8"
+          className="text-center text-sm font-normal tracking-widest uppercase mb-5"
           style={{ color: "rgba(255,255,255)", fontFamily: "var(--font-heading)" }}
         >
           THEY TRUSTED US
