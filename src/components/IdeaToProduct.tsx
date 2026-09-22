@@ -121,7 +121,7 @@ function TypingTerminal() {
           const isActive = cursorLine === i;
           return (
             <div key={i} className="flex items-center flex-wrap" style={{ minHeight: "1.6rem" }}>
-              <span style={{ color: line.style === "comment" ? "rgba(255,255,255,0.4)" : "#F5C518", whiteSpace: "pre" }}>
+              <span style={{ color: line.style === "comment" ? "rgba(255,255,255,0.4)" : "#F5C518", whiteSpace: "pre-wrap" }}>
                 {text}
               </span>
               {isActive && (
