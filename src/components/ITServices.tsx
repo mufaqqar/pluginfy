@@ -246,9 +246,8 @@ export default function ITServices() {
                   {service.tools.map((tool) => {
 
                     return (
-                      <div className="flex items-center gap-3">
+                      <div key={tool.name} className="flex items-center gap-3">
                         <img
-                          key={tool.name}
                           src={tool.icon}
                           alt={tool.name}
                           title={tool.name}

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, type Variants, type TargetAndTransition } from "framer-motion";
+import { motion } from "framer-motion";
 import { type CSSProperties, type ReactNode } from "react";
 
 interface FadeInProps {
@@ -14,11 +14,6 @@ interface FadeInProps {
   once?: boolean;
   style?: CSSProperties;
 }
-
-const defaultVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1 },
-};
 
 export function FadeIn({
   children,
