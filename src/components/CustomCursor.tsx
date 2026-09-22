@@ -57,8 +57,8 @@ export default function CustomCursor() {
         left-0
         top-0
         z-[99999]
-        h-10
-        w-10
+        sm:h-10
+        sm:w-10
         rounded-full
         border
         border-black

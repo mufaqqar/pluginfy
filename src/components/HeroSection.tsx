@@ -118,7 +118,7 @@ export default function HeroSection() {
               </p>
             </FadeIn>
             <FadeIn y={20} delay={0.3} duration={0.5}>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-1">
                 <Link href="/contact" className="btn-primary btn-blink inline-flex items-center gap-2">
                   Start Your Project
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
