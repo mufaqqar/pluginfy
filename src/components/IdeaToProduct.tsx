@@ -158,7 +158,7 @@ export default function IdeaToProduct() {
                 className="font-heading font-extrabold mb-4"
                 style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(1.7rem,4vw,40px)", color: "white", lineHeight: 1.15 }}
               >
-                <span className="text-[#FEBC2E]">From idea to product</span> <br /> Building a startup? We have a different page for you.
+                Technologies
               </h2>
             </FadeIn>
 

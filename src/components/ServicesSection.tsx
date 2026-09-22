@@ -172,9 +172,7 @@ export default function ServicesSection() {
           className="font-heading font-bold mb-3"
           style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(1.5rem,4vw,40px)", color: "white" }}
         >
-          Design the Concept
-          <br />
-          of Your Business Idea Now
+          Case Studies
         </h2>
 
         {/* Desktop accordion */}

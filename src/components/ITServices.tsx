@@ -69,10 +69,7 @@ export default function ITServices() {
               color: "#fff",
             }}
           >
-            AI & Automation, Custom Software,<br />
-            <span style={{ color: "#F5C518" }}>
-              ERP & E-Commerce
-            </span>
+            What We Do
           </h2>
         </FadeIn>
 
