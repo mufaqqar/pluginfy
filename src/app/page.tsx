@@ -23,7 +23,6 @@ export default function HomePage() {
   return (
     <>
       <div id="home"><HeroSection /></div>
-      <TrustedBy />
       <IdeaToProduct />
       <div id="services"><ServicesSection /></div>
       <ITServices />
