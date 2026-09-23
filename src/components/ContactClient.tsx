@@ -275,8 +275,7 @@ export default function ContactClient() {
         </div>
       </section>
       <section className="py-10" style={{ background: "#07091A" }}>
-        <div className="max-w-[1600px] mx-auto px-4 sm:px-6">
-          {/* Left copy */}
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-6">        
           <div>
             <FadeIn x={-30} duration={0.6}>
               <h2
@@ -286,7 +285,7 @@ export default function ContactClient() {
                 Our services
               </h2>
             </FadeIn>
-            <StaggerContainer className="flex flex-col gap-2" staggerDelay={0.07}>
+            <StaggerContainer className="grid md:grid-cols-3 grid-cols-1 gap-2" staggerDelay={0.07}>
               {[
                 { label: "AI Development & Automation", href: "/services/ai-development-automation" },
                 { label: "Custom Software Development", href: "/services/custom-software-development" },
