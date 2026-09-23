@@ -110,7 +110,7 @@ export default function HeroSection() {
             </FadeIn>
             <FadeIn y={30} delay={0.15} duration={0.6}>
               <p
-                className="mb-3 sm:mb-5 sm:min-h-[44px] min-h-[85px]"
+                className="mb-3 sm:mb-5 sm:min-h-[60px] min-h-[85px]"
                 style={{ color: "rgba(255,255,255,0.55)", fontSize: "clamp(16px,2vw,18px)", lineHeight: 1.75, fontWeight: "500" }}
               >
                 — {typewriterText}
@@ -118,7 +118,7 @@ export default function HeroSection() {
               </p>
             </FadeIn>
             <FadeIn y={20} delay={0.3} duration={0.5}>
-              <div className="flex flex-wrap gap-1">
+              <div className="flex flex-wrap sm:gap-3 gap-1">
                 <Link href="/contact" className="btn-primary btn-blink inline-flex items-center gap-2">
                   Start Your Project
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none">

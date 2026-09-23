@@ -297,9 +297,6 @@ export default function ContactClient() {
                 { label: "React, Next.js & Vue.js", href: "/services/frontend-development" },
                 { label: "DevOps & Cloud", href: "/services/devops-cloud" },
                 { label: "Plugin & API Development", href: "/services/plugin-api-development" },
-                { label: "Mobile App Development", href: "/services/mobile-app-development" },
-                { label: "QA & Testing", href: "/services/qa-testing" },
-                { label: "Blockchain Development", href: "/services/blockchain" },
               ].map((s) => (
                 <StaggerItem key={s.label}>
                   <Link

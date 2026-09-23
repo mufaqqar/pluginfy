@@ -5,12 +5,6 @@ import { posts } from "@/lib/blogs";
 export const dynamic = "force-static";
 
 const services = [
-  "/services/ai-ml-development",
-  "/services/web-development",
-  "/services/mobile-app-development",
-  "/services/qa-testing",
-  "/services/devops",
-  "/services/blockchain",
   "/services/ai-development-automation",
   "/services/custom-software-development",
   "/services/erp-development",
