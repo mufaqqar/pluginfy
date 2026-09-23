@@ -275,9 +275,8 @@ export default function Navbar() {
 
         {/* Logo */}
         <button onClick={() => handleNav("home")} className="flex items-center" style={{ background: "none", border: "none", cursor: "pointer" }}>
-          <img src="/assets/Logo.svg" alt="Pluginfy" className="" />
+          <img src="/assets/pluginfy-logo.svg" alt="Pluginfy" className="" />
         </button>
-
         {/* Desktop links */}
         <div className="hidden md:flex items-center gap-6 lg:gap-8">
           {NAV_LINKS.map((item) => {
