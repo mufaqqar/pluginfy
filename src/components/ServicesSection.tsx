@@ -7,7 +7,7 @@ const services = [
     title: "Product Design",
     desc: "Our product design services enables users to instantly and enthusiastically adopt a company product.",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop&auto=format",
-    href: "/services/web-development",
+    href: "/services/frontend-development",
     icon: (
       <svg width="30" height="30" viewBox="0 0 32 32" fill="none">
         <rect width="32" height="32" rx="8" fill="rgba(245,197,24,0.12)" />
@@ -21,7 +21,7 @@ const services = [
     title: "Development",
     desc: "Scalable, performant applications built with modern frameworks, clean architecture, and best practices.",
     image: "https://images.unsplash.com/photo-1489875347897-49f64b51c1f8?w=800&h=500&fit=crop&auto=format",
-    href: "/services/web-development",
+    href: "/services/custom-software-development",
     icon: (
       <svg width="30" height="30" viewBox="0 0 32 32" fill="none">
         <rect width="32" height="32" rx="8" fill="rgba(245,197,24,0.12)" />
@@ -33,7 +33,7 @@ const services = [
     title: "Data Analytics",
     desc: "Transform raw data into actionable intelligence with advanced analytics pipelines and live dashboards.",
     image: "https://images.unsplash.com/photo-1666875753105-c63a6f3bdc86?w=800&h=500&fit=crop&auto=format",
-    href: "/services/ai-ml-development",
+    href: "/services/ai-development-automation",
     icon: (
       <svg width="30" height="30" viewBox="0 0 32 32" fill="none">
         <rect width="32" height="32" rx="8" fill="rgba(245,197,24,0.12)" />
@@ -45,7 +45,7 @@ const services = [
     title: "DevOps",
     desc: "CI/CD pipelines, cloud infrastructure, container orchestration, and automated workflows that ship faster.",
     image: "https://images.unsplash.com/photo-1695668548342-c0c1ad479aee?w=800&h=500&fit=crop&auto=format",
-    href: "/services/devops",
+    href: "/services/devops-cloud",
     icon: (
       <svg width="30" height="30" viewBox="0 0 32 32" fill="none">
         <rect width="32" height="32" rx="8" fill="rgba(245,197,24,0.12)" />

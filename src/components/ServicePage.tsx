@@ -21,11 +21,14 @@ export interface ServicePageData {
   tagline: string;
   heroDesc: string;
   heroGraphic: ReactNode;
-  stats: { val: string; label: string }[];
+  stats?: { val: string; label: string }[];
+  offerings?: { heading: string; items: string[] };
+  contentSections?: { heading: string; paragraphs: string[] }[];
   techStack: { name: string; color: string; desc: string }[];
-  process: { step: string; title: string; desc: string }[];
-  caseStudies: CaseStudy[];
-  faqs: { q: string; a: string }[];
+  process?: { step: string; title: string; desc: string }[];
+  caseStudies?: CaseStudy[];
+  faqs?: { q: string; a: string }[];
+  cta?: { heading?: string; body?: string; button: string };
 }
 
 /* ─── Case Study Card ─── */
@@ -179,6 +182,7 @@ export default function ServicePage({ data }: { data: ServicePageData }) {
           </div>
 
           {/* Stats bar */}
+          {data.stats && data.stats.length > 0 && (
           <FadeIn y={20} duration={0.6}>
             <div className="flex flex-wrap gap-6 sm:gap-12 py-8 mt-4" style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}>
               {data.stats.map((s) => (
@@ -189,8 +193,54 @@ export default function ServicePage({ data }: { data: ServicePageData }) {
               ))}
             </div>
           </FadeIn>
+          )}
         </div>
       </section>
+
+      {/* ── Offerings ── */}
+      {data.offerings && (
+        <section className="py-14 sm:py-20" style={{ background: "#0A0D1E" }}>
+          <div className="max-w-[1600px] mx-auto px-4 sm:px-6">
+            <p className="section-label mb-3">Services</p>
+            <h2 className="font-heading font-bold mb-8" style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(1.4rem,3vw,2rem)", color: "white" }}>{data.offerings.heading}</h2>
+            <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3" staggerDelay={0.05}>
+              {data.offerings.items.map((o) => (
+                <StaggerItem key={o} hover hoverY={-4} hoverScale={1.02}>
+                  <div className="card-dark p-4 rounded-xl flex items-start gap-3 h-full">
+                    <span className="mt-0.5 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: "rgba(245,197,24,0.12)", border: "1px solid rgba(245,197,24,0.25)" }}>
+                      <svg width="9" height="9" viewBox="0 0 10 10" fill="none"><path d="M1.5 5.5l2 2 4-4.5" stroke="#F5C518" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                    </span>
+                    <span className="text-sm text-white leading-snug" style={{ fontFamily: "var(--font-heading)", fontWeight: 600 }}>{o}</span>
+                  </div>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
+          </div>
+        </section>
+      )}
+
+      {/* ── Content sections ── */}
+      {data.contentSections && data.contentSections.length > 0 && (
+        <section className="py-14 sm:py-20" style={{ background: "#07091A" }}>
+          <div className="max-w-[1600px] mx-auto px-4 sm:px-6 flex flex-col gap-5">
+            {data.contentSections.map((s, i) => (
+              <FadeIn key={s.heading} y={24} duration={0.55}>
+                <div className="grid lg:grid-cols-[1fr_1.4fr] gap-6 lg:gap-14 card-dark rounded-2xl p-6 sm:p-10 items-start">
+                  <div>
+                    <span className="font-heading font-extrabold text-xs select-none" style={{ color: "#F5C518", fontFamily: "var(--font-heading)" }}>{String(i + 1).padStart(2, "0")}</span>
+                    <h3 className="font-heading font-bold mt-2" style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(1.15rem,2vw,1.5rem)", color: "white", lineHeight: 1.3 }}>{s.heading}</h3>
+                  </div>
+                  <div className="flex flex-col gap-4">
+                    {s.paragraphs.map((p, j) => (
+                      <p key={j} style={{ color: j === 0 ? "rgba(255,255,255,0.75)" : "rgba(255,255,255,0.5)", fontSize: "0.92rem", lineHeight: 1.8 }}>{p}</p>
+                    ))}
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* ── Tech Stack ── */}
       <section className="py-14 sm:py-20" style={{ background: "#0A0D1E" }}>
@@ -212,6 +262,7 @@ export default function ServicePage({ data }: { data: ServicePageData }) {
       </section>
 
       {/* ── Process ── */}
+      {data.process && data.process.length > 0 && (
       <section className="py-14 sm:py-20" style={{ background: "#07091A" }}>
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6">
           <p className="section-label mb-3">How we work</p>
@@ -232,11 +283,13 @@ export default function ServicePage({ data }: { data: ServicePageData }) {
           </StaggerContainer>
         </div>
       </section>
+      )}
 
       {/* ── Case Studies ── */}
-      <CaseStudiesSection studies={data.caseStudies} />
+      {data.caseStudies && data.caseStudies.length > 0 && <CaseStudiesSection studies={data.caseStudies} />}
 
       {/* ── FAQ ── */}
+      {data.faqs && data.faqs.length > 0 && (
       <section className="py-14 sm:py-20" style={{ background: "#07091A" }}>
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <p className="section-label mb-3">FAQ</p>
@@ -260,6 +313,26 @@ export default function ServicePage({ data }: { data: ServicePageData }) {
           </StaggerContainer>
         </div>
       </section>
+      )}
+
+      {/* ── CTA ── */}
+      {data.cta && (
+        <section className="py-14 sm:py-20" style={{ background: "#0A0D1E" }}>
+          <div className="max-w-[1600px] mx-auto px-4 sm:px-6">
+            <FadeIn y={24} duration={0.55}>
+              <div className="rounded-2xl p-8 sm:p-12 flex flex-col lg:flex-row lg:items-center justify-between gap-6" style={{ background: "linear-gradient(135deg,#0E1228 0%,#111630 100%)", border: "1px solid rgba(245,197,24,0.22)" }}>
+                <div>
+                  {data.cta.heading && (
+                    <h2 className="font-heading font-bold mb-2" style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(1.3rem,2.6vw,1.8rem)", color: "white" }}>{data.cta.heading}</h2>
+                  )}
+                  {data.cta.body && <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.92rem", lineHeight: 1.75, maxWidth: 560 }}>{data.cta.body}</p>}
+                </div>
+                <Link href="/contact" className="btn-primary btn-blink flex-shrink-0">{data.cta.button}</Link>
+              </div>
+            </FadeIn>
+          </div>
+        </section>
+      )}
 
       {/* ── Contact ── */}
       <section id="contact-form" className="py-14 sm:py-24" style={{ background: "#0A0D1E" }}>

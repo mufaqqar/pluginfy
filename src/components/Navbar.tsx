@@ -50,14 +50,6 @@ const plugIcon = (
   </svg>
 );
 
-const browserIcon = (
-  <svg viewBox="0 0 24 24" fill="none" style={iconStyle}>
-    <rect x="3" y="4" width="18" height="16" rx="2" stroke="#F5C518" strokeWidth="1.5" />
-    <path d="M3 8.5h18M6.5 6h.01M9.5 6h.01" stroke="#F5C518" strokeWidth="1.5" strokeLinecap="round" />
-    <path d="M8 15l3-3-3-3M12.5 15l2.5-3-2.5-3" stroke="#F5C518" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
-
 const cloudIcon = (
   <svg viewBox="0 0 24 24" fill="none" style={iconStyle}>
     <path d="M7 18a4 4 0 0 1-.6-7.96 5.5 5.5 0 0 1 10.7 1.3A3.8 3.8 0 0 1 17 18H7z" stroke="#F5C518" strokeWidth="1.5" strokeLinejoin="round" />
@@ -86,24 +78,26 @@ const letterIcon = (letter: string) => (
 );
 
 const SERVICE_LINKS: MenuItem[] = [
-  { label: "AI & Automation", desc: "LLM agents, RAG, workflow automation", href: "/services/ai-ml-development", icon: aiIcon },
-  { label: "Custom Software Development", desc: "Tailored products built to your spec", href: "/services/web-development", icon: codeIcon },
-  { label: "ERP Solutions", desc: "End-to-end business systems & integration", href: "/services/web-development", icon: erpIcon },
-  { label: "E-Commerce Development", desc: "Stores, checkout, payments & CX", href: "/services/web-development", icon: cartIcon },
-  { label: "Plugins & Integrations", desc: "Extend and connect your stack", href: "/services/web-development", icon: plugIcon },
-  { label: "Web Application Development", desc: "Fast, scalable React & Next.js apps", href: "/services/web-development", icon: browserIcon },
-  { label: "DevOps & Cloud", desc: "CI/CD, Kubernetes, AWS, Terraform", href: "/services/devops", icon: cloudIcon },
+  { label: "AI & Automation", desc: "AI agents, LLMs & workflow automation", href: "/services/ai-development-automation", icon: aiIcon },
+  { label: "Custom Software Development", desc: "Tailored products built to your spec", href: "/services/custom-software-development", icon: codeIcon },
+  { label: "ERP Development", desc: "Connected, scalable business systems", href: "/services/erp-development", icon: erpIcon },
+  { label: "E-Commerce Development", desc: "Stores, checkout, payments & CX", href: "/services/ecommerce-development", icon: cartIcon },
+  { label: "Laravel & PHP Development", desc: "Robust backend & API frameworks", href: "/services/laravel-php-development", icon: letterIcon("L") },
+  { label: "Python Development", desc: "AI, automation & data backends", href: "/services/python-development", icon: letterIcon("Py") },
+  { label: "React, Next.js & Vue.js", desc: "Fast, scalable frontend applications", href: "/services/frontend-development", icon: reactIcon },
+  { label: "DevOps & Cloud Engineering", desc: "CI/CD, Kubernetes, AWS, Terraform", href: "/services/devops-cloud", icon: cloudIcon },
+  { label: "Plugin & API Development", desc: "Extend and connect your stack", href: "/services/plugin-api-development", icon: plugIcon },
 ];
 
 const TECH_LINKS: MenuItem[] = [
-  { label: "Laravel & PHP", desc: "Robust server-side frameworks", href: "/services/web-development", icon: letterIcon("L") },
-  { label: "Python", desc: "AI, backend services & scripting", href: "/services/ai-ml-development", icon: letterIcon("Py") },
-  { label: "React.js", desc: "Component-driven UI at scale", href: "/services/web-development", icon: reactIcon },
-  { label: "Next.js", desc: "Full-stack React framework", href: "/services/web-development", icon: letterIcon("N") },
-  { label: "Vue.js", desc: "Progressive UI framework", href: "/services/web-development", icon: letterIcon("V") },
-  { label: "Node.js", desc: "Fast, event-driven services", href: "/services/web-development", icon: nodeIcon },
-  { label: "AI & LLM Technologies", desc: "GPT-5, embeddings, agents & fine-tuning", href: "/services/ai-ml-development", icon: aiIcon },
-  { label: "Cloud & DevOps", desc: "AWS, Azure, K8s & Terraform", href: "/services/devops", icon: cloudIcon },
+  { label: "Laravel & PHP", desc: "Robust server-side frameworks", href: "/services/laravel-php-development", icon: letterIcon("L") },
+  { label: "Python", desc: "AI, backend services & scripting", href: "/services/python-development", icon: letterIcon("Py") },
+  { label: "React.js", desc: "Component-driven UI at scale", href: "/services/frontend-development", icon: reactIcon },
+  { label: "Next.js", desc: "Full-stack React framework", href: "/services/frontend-development", icon: letterIcon("N") },
+  { label: "Vue.js", desc: "Progressive UI framework", href: "/services/frontend-development", icon: letterIcon("V") },
+  { label: "Node.js", desc: "Fast, event-driven services", href: "/services/custom-software-development", icon: nodeIcon },
+  { label: "AI & LLM Technologies", desc: "GPT-5, embeddings, agents & fine-tuning", href: "/services/ai-development-automation", icon: aiIcon },
+  { label: "Cloud & DevOps", desc: "AWS, Azure, K8s & Terraform", href: "/services/devops-cloud", icon: cloudIcon },
 ];
 
 const NAV_LINKS = [
@@ -122,13 +116,15 @@ function scrollTo(id: string) {
 function DropdownPanel({
   items,
   onClose,
+  cols = 2,
 }: {
   items: MenuItem[];
   onClose: () => void;
+  cols?: 2 | 3;
 }) {
   return (
     <>
-      <div className="grid grid-cols-2 gap-0 p-6 sm:p-8">
+      <div className={`grid grid-cols-2 gap-0 p-6 sm:p-8 ${cols === 3 ? "lg:grid-cols-3" : ""}`}>
         {items.map((s) => (
           <Link key={s.label} href={s.href} onClick={onClose}
             className="flex items-start gap-4 px-4 py-4 rounded-xl transition-colors hover:bg-[#F9F9F9]"
@@ -266,7 +262,7 @@ export default function Navbar() {
               zIndex: 100,
             }}
           >
-            <DropdownPanel items={key === "services" ? SERVICE_LINKS : TECH_LINKS} onClose={() => setMegaOpen(null)} />
+            <DropdownPanel items={key === "services" ? SERVICE_LINKS : TECH_LINKS} onClose={() => setMegaOpen(null)} cols={key === "services" ? 3 : 2} />
           </div>
         )}
       </div>

@@ -288,11 +288,17 @@ export default function ContactClient() {
             </FadeIn>
             <StaggerContainer className="flex flex-col gap-2" staggerDelay={0.07}>
               {[
-                { label: "AI & ML Development", href: "/services/ai-ml-development" },
-                { label: "Web Development", href: "/services/web-development" },
+                { label: "AI Development & Automation", href: "/services/ai-development-automation" },
+                { label: "Custom Software Development", href: "/services/custom-software-development" },
+                { label: "ERP Development", href: "/services/erp-development" },
+                { label: "E-Commerce Development", href: "/services/ecommerce-development" },
+                { label: "Laravel & PHP Development", href: "/services/laravel-php-development" },
+                { label: "Python Development", href: "/services/python-development" },
+                { label: "React, Next.js & Vue.js", href: "/services/frontend-development" },
+                { label: "DevOps & Cloud", href: "/services/devops-cloud" },
+                { label: "Plugin & API Development", href: "/services/plugin-api-development" },
                 { label: "Mobile App Development", href: "/services/mobile-app-development" },
                 { label: "QA & Testing", href: "/services/qa-testing" },
-                { label: "DevOps Services", href: "/services/devops" },
                 { label: "Blockchain Development", href: "/services/blockchain" },
               ].map((s) => (
                 <StaggerItem key={s.label}>

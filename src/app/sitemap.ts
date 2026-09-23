@@ -11,6 +11,15 @@ const services = [
   "/services/qa-testing",
   "/services/devops",
   "/services/blockchain",
+  "/services/ai-development-automation",
+  "/services/custom-software-development",
+  "/services/erp-development",
+  "/services/ecommerce-development",
+  "/services/laravel-php-development",
+  "/services/python-development",
+  "/services/frontend-development",
+  "/services/devops-cloud",
+  "/services/plugin-api-development",
 ];
 
 const blogs = posts.map((p) => `/blog/${p.slug}`);

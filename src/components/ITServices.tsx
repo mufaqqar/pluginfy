@@ -15,7 +15,7 @@ const services = [
       { name: "LangChain", icon: "/assets/tools/5.png", color: "#FFFFFF" },
       { name: "PyTorch", icon: "/assets/tools/4.png", color: "#EE4C2C" },
     ],
-    href: "/services/ai-ml-development",
+    href: "/services/ai-development-automation",
   },
 
   {
@@ -29,7 +29,7 @@ const services = [
       { name: "Node.js", icon: "/assets/tools/19.png", color: "#8CC84B" },
       { name: "PostgreSQL", icon: "/assets/tools/7.png", color: "#336791" },
     ],
-    href: "/services/web-development",
+    href: "/services/custom-software-development",
   },
 
   {
@@ -43,7 +43,7 @@ const services = [
       { name: "PostgreSQL", icon: "/assets/tools/7.png", color: "#336791" },
       { name: "Vue.js", icon: "/assets/tools/8.png", color: "#42B883" },
     ],
-    href: "/services/web-development",
+    href: "/services/erp-development",
   },
 ];
 
