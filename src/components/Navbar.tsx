@@ -274,8 +274,8 @@ export default function Navbar() {
       <div className="max-w-[1600px] mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
 
         {/* Logo */}
-        <button onClick={() => handleNav("home")} className="flex items-center" style={{ background: "none", border: "none", cursor: "pointer" }}>
-          <img src="/assets/pluginfy-logo.svg" alt="Pluginfy" className="" />
+        <button onClick={() => handleNav("home")} className="flex items-center max-w-[170px]" style={{ background: "none", border: "none", cursor: "pointer" }}>
+          <img src="/assets/pluginfy-logo.svg" alt="Pluginfy" className="w-full" />
         </button>
         {/* Desktop links */}
         <div className="hidden md:flex items-center gap-6 lg:gap-8">
