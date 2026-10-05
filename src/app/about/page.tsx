@@ -5,7 +5,7 @@ import AboutClient from "@/components/AboutClient";
 export const metadata: Metadata = pageMetadata({
   title: "About Our AI-First Engineering Team",
   description:
-    "Pluginfy is an AI-first technology firm. Meet the team, our values, and the journey from a focused web studio to a global product engineering company across 5 continents.",
+    "Pluginfy is an AI-first technology firm. Meet the team, our values, and our journey from a focused web studio to a global product engineering company.",
   path: "/about/",
 });
 

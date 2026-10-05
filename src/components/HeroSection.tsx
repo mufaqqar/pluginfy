@@ -76,7 +76,7 @@ export default function HeroSection() {
         <div className="flex md:flex-row flex-col gap-10 lg:gap-14 items-center">
           {/* Left: headline */}
           <div className="md:w-[55%] w-full sm:pr-0 pr-8">
-            <FadeIn y={40} duration={0.7}>
+            <FadeIn y={40} duration={0.7} eager>
               <p
                 className="mb-2 sm:mb-2 uppercase inline-flex items-center gap-1"
                 style={{ color: "rgba(255,255,255,0.55)", fontSize: "clamp(14px,2vw,16px)", lineHeight: 1.75, fontWeight: "500" }}
@@ -100,7 +100,7 @@ export default function HeroSection() {
                 Plug In<span className="inline-flex w-3 h-3 rounded-full bg-accent"></span> Automate<span className="inline-flex w-3 h-3 rounded-full bg-accent"></span> Scale<span className="inline-flex w-3 h-3 rounded-full bg-accent"></span>
               </h1>
             </FadeIn>
-            <FadeIn y={30} delay={0.15} duration={0.6}>
+            <FadeIn y={30} delay={0.15} duration={0.6} eager>
               <p
                 className="mb-2 sm:mb-2"
                 style={{ color: "rgba(255,255,255,0.55)", fontSize: "clamp(16px,2vw,18px)", lineHeight: 1.75, fontWeight: "500" }}
@@ -108,7 +108,7 @@ export default function HeroSection() {
                 We engineer Al, automation, integrations, and custom software components that plug seamlessly into your technology ecosystem.
               </p>
             </FadeIn>
-            <FadeIn y={30} delay={0.15} duration={0.6}>
+            <FadeIn y={30} delay={0.15} duration={0.6} eager>
               <p
                 className="mb-3 sm:mb-5 sm:min-h-[60px] min-h-[85px]"
                 style={{ color: "rgba(255,255,255,0.55)", fontSize: "clamp(16px,2vw,18px)", lineHeight: 1.75, fontWeight: "500" }}
@@ -117,7 +117,7 @@ export default function HeroSection() {
                 <span className="typewriter-caret">|</span>
               </p>
             </FadeIn>
-            <FadeIn y={20} delay={0.3} duration={0.5}>
+            <FadeIn y={20} delay={0.3} duration={0.5} eager>
               <div className="flex flex-wrap sm:gap-3 gap-1">
                 <Link href="/contact" className="btn-primary btn-blink inline-flex items-center gap-2">
                   Start Your Project
@@ -128,7 +128,7 @@ export default function HeroSection() {
                 <Link href="/services" className="btn-outline inline-flex items-center">Explore Our Services</Link>
               </div>
             </FadeIn>
-            <FadeIn y={20} delay={0.3} duration={0.5}>
+            <FadeIn y={20} delay={0.3} duration={0.5} eager>
               <div className="flex items-center md:gap-8 gap-2 divide-x divide-white/20 mt-10">
 
                 <div className="flex items-center gap-2 md:pr-8 pr-2 justify-center">

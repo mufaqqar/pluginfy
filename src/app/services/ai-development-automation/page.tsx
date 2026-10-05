@@ -7,7 +7,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: "AI Development & Automation Company",
   description:
-    "Build AI solutions, AI agents and business automation with Pluginfy. Custom LLM integrations, workflow automation, Python AI development and enterprise AI systems.",
+    "Build AI solutions, AI agents and automation with Pluginfy. Custom LLM integrations, workflow automation, Python AI and enterprise AI systems.",
   path: "/services/ai-development-automation/",
 });
 

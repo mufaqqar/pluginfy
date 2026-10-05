@@ -8,6 +8,13 @@ interface PageImage {
   alt?: string;
 }
 
+const DEFAULT_IMAGE: PageImage = {
+  url: "/og.png",
+  width: 1200,
+  height: 630,
+  alt: "Pluginfy — AI Development & Custom Software Company",
+};
+
 interface PageMetaInput {
   title: string;
   description: string;
@@ -22,11 +29,14 @@ interface PageMetaInput {
 /**
  * Builds page-level metadata with self-contained openGraph/twitter values.
  *
- * Next.js shallow-merges nested metadata objects from parent layouts, so a page
- * that only sets `alternates.canonical` silently inherits the layout's
- * `openGraph.url`, `openGraph.title` and `openGraph.description`. That makes every
- * page report the homepage's social metadata. Setting all of them explicitly here
- * keeps each page self-describing.
+ * Two things this works around:
+ *
+ * 1. When a page defines `openGraph`, Next.js replaces the layout's `openGraph`
+ *    object instead of deep-merging it. A page that set only `alternates.canonical`
+ *    therefore inherited the layout's `openGraph.url`/`title`/`description`, so every
+ *    page reported the homepage's social metadata. All fields are set explicitly here.
+ * 2. Because of (1), `images` is not inherited either — it must be supplied, or the
+ *    page ends up with no `og:image` at all.
  */
 export function pageMetadata({
   title,
@@ -40,6 +50,7 @@ export function pageMetadata({
 }: PageMetaInput): Metadata {
   const url = `${siteConfig.url}${path}`;
   const socialTitle = `${title} — ${siteConfig.name}`;
+  const socialImages = images && images.length > 0 ? images : [DEFAULT_IMAGE];
 
   return {
     title,
@@ -52,7 +63,7 @@ export function pageMetadata({
       locale: siteConfig.locale,
       title: socialTitle,
       description,
-      ...(images && images.length > 0 ? { images } : {}),
+      images: socialImages,
       ...(publishedTime ? { publishedTime } : {}),
       ...(modifiedTime ? { modifiedTime } : {}),
       ...(authors && authors.length > 0 ? { authors } : {}),
@@ -61,7 +72,7 @@ export function pageMetadata({
       card: "summary_large_image",
       title: socialTitle,
       description,
-      ...(images && images.length > 0 ? { images: images.map((i) => i.url) } : {}),
+      images: socialImages.map((i) => i.url),
     },
   };
 }
