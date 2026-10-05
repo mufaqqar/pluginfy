@@ -10,6 +10,7 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
     },
     sitemap: `${siteConfig.url}/sitemap.xml`,
-    host: siteConfig.url,
+    // Bare hostname, per spec. The Host directive is Yandex-only and is ignored by Google.
+    host: new URL(siteConfig.url).host,
   };
 }

@@ -1,7 +1,7 @@
 [
   {
     "slug": "ai-first-roadmap-for-business",
-    "title": "The AI-First Roadmap: Turning Generative AI into Revenue",
+    "title": "The AI-First Roadmap: Turning GenAI into Revenue",
     "excerpt": "Generative AI is no longer a demo. Here is a practical, step-by-step roadmap to move from pilot projects to production systems that actually move the revenue needle.",
     "cover": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop&auto=format",
     "category": "AI & ML",
@@ -54,7 +54,7 @@
   },
   {
     "slug": "build-for-scale-from-day-one",
-    "title": "Build for Scale from Day One: Architecture Lessons from 58 Shipped Products",
+    "title": "Build for Scale from Day One: 58 Shipped Products",
     "excerpt": "Scaling is not a phase you reach later — it is a set of decisions you make at the start. Practical architecture patterns we apply to every web product we ship.",
     "cover": "https://images.unsplash.com/photo-1547658719-da2b51169166?w=1200&h=630&fit=crop&auto=format",
     "category": "Web Development",
@@ -208,7 +208,7 @@
   },
   {
     "slug": "from-ci-cd-to-mlops",
-    "title": "From CI/CD to MLOps: Production Workflows for Machine Learning",
+    "title": "From CI/CD to MLOps: Production ML Workflows",
     "excerpt": "Shipping a model is not the finish line — it is the start of an operations problem. How mature DevOps teams extend their pipelines to machine learning.",
     "cover": "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop&auto=format",
     "category": "DevOps",
@@ -260,7 +260,7 @@
   },
   {
     "slug": "blockchain-beyond-crypto",
-    "title": "Blockchain Beyond Crypto: Smart Contracts for the Enterprise",
+    "title": "Blockchain Beyond Crypto for the Enterprise",
     "excerpt": "The real enterprise use cases for blockchain were never about 'coin' — they are about trust between parties who do not trust each other. What actually ships today.",
     "cover": "https://images.unsplash.com/photo-1622630998477-20aa696ecb05?w=1200&h=630&fit=crop&auto=format",
     "category": "Blockchain",

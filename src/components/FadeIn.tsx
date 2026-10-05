@@ -13,6 +13,13 @@ interface FadeInProps {
   className?: string;
   once?: boolean;
   style?: CSSProperties;
+  /**
+   * Renders the element already visible instead of hiding it until the
+   * IntersectionObserver fires. Use for above-the-fold content: `initial="hidden"`
+   * serialises `opacity: 0` into the SSR HTML, so the content cannot paint until
+   * JS hydrates (which delays LCP) and stays invisible entirely if JS fails.
+   */
+  eager?: boolean;
 }
 
 export function FadeIn({
@@ -24,11 +31,12 @@ export function FadeIn({
   scale = 1,
   className = "",
   once = true,
+  eager = false,
   style,
 }: FadeInProps) {
   return (
     <motion.div
-      initial="hidden"
+      initial={eager ? false : "hidden"}
       whileInView="visible"
       viewport={{ once, margin: "-60px" }}
       variants={{
