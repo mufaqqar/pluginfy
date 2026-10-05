@@ -2,13 +2,14 @@ import ServicePage from "@/components/ServicePage";
 import type { ServicePageData } from "@/components/ServicePage";
 import { SHARED_SERVICE_FAQS } from "@/lib/service-faqs";
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "AI Development & Automation Company | Pluginfy",
+export const metadata: Metadata = pageMetadata({
+  title: "AI Development & Automation Company",
   description:
-    "Build intelligent AI solutions, AI agents and business automation with Pluginfy. Custom LLM integrations, workflow automation, Python AI development and enterprise AI solutions.",
-  alternates: { canonical: "/services/ai-development-automation/" },
-};
+    "Build AI solutions, AI agents and business automation with Pluginfy. Custom LLM integrations, workflow automation, Python AI development and enterprise AI systems.",
+  path: "/services/ai-development-automation/",
+});
 
 const HeroGraphic = () => (
   <svg viewBox="0 0 420 340" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "85%", maxWidth: 400 }}>

@@ -2,13 +2,14 @@ import ServicePage from "@/components/ServicePage";
 import type { ServicePageData } from "@/components/ServicePage";
 import { SHARED_SERVICE_FAQS } from "@/lib/service-faqs";
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Custom E-Commerce Development Company | Pluginfy",
+export const metadata: Metadata = pageMetadata({
+  title: "Custom E-Commerce Development Company",
   description:
     "Build scalable B2B and B2C e-commerce platforms with Pluginfy. Custom stores, marketplaces, integrations, plugins, checkout systems and commerce automation.",
-  alternates: { canonical: "/services/ecommerce-development/" },
-};
+  path: "/services/ecommerce-development/",
+});
 
 const HeroGraphic = () => (
   <svg viewBox="0 0 420 340" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "85%", maxWidth: 400 }}>

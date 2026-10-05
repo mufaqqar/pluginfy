@@ -2,13 +2,14 @@ import ServicePage from "@/components/ServicePage";
 import type { ServicePageData } from "@/components/ServicePage";
 import { SHARED_SERVICE_FAQS } from "@/lib/service-faqs";
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "React, Next.js & Vue.js Development Company | Pluginfy",
+export const metadata: Metadata = pageMetadata({
+  title: "React, Next.js & Vue.js Development",
   description:
     "Build fast modern web applications with React, Next.js and Vue.js. Pluginfy develops SaaS products, dashboards, portals and e-commerce frontends.",
-  alternates: { canonical: "/services/frontend-development/" },
-};
+  path: "/services/frontend-development/",
+});
 
 const HeroGraphic = () => (
   <svg viewBox="0 0 420 340" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "85%", maxWidth: 400 }}>

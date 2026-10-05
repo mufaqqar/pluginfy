@@ -2,13 +2,14 @@ import ServicePage from "@/components/ServicePage";
 import type { ServicePageData } from "@/components/ServicePage";
 import { SHARED_SERVICE_FAQS } from "@/lib/service-faqs";
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "DevOps & Cloud Engineering Services | Pluginfy",
+export const metadata: Metadata = pageMetadata({
+  title: "DevOps & Cloud Engineering Services",
   description:
     "DevOps consulting and cloud engineering for AWS, Azure and GCP. CI/CD, Docker, Kubernetes, infrastructure automation, migration and monitoring.",
-  alternates: { canonical: "/services/devops-cloud/" },
-};
+  path: "/services/devops-cloud/",
+});
 
 const HeroGraphic = () => (
   <svg viewBox="0 0 420 340" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "85%", maxWidth: 400 }}>

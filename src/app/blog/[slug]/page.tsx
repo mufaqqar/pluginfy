@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import BlogPostClient from "@/components/BlogPostClient";
 import { posts, getPost } from "@/lib/blogs";
-import { siteConfig } from "@/lib/site";
+import { pageMetadata } from "@/lib/seo";
 
 export const dynamicParams = false;
 
@@ -18,19 +18,16 @@ export async function generateMetadata({
   const { slug } = await params;
   const post = getPost(slug);
   if (!post) return {};
-  return {
+  return pageMetadata({
     title: post.title,
     description: post.excerpt,
-    alternates: { canonical: `/blog/${post.slug}/` },
-    openGraph: {
-      type: "article",
-      url: `${siteConfig.url}/blog/${post.slug}/`,
-      siteName: siteConfig.name,
-      title: `${post.title} — ${siteConfig.name}`,
-      description: post.excerpt,
-      images: [{ url: post.cover, width: 1200, height: 630, alt: post.title }],
-    },
-  };
+    path: `/blog/${post.slug}/`,
+    type: "article",
+    publishedTime: post.date,
+    modifiedTime: post.date,
+    authors: [post.author.name],
+    images: [{ url: post.cover, width: 1200, height: 630, alt: post.title }],
+  });
 }
 
 export const dynamic = "force-static";
