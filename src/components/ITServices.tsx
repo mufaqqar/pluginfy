@@ -134,7 +134,6 @@ export default function ITServices() {
               >
                 {service.title}
               </h3>
-
               {/* Description */}
               <p
                 className="mb-5"
