@@ -11,15 +11,14 @@ import FAQSection from "@/components/FAQsSection";
 import CTASection from "@/components/CTASection";
 import ContactSection from "@/components/ContactSection";
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
+import { siteConfig } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Pluginfy — AI-First Technology Firm | AI, Web & Mobile Development",
-  description:
-    "AI-first technology firm building production-grade AI systems, AI-native web platforms and mobile apps. Enterprise engineering across the US, GCC, UK and EU.",
-  alternates: {
-    canonical: "/",
-  },
-};
+export const metadata: Metadata = pageMetadata({
+  title: "AI Development & Custom Software Company",
+  description: siteConfig.description,
+  path: "/",
+});
 
 
 export default function HomePage() {
