@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { FadeIn } from "./FadeIn";
 
 export default function CTASection() {
@@ -28,7 +29,8 @@ export default function CTASection() {
           </p>
         </FadeIn>
         <FadeIn y={20} delay={0.3} duration={0.5}>
-          <button
+          <Link
+          href="/contact"
             className="inline-flex items-center gap-3 font-heading font-bold text-lg max-w-[340px] w-full justify-center px-7 py-4 rounded-full transition-all duration-200 hover:scale-105"
             style={{ background: "#000", color: "#fff", fontFamily: "var(--font-heading)", letterSpacing: "0.04em" }}
           >
@@ -36,7 +38,7 @@ export default function CTASection() {
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
               <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-          </button>
+          </Link>
         </FadeIn>
       </div>
     </section>
