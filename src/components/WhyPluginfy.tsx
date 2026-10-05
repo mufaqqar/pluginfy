@@ -82,7 +82,7 @@ export default function WhyPluginfy() {
                   style={{
                     fontFamily: "var(--font-heading)",
                     fontSize: "3rem",
-                    color: "rgba(245,197,24,0.07)",
+                    color: "rgba(245,197,24,0.3)",
                     lineHeight: 1,
                   }}
                 >

@@ -271,7 +271,7 @@ export default function ServicePage({ data }: { data: ServicePageData }) {
             {data.process.map((p, i) => (
               <StaggerItem key={p.step} hover hoverY={-6} hoverScale={1.02}>
                 <div className="card-dark p-5 sm:p-6 rounded-xl flex flex-col gap-4 relative overflow-hidden">
-                  <span className="absolute top-3 right-4 font-heading font-extrabold select-none" style={{ fontFamily: "var(--font-heading)", fontSize: "3rem", color: "rgba(245,197,24,0.06)", lineHeight: 1 }}>{p.step}</span>
+                  <span className="absolute top-3 right-4 font-heading font-extrabold select-none" style={{ fontFamily: "var(--font-heading)", fontSize: "3rem", color: "rgba(245,197,24,0.3)", lineHeight: 1 }}>{p.step}</span>
                   <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: "rgba(245,197,24,0.1)", border: "1px solid rgba(245,197,24,0.2)" }}>
                     <span className="font-heading font-bold text-xs" style={{ color: "#F5C518", fontFamily: "var(--font-heading)" }}>{String(i + 1).padStart(2, "0")}</span>
                   </div>

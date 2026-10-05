@@ -115,7 +115,7 @@ export default function AboutClient() {
             {values.map((v, i) => (
               <StaggerItem key={v.title} hover hoverY={-6} hoverScale={1.02}>
                 <div className="card-dark p-5 sm:p-6 rounded-xl flex flex-col gap-3 relative overflow-hidden">
-                  <span className="absolute top-3 right-4 font-heading font-extrabold select-none" style={{ fontFamily: "var(--font-heading)", fontSize: "3rem", color: "rgba(245,197,24,0.05)", lineHeight: 1 }}>0{i+1}</span>
+                  <span className="absolute top-3 right-4 font-heading font-extrabold select-none" style={{ fontFamily: "var(--font-heading)", fontSize: "3rem", color: "rgba(245,197,24,0.3)", lineHeight: 1 }}>0{i+1}</span>
                   <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "rgba(245,197,24,0.1)", border: "1px solid rgba(245,197,24,0.2)" }}>
                     <span style={{ color: "#F5C518", fontSize: "1rem" }}>✦</span>
                   </div>
